@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
+    [field: SerializeField]
+    public bool IsDraggingEnabled { get; set; }
+
     [SerializeField]
     private bool enableSnapping = true;
     [SerializeField]
@@ -13,9 +16,6 @@ public class DragAndDrop : MonoBehaviour
 
 
 
-    [field: SerializeField]
-    public bool IsEnabled { get; set; }
-
     private Vector3 GetMousePos()
     {
         return Camera.main.WorldToScreenPoint(transform.position);
@@ -23,13 +23,13 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!IsEnabled) return;
+        if (!IsDraggingEnabled) return;
         mousePostion = Input.mousePosition - GetMousePos();
     }
 
     private void OnMouseDrag()
     {
-        if (!IsEnabled) return;
+        if (!IsDraggingEnabled) return;
         var newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePostion);
         if (enableSnapping)
         {
@@ -39,11 +39,6 @@ public class DragAndDrop : MonoBehaviour
                 newPos.z);
         }
         transform.position = newPos;
-    }
-
-    private void OnMouseUp()
-    {
-        if (!IsEnabled) return;
     }
 
     private float RoundToNearestGrid(float pos)
