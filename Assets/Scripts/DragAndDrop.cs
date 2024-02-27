@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
@@ -13,8 +11,6 @@ public class DragAndDrop : MonoBehaviour
     private float snapDistance = 1f;
 
     Vector3 mousePostion;
-
-
 
     private Vector3 GetMousePos()
     {
