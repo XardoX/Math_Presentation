@@ -66,10 +66,11 @@ public class MyVector : MonoBehaviour
         var direction = Quaternion.FromToRotation(Vector3.right, transform.position);
         arrow.transform.rotation = direction;
         line.transform.rotation = direction;
+
         mask.transform.localScale = Vector3.one* transform.position.magnitude;
 
         line.transform.position = Vector3.Lerp(Vector3.zero, transform.position, 0.5f);
-        line.transform.localScale = new Vector3(transform.position.magnitude, line.transform.localScale.y, line.transform.localScale.z);
+        line.size = new Vector2(transform.position.magnitude, line.size.y);
 
     }
 
