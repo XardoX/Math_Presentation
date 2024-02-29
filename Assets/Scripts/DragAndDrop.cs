@@ -7,10 +7,23 @@ public class DragAndDrop : MonoBehaviour
 
     [SerializeField]
     private bool enableSnapping = true;
-    [SerializeField]
-    private float snapDistance = 1f;
 
-    Vector3 mousePostion;
+    [SerializeField]
+    private float snapDistance = 1f, lerpDuration = 0.5f;
+
+    private float timeElapsed = 1000f;
+
+    Vector3 mousePostion, newPos;
+
+    private void Update()
+    {
+        if (timeElapsed < lerpDuration)
+        {
+            timeElapsed += Time.deltaTime;
+            var lerpedPosition = Vector3.Lerp(transform.position, newPos, timeElapsed / lerpDuration);
+            transform.position = lerpedPosition;
+        }
+    }
 
     private Vector3 GetMousePos()
     {
@@ -21,12 +34,13 @@ public class DragAndDrop : MonoBehaviour
     {
         if (!IsDraggingEnabled) return;
         mousePostion = Input.mousePosition - GetMousePos();
+        timeElapsed = 0;
     }
 
     private void OnMouseDrag()
     {
         if (!IsDraggingEnabled) return;
-        var newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePostion);
+        newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePostion);
         if (enableSnapping)
         {
             newPos = new Vector3(
@@ -34,7 +48,8 @@ public class DragAndDrop : MonoBehaviour
                 RoundToNearestGrid(newPos.y),
                 newPos.z);
         }
-        transform.position = newPos;
+        timeElapsed = 0;
+
     }
 
     private float RoundToNearestGrid(float pos)
