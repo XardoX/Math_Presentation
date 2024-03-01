@@ -9,7 +9,7 @@ public class Dot : Method
 
     private void Update()
     {
-        var dot = Vector3.Dot(vectorA.Normalized, vectorB.Normalized);
+        var dot = Vector3.Dot(vectorA.Value, vectorB.Value);
         outputText.text = dot.ToString();
     }
 }
