@@ -33,6 +33,13 @@ public class MyVector : MonoBehaviour
 
     public string Id => id;
 
+    public Vector3 Value
+    {
+        get => transform.position;
+        set => transform.position = value;
+    }
+
+    public Vector3 Normalized => transform.position.normalized;
     public Color Color => color;
 
     public void ToggleArrow(bool toggle)

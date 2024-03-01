@@ -55,7 +55,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FillAmount: 0.316
-    - _Width: 0.95
+    - _AngleOffet: 90
+    - _FillAmount: 0.439
+    - _SymetricalFill: 1
+    - _Width: 0.97
     m_Colors: []
   m_BuildTextureStacks: []
