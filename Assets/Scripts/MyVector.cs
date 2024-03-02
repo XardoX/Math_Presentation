@@ -31,6 +31,8 @@ public class MyVector : MonoBehaviour
 
     public Action<MyVector> OnSelected;
 
+    private Quaternion rotation;
+
     public string Id => id;
 
     public Vector3 Value
@@ -40,6 +42,13 @@ public class MyVector : MonoBehaviour
     }
 
     public Vector3 Normalized => transform.position.normalized;
+
+    public Quaternion Rotation => rotation;
+
+    public float Length => transform.position.magnitude;
+
+    public float SqrLength => transform.position.sqrMagnitude;
+
     public Color Color => color;
 
     public void ToggleArrow(bool toggle)
@@ -70,9 +79,10 @@ public class MyVector : MonoBehaviour
     private void LateUpdate()
     {
         arrow.size = new Vector2(transform.position.magnitude, arrow.size.y);
-        var direction = Quaternion.FromToRotation(Vector3.right, transform.position);
-        arrow.transform.rotation = direction;
-        line.transform.rotation = direction;
+        rotation = Quaternion.FromToRotation(Vector3.right, transform.position);
+        
+        arrow.transform.rotation = rotation;
+        line.transform.rotation = rotation;
 
         mask.transform.localScale = Vector3.one* transform.position.magnitude;
 
