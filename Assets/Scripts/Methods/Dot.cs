@@ -24,6 +24,8 @@ public class Dot : Method
         var perp = Vector2.Perpendicular(triangle.transform.position);
         var perpDir = triangle.transform.position - vectorA.Value;
         var y =  Mathf.Sign(Vector3.Dot(perpDir, perp)) * Mathf.Sign(dot) * perpDir.magnitude;
+
+        if(vectorB.Value.x < 0f && vectorB.Value.y == 0f) y *=-1;
         
         triangle.transform.rotation = vectorB.Rotation * Quaternion.AngleAxis(180f, Vector3.forward);
         triangle.size = new Vector2(Mathf.Abs(x), Mathf.Abs(y));
