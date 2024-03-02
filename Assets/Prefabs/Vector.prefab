@@ -339,6 +339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 
   showArrow: 1
+  arrowFromPointZero: 0
   showLine: 1
   color: {r: 1, g: 1, b: 1, a: 1}
   arrow: {fileID: 8997813982926859299}

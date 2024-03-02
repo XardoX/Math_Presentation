@@ -56,7 +56,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AngleOffet: 90
-    - _FillAmount: 0.439
+    - _FillAmount: 1
     - _SymetricalFill: 1
     - _Width: 0.97
     m_Colors: []
