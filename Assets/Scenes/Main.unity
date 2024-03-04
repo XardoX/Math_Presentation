@@ -434,7 +434,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &335133284
 Transform:
   m_ObjectHideFlags: 0
@@ -1279,6 +1279,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vector_B
       objectReference: {fileID: 0}
+    - target: {fileID: 8579903320895480258, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8751310845869913168, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
         type: 3}
       propertyPath: id
@@ -1298,6 +1303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751310845869913168, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
+        type: 3}
+      propertyPath: showLine
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997813982926859299, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
         type: 3}
@@ -1531,6 +1541,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037c9fb16a358a04ba320e3811805097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &881043824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 881043825}
+  - component: {fileID: 881043826}
+  m_Layer: 0
+  m_Name: Scale
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &881043825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881043824}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2048437084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &881043826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881043824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af8aa7d692302b54395923d452ae4ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outputText: {fileID: 0}
+  vectorA: {fileID: 1902120173}
+  vectorB: {fileID: 874663615}
+  vectorC: {fileID: 2018723979}
 --- !u!1 &900003026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,6 +3167,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8579903320895480258, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8751310845869913168, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
         type: 3}
       propertyPath: id
@@ -3128,6 +3191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: color.r
       value: 0.526485
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751310845869913168, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
+        type: 3}
+      propertyPath: showLine
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997813982926859299, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
         type: 3}
@@ -3295,7 +3363,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1448141369
 Transform:
   m_ObjectHideFlags: 0
@@ -3675,7 +3743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1762199270
 Transform:
   m_ObjectHideFlags: 0
@@ -4203,6 +4271,7 @@ Transform:
   - {fileID: 1448141369}
   - {fileID: 335133284}
   - {fileID: 1762199270}
+  - {fileID: 881043825}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2081647068
@@ -4722,7 +4791,7 @@ PrefabInstance:
     - target: {fileID: 8579903320895480258, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8751310845869913168, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
         type: 3}
@@ -4743,6 +4812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: color.r
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8751310845869913168, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
+        type: 3}
+      propertyPath: showLine
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8997813982926859299, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
         type: 3}

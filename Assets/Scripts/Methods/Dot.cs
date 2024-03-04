@@ -5,18 +5,31 @@ using UnityEngine;
 public class Dot : Method
 {
     [SerializeField]
+    private SpriteRenderer triangle;
+
     private MyVector vectorA, vectorB;
 
-    [SerializeField]
-    private SpriteRenderer triangle;
+    private void OnEnable()
+    {
+        vectorA = chart.GetFreeVector(Vector2.left, true, true, true);
+        vectorB = chart.GetFreeVector(Vector2.one, true, true, true);
+        triangle.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        vectorA.Toggle(false);
+        vectorB.Toggle(false);
+        triangle.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
         var angle = Vector3.Angle(vectorA.Value, vectorB.Value);
 
         var dot = Vector3.Dot(vectorA.Value, vectorB.Value);
-        outputText.text = dot.ToString();
-
+        outputText.text = dot.ToString("0.00");
+            
 
         triangle.transform.position = Vector3.Project(vectorA.Value, vectorB.Normalized);
         var cos = Mathf.Cos(angle * Mathf.Deg2Rad);

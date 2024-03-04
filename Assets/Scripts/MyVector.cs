@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class MyVector : MonoBehaviour
 {
+    public Action<MyVector> OnSelected;
+
+    public Action<MyVector> OnDisabled;
+
     [Header("Settings")]
     [SerializeField]
     private string id;
@@ -32,9 +36,12 @@ public class MyVector : MonoBehaviour
     [SerializeField]
     private SpriteMask mask;
 
-    public Action<MyVector> OnSelected;
+    [SerializeField]
+    private DragAndDrop dragAndDrop;
 
     private Quaternion rotation;
+
+    private bool isFree = true;
 
     public string Id => id;
 
@@ -53,6 +60,26 @@ public class MyVector : MonoBehaviour
     public float SqrLength => transform.position.sqrMagnitude;
 
     public Color Color => color;
+
+    public bool IsFree => isFree;
+
+    public void Init(Vector3 value, bool interactable = true, bool arrow = true, bool arrowType = false, bool line = false)
+    {
+        transform.position = value;
+        ToggleArrow(arrow);
+        SetArrowType(arrowType);
+        ToggleLine(line);
+
+        dragAndDrop.IsDraggingEnabled = interactable;
+    }
+
+    public void Toggle(bool value)
+    {
+        isFree = !value;
+        gameObject.SetActive(value);
+    }
+
+    public void SetId(string id) => this.id = id;
 
     public void ToggleArrow(bool toggle)
     {
@@ -113,6 +140,12 @@ public class MyVector : MonoBehaviour
     private void OnMouseDown()
     {
         OnSelected?.Invoke(this);
+    }
+
+    private void OnDisable()
+    {
+        isFree = true;
+        OnDisabled?.Invoke(this);
     }
 
 #if UNITY_EDITOR

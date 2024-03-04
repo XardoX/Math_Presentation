@@ -20,35 +20,35 @@ public class VectorOverlay : MonoBehaviour
     [SerializeField]
     private VectorInfo vectorInfo;
 
-    private MyVector[] vectors;
+    private List<MyVector> vectors = new();
 
     private List<VectorOverlayInfo> vectorsOverlaysInfo = new();
 
     private MyVector selectedVector;
 
-    public void CreateVectorOverlay()
+    public void AddVector(MyVector vector)
     {
-        foreach (var v in vectors)
-        {
-            var newValueText = Instantiate(vectorValuesTextPrefab, transform);
-            var newIdText = Instantiate(vectorIdTextPrefab, transform);
-            newIdText.text = v.Id;
+        vectors.Add(vector);
+        var newValueText = Instantiate(vectorValuesTextPrefab, transform);
+        var newIdText = Instantiate(vectorIdTextPrefab, transform);
+        newIdText.text = vector.Id;
 
-            vectorsOverlaysInfo.Add(new VectorOverlayInfo(newIdText,newValueText));
-            v.OnSelected += SetSelectedVector;
-        }
+        vectorsOverlaysInfo.Add(new VectorOverlayInfo(newIdText,newValueText));
+        vector.OnSelected += SetSelectedVector;
+        vector.OnDisabled += RemoveVectorOveralay;
     }
 
-    private void Start()
+    public void RemoveVectorOveralay(MyVector vector)
     {
-        vectors = FindObjectsOfType<MyVector>();
-
-        CreateVectorOverlay();
+        var id = vectors.FindIndex(_ => vector);
+        vectorsOverlaysInfo[id].Clear();
+        vectorsOverlaysInfo[id] = null;
+        vectorsOverlaysInfo.RemoveAt(id);
     }
 
     private void LateUpdate()
     {
-        for (int i = 0; i < vectors.Length; i++)
+        for (int i = 0; i < vectors.Count; i++)
         {
             var direction = vectors[i].transform.position.normalized;
 
@@ -92,6 +92,12 @@ public class VectorOverlay : MonoBehaviour
         {
             this.id = id;
             this.valueText = valueText;
+        }
+
+        public void Clear()
+        {
+            Destroy(id.gameObject);
+            Destroy(valueText.gameObject);
         }
     }
 }

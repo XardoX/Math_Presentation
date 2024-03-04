@@ -6,9 +6,6 @@ using UnityEngine.UI;
 public class Lerp : Method
 {
     [SerializeField]
-    private MyVector vectorA, vectorB, vectorC;
-
-    [SerializeField]
     private Slider slider;
 
     [SerializeField]
@@ -23,7 +20,22 @@ public class Lerp : Method
     [SerializeField]
     private bool fixSlerpCenter;
 
+    private MyVector vectorA, vectorB, vectorC;
+
     private float t = 0.5f;
+
+    private void OnEnable()
+    {
+        vectorA = chart.GetFreeVector(Vector2.left, true, false);
+        vectorB = chart.GetFreeVector(Vector2.one, true, false);
+        vectorC = chart.GetFreeVector(false, true, false);
+    }
+    private void OnDisable()
+    {
+        vectorA.Toggle(false);
+        vectorB.Toggle(false);
+        vectorC.Toggle(false);
+    }
 
     private void Start()
     {
@@ -37,7 +49,6 @@ public class Lerp : Method
             HandleSlerp();
         else
             HandleLerp();
-        
     }
 
     private void HandleLerp()

@@ -4,9 +4,6 @@ using UnityEngine;
 public class Angle : Method
 {
     [SerializeField]
-    private MyVector vectorA, vectorB;
-
-    [SerializeField]
     private SpriteRenderer angleCircle;
 
     [SerializeField]
@@ -15,7 +12,24 @@ public class Angle : Method
     [SerializeField]
     private float angleTextOffset = 0.5f;
 
+    private MyVector vectorA, vectorB;
+
     private MaterialPropertyBlock materialPropertyBlock;
+
+    private void OnEnable()
+    {
+        vectorA = chart.GetFreeVector(Vector2.left, true, true, false, true);
+        vectorB = chart.GetFreeVector(Vector2.right, true, true, false, true);
+
+        angleCircle.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        vectorA.Toggle(false);
+        vectorB.Toggle(false);
+        angleCircle.gameObject.SetActive(false);
+    }
 
     private void Start()
     {
