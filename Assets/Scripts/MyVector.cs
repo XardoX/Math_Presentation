@@ -18,7 +18,13 @@ public class MyVector : MonoBehaviour
     private bool arrowFromPointZero;
 
     [SerializeField]
+    private bool isArrowInverted;
+
+    [SerializeField]
     private bool showLine;
+
+    [SerializeField]
+    private bool infiniteLine;
 
     [SerializeField]
     private Color color;
@@ -81,6 +87,11 @@ public class MyVector : MonoBehaviour
 
     public void SetId(string id) => this.id = id;
 
+    public void TogglePoint(bool toggle)
+    {
+        point.gameObject.SetActive(toggle);
+    }
+
     public void ToggleArrow(bool toggle)
     {
         arrow.gameObject.SetActive(toggle);
@@ -89,7 +100,8 @@ public class MyVector : MonoBehaviour
 
     public void SetArrowType(bool fromPointZero)
     {
-        if(fromPointZero)
+        arrowFromPointZero = fromPointZero;
+        if (fromPointZero)
         {
             arrow.transform.position = Vector3.zero;
         }
@@ -99,10 +111,25 @@ public class MyVector : MonoBehaviour
         }
     }
 
+    public void InvertArrow(bool inverted)
+    {
+        isArrowInverted = inverted;
+        var sign = inverted ? -1 : 1;
+        arrow.transform.localScale = new Vector3(arrow.transform.localScale.x * sign, arrow.transform.localScale.y, arrow.transform.localScale.z);
+        arrow.size = new Vector2(arrow.size.x * sign, arrow.size.y);
+    }
+
     public void ToggleLine(bool toggle)
     {
         showLine = toggle;
         line.gameObject.SetActive(toggle);
+    }
+
+    public void SetLineType(bool isInfinite)
+    {
+        infiniteLine = isInfinite;
+        line.transform.position = Vector3.zero;
+        line.size = new Vector2(100f, line.size.y); //todo size based on screen/camera view
     }
 
     public void SetColor(Color color)
@@ -120,20 +147,35 @@ public class MyVector : MonoBehaviour
 
     private void LateUpdate()
     {
-        arrow.size = new Vector2(transform.position.magnitude, arrow.size.y);
+        var arrowDir = isArrowInverted ? -1 : 1;
+        arrow.size = new Vector2(transform.position.magnitude * arrowDir, arrow.size.y);
+
         rotation = Quaternion.FromToRotation(Vector3.right, transform.position);
 
         arrow.transform.rotation = rotation;
-        line.transform.rotation = rotation;
 
         mask.transform.localScale = Vector3.one * transform.position.magnitude;
-
-        line.transform.position = Vector3.Lerp(Vector3.zero, transform.position, 0.5f);
-        line.size = new Vector2(transform.position.magnitude, line.size.y);
 
         if (arrowFromPointZero)
         {
             arrow.transform.position = Vector3.zero;
+        }
+
+        if(showLine)
+            HandleLine();
+    }
+
+    private void HandleLine()
+    {
+        line.transform.rotation = rotation;
+        if (infiniteLine)
+        {
+            line.transform.position = Vector3.zero;
+        }
+        else 
+        {
+            line.transform.position = Vector3.Lerp(Vector3.zero, transform.position, 0.5f);
+            line.size = new Vector2(transform.position.magnitude, line.size.y);
         }
     }
 
@@ -152,9 +194,11 @@ public class MyVector : MonoBehaviour
     private void OnValidate()
     {
         ToggleArrow(showArrow);  
-        ToggleLine(showLine);
-        SetColor(color);
+        InvertArrow(isArrowInverted);
         SetArrowType(arrowFromPointZero);
+        ToggleLine(showLine);
+        SetLineType(infiniteLine);
+        SetColor(color);
     }
 #endif
 }

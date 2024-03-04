@@ -20,10 +20,4 @@ public class Method : MonoBehaviour
         this.chart = chart;
     }
 
-    private void OnEnable()
-    {
-        
-    }
-
-
 }

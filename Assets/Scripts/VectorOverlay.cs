@@ -56,7 +56,7 @@ public class VectorOverlay : MonoBehaviour
             infoPos.x += 1 * Mathf.Sign(direction.x);
             infoPos.y += 1 * Mathf.Sign(direction.y);
 
-            vectorsOverlaysInfo[i].ValueText.rectTransform.position = vectors[i].transform.position + infoPos * -1 * offset;
+            vectorsOverlaysInfo[i].ValueText.rectTransform.position = vectors[i].transform.position + infoPos * offset;
 
             var x = vectors[i].transform.position.x.ToString("0.0");
             var y = vectors[i].transform.position.y.ToString("0.0");
