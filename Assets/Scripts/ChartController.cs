@@ -34,8 +34,8 @@ public class ChartController : MonoBehaviour
             freeVector.SetId(id);
             freeVector.gameObject.name = "Vector " + id;
             myVectors.Add(freeVector);
-            overlay.AddVector(freeVector);
         }
+        overlay.AddVector(freeVector);
 
         freeVector.Init(value, interactable, arrow, arrowType, line);
         freeVector.Toggle(true);

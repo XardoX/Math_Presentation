@@ -35,15 +35,22 @@ public class VectorOverlay : MonoBehaviour
 
         vectorsOverlaysInfo.Add(new VectorOverlayInfo(newIdText,newValueText));
         vector.OnSelected += SetSelectedVector;
-        vector.OnDisabled += RemoveVectorOveralay;
+        vector.OnDisabled += RemoveVectorOverlay;
     }
 
-    public void RemoveVectorOveralay(MyVector vector)
+    public void RemoveVectorOverlay(MyVector vector)
     {
         var id = vectors.FindIndex(_ => vector);
-        vectorsOverlaysInfo[id].Clear();
-        vectorsOverlaysInfo[id] = null;
-        vectorsOverlaysInfo.RemoveAt(id);
+        if (id < 0) return;
+        Debug.Log(id + " " + vectorsOverlaysInfo.Count);
+        if(vectorsOverlaysInfo.Count > id)
+        {
+            vectorsOverlaysInfo[id].Clear();
+            vectorsOverlaysInfo[id] = null;
+            vectorsOverlaysInfo.RemoveAt(id);
+        }
+
+        vectors.RemoveAt(id);
     }
 
     private void LateUpdate()
@@ -78,6 +85,7 @@ public class VectorOverlay : MonoBehaviour
         vectorInfo.Set((Vector2)selectedVector.transform.position);
     }
 
+    [System.Serializable]
     public class VectorOverlayInfo
     {
         private TextMeshProUGUI id;
