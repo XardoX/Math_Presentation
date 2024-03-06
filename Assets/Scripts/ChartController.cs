@@ -31,7 +31,19 @@ namespace MathPresentation
             if (freeVector == null)
             {
                 freeVector = Instantiate(myVectorPrefab, this.transform);
-                freeVector.SetColor(vectorColors[myVectors.Count]);
+                if(vectorColors.Length > myVectors.Count)
+                {
+                    freeVector.SetColor(vectorColors[myVectors.Count]);
+                }
+                else
+                {
+                    Color.RGBToHSV(vectorColors[0], out float H, out float S, out float V);
+                    H = Random.Range(0.0f, 1.0f);
+                    var randomColor = Color.HSVToRGB(H, S, V);
+                    randomColor.a = vectorColors[0].a;
+                    freeVector.SetColor(randomColor);
+                }
+
                 string id = Encoding.ASCII.GetString(new byte[] { (byte)(65 + myVectors.Count) });
                 freeVector.SetId(id);
                 freeVector.gameObject.name = "Vector " + id;

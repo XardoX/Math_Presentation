@@ -91,6 +91,7 @@ namespace MathPresentation
             TogglePoint(true);
             InvertArrow(false);
             SetArrowType(false);
+            SetLineType(false);
         }
 
         public void Toggle(bool value)
@@ -135,8 +136,8 @@ namespace MathPresentation
         {
             isArrowInverted = inverted;
             var sign = inverted ? -1 : 1;
-            arrow.transform.localScale = new Vector3(arrow.transform.localScale.x * sign, arrow.transform.localScale.y, arrow.transform.localScale.z);
-            arrow.size = new Vector2(arrow.size.x * sign, arrow.size.y);
+            arrow.transform.localScale = new Vector3(Math.Abs(arrow.transform.localScale.x) * sign, arrow.transform.localScale.y, arrow.transform.localScale.z);
+            arrow.size = new Vector2(Math.Abs(arrow.size.x) * sign, arrow.size.y);
         }
 
         public void ToggleLine(bool toggle)
