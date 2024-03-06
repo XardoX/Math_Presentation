@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace MathPresentation.Methods
 {
-    public class Scale : Method
+    public class Add : Method
     {
         private MyVector vectorA, vectorB, vectorC;
 
         private void OnEnable()
         {
             vectorA = chart.GetFreeVector(Vector2.left);
-            vectorB = chart.GetFreeVector(Vector2.one);
-            vectorC = chart.GetFreeVector(false);
+            vectorB = chart.GetFreeVector(Vector2.right);
+            vectorC = chart.GetFreeVector(false, true);
         }
-
         private void OnDisable()
         {
             vectorA.Toggle(false);
@@ -21,9 +21,9 @@ namespace MathPresentation.Methods
             vectorC.Toggle(false);
         }
 
-        private void Update()
+        private void LateUpdate()
         {
-            vectorC.Value = Vector3.Scale(vectorA.Value, vectorB.Value);
+            vectorC.Value = vectorA.Value + vectorB.Value; 
         }
     }
 }

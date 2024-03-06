@@ -2,101 +2,103 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class Lerp : Method
+namespace MathPresentation.Methods
 {
-    [SerializeField]
-    private Slider slider;
-
-    [SerializeField]
-    private SpriteRenderer angleCircle;
-
-    [SerializeField]
-    private bool unclampedLerp;
-
-    [SerializeField]
-    private bool isSlerp;
-
-    [SerializeField]
-    private bool fixSlerpCenter;
-
-    private MyVector vectorA, vectorB, vectorC;
-
-    private float t = 0.5f;
-
-    private void OnEnable()
+    public class Lerp : Method
     {
-        vectorA = chart.GetFreeVector(Vector2.left, true, false);
-        vectorB = chart.GetFreeVector(Vector2.one, true, false);
-        vectorC = chart.GetFreeVector(false, true, false);
-    }
-    private void OnDisable()
-    {
-        vectorA.Toggle(false);
-        vectorB.Toggle(false);
-        vectorC.Toggle(false);
-    }
+        [SerializeField]
+        private Slider slider;
 
-    private void Start()
-    {
-        slider.onValueChanged.AddListener(SetLerpValue);
-        outputText.text = t.ToString("0.00");
-    }
+        [SerializeField]
+        private SpriteRenderer angleCircle;
 
-    private void Update()
-    {
-        if (isSlerp)
-            HandleSlerp();
-        else
-            HandleLerp();
-    }
+        [SerializeField]
+        private bool unclampedLerp;
 
-    private void HandleLerp()
-    {
-        if (unclampedLerp)
+        [SerializeField]
+        private bool isSlerp;
+
+        [SerializeField]
+        private bool fixSlerpCenter;
+
+        private MyVector vectorA, vectorB, vectorC;
+
+        private float t = 0.5f;
+
+        private void OnEnable()
         {
-            vectorC.transform.position = Vector2.LerpUnclamped(vectorA.Value, vectorB.Value, t);
-
+            vectorA = chart.GetFreeVector(Vector2.left, true, false);
+            vectorB = chart.GetFreeVector(Vector2.one, true, false);
+            vectorC = chart.GetFreeVector(false, true);
         }
-        else
+        private void OnDisable()
         {
-            vectorC.transform.position = Vector2.Lerp(vectorA.Value, vectorB.Value, t);
-        }
-    }
-
-    private void HandleSlerp()
-    {
-        Vector3 center = Vector3.zero;
-        if (fixSlerpCenter)
-        {
-            center = (vectorA.Value + vectorB.Value) * 0.5F;
-            //center -= new Vector3(0, 1, 0);
+            vectorA.Toggle(false);
+            vectorB.Toggle(false);
+            vectorC.Toggle(false);
         }
 
-        angleCircle.transform.position = center;
-
-        var distance = Vector3.Distance(vectorA.Value, vectorB.Value);
-
-        angleCircle.transform.localScale = new Vector3(distance, distance, angleCircle.transform.localScale.z);
-
-        Vector3 relCenterA = vectorA.Value - center;
-        Vector3 relCenterB = vectorB.Value - center;
-
-        if (unclampedLerp)
+        private void Start()
         {
-            vectorC.transform.position = Vector3.SlerpUnclamped(relCenterA, relCenterB, t);
-        }
-        else
-        {
-            vectorC.transform.position = Vector3.Slerp(relCenterA, relCenterB, t);
+            slider.onValueChanged.AddListener(SetLerpValue);
+            outputText.text = t.ToString("0.00");
         }
 
-        vectorC.transform.position += center;
-    }
+        private void Update()
+        {
+            if (isSlerp)
+                HandleSlerp();
+            else
+                HandleLerp();
+        }
 
-    private void SetLerpValue(float t)
-    {
-        this.t = t; 
-        outputText.text = t.ToString("0.00");
+        private void HandleLerp()
+        {
+            if (unclampedLerp)
+            {
+                vectorC.Value = Vector2.LerpUnclamped(vectorA.Value, vectorB.Value, t);
+
+            }
+            else
+            {
+                vectorC.Value = Vector2.Lerp(vectorA.Value, vectorB.Value, t);
+            }
+        }
+
+        private void HandleSlerp()
+        {
+            Vector3 center = Vector3.zero;
+            if (fixSlerpCenter)
+            {
+                center = (vectorA.Value + vectorB.Value) * 0.5F;
+                //center -= new Vector3(0, 1, 0);
+            }
+
+            angleCircle.transform.position = center;
+
+            var distance = Vector3.Distance(vectorA.Value, vectorB.Value);
+
+            angleCircle.transform.localScale = new Vector3(distance, distance, angleCircle.transform.localScale.z);
+
+            Vector3 relCenterA = vectorA.Value - center;
+            Vector3 relCenterB = vectorB.Value - center;
+
+            if (unclampedLerp)
+            {
+                vectorC.Value = Vector3.SlerpUnclamped(relCenterA, relCenterB, t);
+            }
+            else
+            {
+                vectorC.Value = Vector3.Slerp(relCenterA, relCenterB, t);
+            }
+
+            vectorC.Value += center;
+        }
+
+        private void SetLerpValue(float t)
+        {
+            this.t = t;
+            outputText.text = t.ToString("0.00");
+        }
     }
 }

@@ -3,56 +3,59 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-
-public class ChartController : MonoBehaviour
+namespace MathPresentation
 {
-    [SerializeField]
-    private ChartUI view;
-
-    [SerializeField]
-    private VectorOverlay overlay;
-
-    [SerializeField]
-    private MyVector myVectorPrefab;
-
-    [SerializeField]
-    private Color[] vectorColors;
-
-    private Method[] methods;
-
-    private List<MyVector> myVectors = new();
-
-    public MyVector GetFreeVector(Vector3 value, bool interactable = true, bool arrow = true, bool arrowType = false, bool line = false)
+    using Methods;
+    public class ChartController : MonoBehaviour
     {
-        var freeVector = myVectors.FirstOrDefault(_ => _.IsFree);
+        [SerializeField]
+        private ChartUI view;
 
-        if(freeVector == null )
+        [SerializeField]
+        private VectorOverlay overlay;
+
+        [SerializeField]
+        private MyVector myVectorPrefab;
+
+        [SerializeField]
+        private Color[] vectorColors;
+
+        private Method[] methods;
+
+        private List<MyVector> myVectors = new();
+
+        public MyVector GetFreeVector(Vector3 value, bool interactable = true, bool arrow = true, bool line = false)
         {
-            freeVector = Instantiate(myVectorPrefab, this.transform);
-            freeVector.SetColor(vectorColors[myVectors.Count]);
-            string id = Encoding.ASCII.GetString(new byte[] { (byte)(65 + myVectors.Count) });
-            freeVector.SetId(id);
-            freeVector.gameObject.name = "Vector " + id;
-            myVectors.Add(freeVector);
+            var freeVector = myVectors.FirstOrDefault(_ => _.IsFree);
+
+            if (freeVector == null)
+            {
+                freeVector = Instantiate(myVectorPrefab, this.transform);
+                freeVector.SetColor(vectorColors[myVectors.Count]);
+                string id = Encoding.ASCII.GetString(new byte[] { (byte)(65 + myVectors.Count) });
+                freeVector.SetId(id);
+                freeVector.gameObject.name = "Vector " + id;
+                myVectors.Add(freeVector);
+            }
+            overlay.AddVector(freeVector);
+
+            freeVector.Init(value, interactable, arrow, line);
+            freeVector.Toggle(true);
+            return freeVector;
         }
-        overlay.AddVector(freeVector);
 
-        freeVector.Init(value, interactable, arrow, arrowType, line);
-        freeVector.Toggle(true);
-        return freeVector;
-    }
+        public MyVector GetFreeVector(bool interactable = true, bool arrow = true, bool line = false) =>
+            GetFreeVector(Vector3.zero, interactable, arrow, line);
 
-    public MyVector GetFreeVector(bool interactable = true, bool arrow = true, bool arrowType = false, bool line = false) =>
-        GetFreeVector(Vector3.zero, interactable, arrow, arrowType, line);
-    
 
-    private void Awake()
-    {
-        methods = FindObjectsOfType<Method>(true);
-
-        foreach (var method in methods)
+        private void Awake()
         {
-            method.Init(this);
+            methods = FindObjectsOfType<Method>(true);
+
+            foreach (var method in methods)
+            {
+                method.Init(this);
+            }
         }
     }
 }

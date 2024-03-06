@@ -3,109 +3,111 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
-public class VectorOverlay : MonoBehaviour
+namespace MathPresentation
 {
-    [Header("Settings")]
-    [SerializeField]
-    private float offset;
-
-    [Header("References")]
-    [SerializeField]
-    private TextMeshProUGUI vectorValuesTextPrefab;
-
-    [SerializeField]
-    private TextMeshProUGUI vectorIdTextPrefab;
-
-    [SerializeField]
-    private VectorInfo vectorInfo;
-
-    private List<MyVector> vectors = new();
-
-    private List<VectorOverlayInfo> vectorsOverlaysInfo = new();
-
-    private MyVector selectedVector;
-
-    public void AddVector(MyVector vector)
+    public class VectorOverlay : MonoBehaviour
     {
-        vectors.Add(vector);
-        var newValueText = Instantiate(vectorValuesTextPrefab, transform);
-        var newIdText = Instantiate(vectorIdTextPrefab, transform);
-        newIdText.text = vector.Id;
+        [Header("Settings")]
+        [SerializeField]
+        private float offset;
 
-        vectorsOverlaysInfo.Add(new VectorOverlayInfo(newIdText,newValueText));
-        vector.OnSelected += SetSelectedVector;
-        vector.OnDisabled += RemoveVectorOverlay;
-    }
+        [Header("References")]
+        [SerializeField]
+        private TextMeshProUGUI vectorValuesTextPrefab;
 
-    public void RemoveVectorOverlay(MyVector vector)
-    {
-        var id = vectors.FindIndex(_ => vector);
-        if (id < 0) return;
-        Debug.Log(id + " " + vectorsOverlaysInfo.Count);
-        if(vectorsOverlaysInfo.Count > id)
+        [SerializeField]
+        private TextMeshProUGUI vectorIdTextPrefab;
+
+        [SerializeField]
+        private VectorInfo vectorInfo;
+
+        private List<MyVector> vectors = new();
+
+        private List<VectorOverlayInfo> vectorsOverlaysInfo = new();
+
+        private MyVector selectedVector;
+
+        public void AddVector(MyVector vector)
         {
-            vectorsOverlaysInfo[id].Clear();
-            vectorsOverlaysInfo[id] = null;
-            vectorsOverlaysInfo.RemoveAt(id);
+            vectors.Add(vector);
+            var newValueText = Instantiate(vectorValuesTextPrefab, transform);
+            var newIdText = Instantiate(vectorIdTextPrefab, transform);
+            newIdText.text = vector.Id;
+
+            vectorsOverlaysInfo.Add(new VectorOverlayInfo(newIdText, newValueText));
+            vector.OnSelected += SetSelectedVector;
+            vector.OnDisabled += RemoveVectorOverlay;
         }
 
-        vectors.RemoveAt(id);
-    }
-
-    private void LateUpdate()
-    {
-        for (int i = 0; i < vectors.Count; i++)
+        public void RemoveVectorOverlay(MyVector vector)
         {
-            var direction = vectors[i].transform.position.normalized;
+            var id = vectors.FindIndex(_ => vector);
+            if (id < 0) return;
+            Debug.Log(id + " " + vectorsOverlaysInfo.Count);
+            if (vectorsOverlaysInfo.Count > id)
+            {
+                vectorsOverlaysInfo[id].Clear();
+                vectorsOverlaysInfo[id] = null;
+                vectorsOverlaysInfo.RemoveAt(id);
+            }
 
-            var infoPos = direction;
-            infoPos.x += 1 * Mathf.Sign(direction.x);
-            infoPos.y += 1 * Mathf.Sign(direction.y);
-
-            vectorsOverlaysInfo[i].ValueText.rectTransform.position = vectors[i].transform.position + infoPos * offset;
-
-            var x = vectors[i].transform.position.x.ToString("0.0");
-            var y = vectors[i].transform.position.y.ToString("0.0");
-            vectorsOverlaysInfo[i].ValueText.text = $"(x={x}, y={y})";
-
-            vectorsOverlaysInfo[i].Id.rectTransform.position = vectors[i].transform.position;
+            vectors.RemoveAt(id);
         }
 
-        if(selectedVector != null)
+        private void LateUpdate()
         {
+            for (int i = 0; i < vectors.Count; i++)
+            {
+                var direction = vectors[i].transform.position.normalized;
+
+                var infoPos = direction;
+                infoPos.x += 1 * Mathf.Sign(direction.x);
+                infoPos.y += 1 * Mathf.Sign(direction.y);
+
+                vectorsOverlaysInfo[i].ValueText.rectTransform.position = vectors[i].transform.position + infoPos * offset;
+
+                var x = vectors[i].transform.position.x.ToString("0.0");
+                var y = vectors[i].transform.position.y.ToString("0.0");
+                vectorsOverlaysInfo[i].ValueText.text = $"(x={x}, y={y})";
+
+                vectorsOverlaysInfo[i].Id.rectTransform.position = vectors[i].transform.position;
+            }
+
+            if (selectedVector != null)
+            {
+                vectorInfo.Set((Vector2)selectedVector.transform.position);
+            }
+        }
+
+        private void SetSelectedVector(MyVector v)
+        {
+            selectedVector = v;
+            vectorInfo.ToggleVisibility(true);
             vectorInfo.Set((Vector2)selectedVector.transform.position);
         }
-    }
 
-    private void SetSelectedVector(MyVector v)
-    {
-        selectedVector = v;
-        vectorInfo.ToggleVisibility(true);
-        vectorInfo.Set((Vector2)selectedVector.transform.position);
-    }
-
-    [System.Serializable]
-    public class VectorOverlayInfo
-    {
-        private TextMeshProUGUI id;
-
-        private TextMeshProUGUI valueText;
-
-        public TextMeshProUGUI ValueText => valueText;
-
-        public TextMeshProUGUI Id => id;
-
-        public VectorOverlayInfo(TextMeshProUGUI id, TextMeshProUGUI valueText)
+        [System.Serializable]
+        public class VectorOverlayInfo
         {
-            this.id = id;
-            this.valueText = valueText;
-        }
+            private TextMeshProUGUI id;
 
-        public void Clear()
-        {
-            Destroy(id.gameObject);
-            Destroy(valueText.gameObject);
+            private TextMeshProUGUI valueText;
+
+            public TextMeshProUGUI ValueText => valueText;
+
+            public TextMeshProUGUI Id => id;
+
+            public VectorOverlayInfo(TextMeshProUGUI id, TextMeshProUGUI valueText)
+            {
+                this.id = id;
+                this.valueText = valueText;
+            }
+
+            public void Clear()
+            {
+                Destroy(id.gameObject);
+                Destroy(valueText.gameObject);
+            }
         }
     }
 }

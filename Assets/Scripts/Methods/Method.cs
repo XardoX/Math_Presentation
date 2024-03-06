@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
-public class Method : MonoBehaviour
+namespace MathPresentation.Methods
 {
-    [SerializeField]
-    protected string title;
-
-    [SerializeField]
-    protected TextMeshProUGUI outputText;
-
-    protected ChartController chart;
-
-    public string Title => title;
-
-    public void Init(ChartController chart)
+    public class Method : MonoBehaviour
     {
-        this.chart = chart;
-    }
+        [SerializeField]
+        protected string title;
 
+        [SerializeField]
+        protected TextMeshProUGUI outputText;
+
+        protected ChartController chart;
+
+        public string Title => title;
+
+        public void Init(ChartController chart)
+        {
+            this.chart = chart;
+        }
+
+    }
 }
