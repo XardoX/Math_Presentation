@@ -55,6 +55,7 @@ namespace MathPresentation
             foreach (var method in methods)
             {
                 method.Init(this);
+                method.OnEnabled += view.SetMethodText;
             }
         }
     }

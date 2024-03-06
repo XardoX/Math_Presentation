@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 namespace MathPresentation.Methods
 {
@@ -23,7 +24,7 @@ namespace MathPresentation.Methods
             var angle = Vector3.Angle(vectors[0].Value, vectors[1].Value);
 
             var dot = Vector3.Dot(vectors[0].Value, vectors[1].Value);
-            outputText.text = dot.ToString("0.00");
+            description = "Dot product: "+ dot.ToString("0.00");
 
 
             triangle.transform.position = Vector3.Project(vectors[0].Value, vectors[1].Normalized);

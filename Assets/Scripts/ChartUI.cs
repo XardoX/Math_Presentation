@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class ChartUI : MonoBehaviour
+namespace MathPresentation
 {
-    // Start is called before the first frame update
-    void Start()
+    using Methods;
+    public class ChartUI : MonoBehaviour
     {
-        
-    }
+        [SerializeField]
+        private TextMeshProUGUI methodTitleText,
+            methodDescriptionText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void SetMethodText(Method method)
+        {
+            methodTitleText.text = method.Title;
+            methodDescriptionText.text = method.Description;
+        }
     }
 }

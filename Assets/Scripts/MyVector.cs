@@ -85,8 +85,12 @@ namespace MathPresentation
             transform.position = value;
             ToggleArrow(arrow);
             ToggleLine(line);
-
             dragAndDrop.IsDraggingEnabled = interactable;
+
+            ToggleArrowPoint(false);
+            TogglePoint(true);
+            InvertArrow(false);
+            SetArrowType(false);
         }
 
         public void Toggle(bool value)

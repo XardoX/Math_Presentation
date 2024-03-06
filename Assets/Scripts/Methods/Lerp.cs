@@ -33,7 +33,7 @@ namespace MathPresentation.Methods
         private void Start()
         {
             slider.onValueChanged.AddListener(SetLerpValue);
-            outputText.text = t.ToString("0.00");
+            description = t.ToString("0.00");
         }
 
         private void Update()
@@ -90,7 +90,7 @@ namespace MathPresentation.Methods
         private void SetLerpValue(float t)
         {
             this.t = t;
-            outputText.text = t.ToString("0.00");
+            description = t.ToString("0.00");
         }
     }
 }

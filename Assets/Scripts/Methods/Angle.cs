@@ -21,12 +21,12 @@ namespace MathPresentation.Methods
             vectors.Add(chart.GetFreeVector(Vector2.right, true, true, true));
         }
 
-        private void OnEnable()
+        protected override void OnMethodEnable()
         {
             angleCircle.gameObject.SetActive(true);
         }
 
-        private void OnDisable()
+        protected override void OnMethodDisable()
         {
             angleCircle.gameObject.SetActive(false);
         }
@@ -41,7 +41,7 @@ namespace MathPresentation.Methods
         {
             var angle = Vector3.Angle(vectors[0].Value, vectors[1].Value);
             angle = Mathf.Round(angle);
-            outputText.text = angle.ToString();
+            description = "Angle: "+angle.ToString();
 
 
             var dir = (vectors[1].Normalized + vectors[0].Normalized).normalized;
