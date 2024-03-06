@@ -2,22 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MathPresentation
+namespace MathPresentation.Methods
 {
     public class Project : Method
     {
-        private MyVector vectorA, vectorB, vectorC;
-
-        private void OnEnable()
+        protected override void SetVectors()
         {
-            vectorA = chart.GetFreeVector(Vector2.left, true, false);
-            vectorB = chart.GetFreeVector(Vector2.one, true, false);
-            vectorC = chart.GetFreeVector(false, true, false, true);
+            vectors.Add(chart.GetFreeVector(Vector2.left, true, true));
+            vectors[0].SetArrowType(true);
+
+            vectors.Add(chart.GetFreeVector(Vector2.one, true, true));
+            vectors[1].SetArrowType(true);
+
+            vectors.Add(chart.GetFreeVector(false, false, true));
+            vectors[2].ToggleArrowPoint(true);
+            vectors[2].TogglePoint(false);
         }
 
         private void LateUpdate()
         {
-            vectorC.Value = Vector3.Project(vectorA.Value, vectorB.Normalized);
+            vectors[2].Value = Vector3.Project(vectors[0].Value, vectors[1].Normalized);
         }
     }
 }

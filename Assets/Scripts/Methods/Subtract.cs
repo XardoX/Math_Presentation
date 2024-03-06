@@ -9,37 +9,28 @@ namespace MathPresentation.Methods
         [SerializeField]
         private bool showAsDirection;
 
-        private MyVector vectorA, vectorB, vectorC;
-
         public void SetShowAsDirection(bool show)
         {
             showAsDirection = show;
-            if (showAsDirection == false && vectorC != null)
-                vectorC.Offset = Vector3.zero;
+            if (showAsDirection == false && vectors.Count > 1)
+                vectors[2].Offset = Vector3.zero;
         }
 
-        private void OnEnable()
+        protected override void SetVectors()
         {
-            vectorA = chart.GetFreeVector(Vector2.left);
-            vectorB = chart.GetFreeVector(Vector2.right);
-            vectorC = chart.GetFreeVector(false, true);
-            vectorC.TogglePoint(false);
-        }
-
-        private void OnDisable()
-        {
-            vectorA.Toggle(false);
-            vectorB.Toggle(false);
-            vectorC.Toggle(false);
+            vectors.Add(chart.GetFreeVector(Vector2.left));
+            vectors.Add(chart.GetFreeVector(Vector2.right));
+            vectors.Add(chart.GetFreeVector(false, true));
+            vectors[2].TogglePoint(false);
         }
 
         private void LateUpdate()
         {
             if(showAsDirection)
             {
-                vectorC.Offset = vectorB.Value;
+                vectors[2].Offset = vectors[1].Value;
             }
-            vectorC.Value = vectorA.Value - vectorB.Value;
+            vectors[2].Value = vectors[0].Value - vectors[1].Value;
         }
 
 #if UNITY_EDITOR

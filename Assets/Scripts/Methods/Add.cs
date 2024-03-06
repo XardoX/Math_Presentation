@@ -6,24 +6,16 @@ namespace MathPresentation.Methods
 {
     public class Add : Method
     {
-        private MyVector vectorA, vectorB, vectorC;
-
-        private void OnEnable()
+        protected override void SetVectors()
         {
-            vectorA = chart.GetFreeVector(Vector2.left);
-            vectorB = chart.GetFreeVector(Vector2.right);
-            vectorC = chart.GetFreeVector(false, true);
-        }
-        private void OnDisable()
-        {
-            vectorA.Toggle(false);
-            vectorB.Toggle(false);
-            vectorC.Toggle(false);
+            vectors.Add(chart.GetFreeVector(Vector2.left));
+            vectors.Add(chart.GetFreeVector(Vector2.right));
+            vectors.Add(chart.GetFreeVector(false, true));
         }
 
         private void LateUpdate()
         {
-            vectorC.Value = vectorA.Value + vectorB.Value; 
+            vectors[2].Value = vectors[0].Value + vectors[1].Value; 
         }
     }
 }

@@ -19,6 +19,9 @@ namespace MathPresentation
         private bool arrowFromPointZero;
 
         [SerializeField]
+        private bool showArrowPoint;
+
+        [SerializeField]
         private bool isArrowInverted;
 
         [SerializeField]
@@ -39,6 +42,9 @@ namespace MathPresentation
 
         [SerializeField]
         private SpriteRenderer point;
+
+        [SerializeField]
+        private SpriteRenderer arrowPoint;
 
         [SerializeField]
         private SpriteMask mask;
@@ -96,6 +102,12 @@ namespace MathPresentation
             point.gameObject.SetActive(toggle);
         }
 
+        public void ToggleArrowPoint(bool toggle)
+        {
+            showArrowPoint = toggle;
+            arrowPoint.gameObject.SetActive(toggle);
+        }
+
         public void ToggleArrow(bool toggle)
         {
             arrow.gameObject.SetActive(toggle);
@@ -142,6 +154,7 @@ namespace MathPresentation
             arrow.color = color;
             line.color = color;
             point.color = color;
+            arrowPoint.color = color;
         }
 
         private void Start()
@@ -151,25 +164,32 @@ namespace MathPresentation
 
         private void LateUpdate()
         {
-            var arrowDir = isArrowInverted ? -1 : 1;
-            arrow.size = new Vector2(Value.magnitude * arrowDir, arrow.size.y);
-
             rotation = Quaternion.FromToRotation(Vector3.right, transform.position);
-
-            arrow.transform.rotation = rotation;
 
             mask.transform.localScale = Vector3.one * Value.magnitude;
 
+            if(showArrow)
+                UpdateArrow();
+
+            if (showLine)
+                UpdateLine();
+
+            if (showArrowPoint)
+                arrowPoint.transform.rotation = rotation;
+        }
+
+        private void UpdateArrow()
+        {
+            var arrowDir = isArrowInverted ? -1 : 1;
+            arrow.size = new Vector2(Value.magnitude * arrowDir, arrow.size.y);
+            arrow.transform.rotation = rotation;
             if (arrowFromPointZero)
             {
                 arrow.transform.position = Vector3.zero;
             }
-
-            if (showLine)
-                HandleLine();
         }
 
-        private void HandleLine()
+        private void UpdateLine()
         {
             line.transform.rotation = rotation;
             if (infiniteLine)
@@ -200,6 +220,7 @@ namespace MathPresentation
             ToggleArrow(showArrow);
             InvertArrow(isArrowInverted);
             SetArrowType(arrowFromPointZero);
+            ToggleArrowPoint(showArrowPoint);
             ToggleLine(showLine);
             SetLineType(infiniteLine);
             SetColor(color);

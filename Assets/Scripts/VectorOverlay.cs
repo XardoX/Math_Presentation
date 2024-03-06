@@ -43,7 +43,7 @@ namespace MathPresentation
         {
             var id = vectors.FindIndex(_ => vector);
             if (id < 0) return;
-            Debug.Log(id + " " + vectorsOverlaysInfo.Count);
+
             if (vectorsOverlaysInfo.Count > id)
             {
                 vectorsOverlaysInfo[id].Clear();
@@ -68,7 +68,7 @@ namespace MathPresentation
 
                 var x = vectors[i].transform.position.x.ToString("0.0");
                 var y = vectors[i].transform.position.y.ToString("0.0");
-                vectorsOverlaysInfo[i].ValueText.text = $"(x={x}, y={y})";
+                vectorsOverlaysInfo[i].ValueText.text = $"({x}, {y})";
 
                 vectorsOverlaysInfo[i].Id.rectTransform.position = vectors[i].transform.position;
             }

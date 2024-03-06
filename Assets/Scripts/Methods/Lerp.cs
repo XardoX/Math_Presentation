@@ -21,21 +21,13 @@ namespace MathPresentation.Methods
         [SerializeField]
         private bool fixSlerpCenter;
 
-        private MyVector vectorA, vectorB, vectorC;
-
         private float t = 0.5f;
 
-        private void OnEnable()
+        protected override void SetVectors()
         {
-            vectorA = chart.GetFreeVector(Vector2.left, true, false);
-            vectorB = chart.GetFreeVector(Vector2.one, true, false);
-            vectorC = chart.GetFreeVector(false, true);
-        }
-        private void OnDisable()
-        {
-            vectorA.Toggle(false);
-            vectorB.Toggle(false);
-            vectorC.Toggle(false);
+            vectors.Add(chart.GetFreeVector(Vector2.left, true, false));
+            vectors.Add(chart.GetFreeVector(Vector2.one, true, false));
+            vectors.Add(chart.GetFreeVector(false, true));
         }
 
         private void Start()
@@ -56,12 +48,12 @@ namespace MathPresentation.Methods
         {
             if (unclampedLerp)
             {
-                vectorC.Value = Vector2.LerpUnclamped(vectorA.Value, vectorB.Value, t);
+                vectors[2].Value = Vector2.LerpUnclamped(vectors[0].Value, vectors[1].Value, t);
 
             }
             else
             {
-                vectorC.Value = Vector2.Lerp(vectorA.Value, vectorB.Value, t);
+                vectors[2].Value = Vector2.Lerp(vectors[0].Value, vectors[1].Value, t);
             }
         }
 
@@ -70,29 +62,29 @@ namespace MathPresentation.Methods
             Vector3 center = Vector3.zero;
             if (fixSlerpCenter)
             {
-                center = (vectorA.Value + vectorB.Value) * 0.5F;
+                center = (vectors[0].Value + vectors[1].Value) * 0.5F;
                 //center -= new Vector3(0, 1, 0);
             }
 
             angleCircle.transform.position = center;
 
-            var distance = Vector3.Distance(vectorA.Value, vectorB.Value);
+            var distance = Vector3.Distance(vectors[0].Value, vectors[1].Value);
 
             angleCircle.transform.localScale = new Vector3(distance, distance, angleCircle.transform.localScale.z);
 
-            Vector3 relCenterA = vectorA.Value - center;
-            Vector3 relCenterB = vectorB.Value - center;
+            Vector3 relCenterA = vectors[0].Value - center;
+            Vector3 relCenterB = vectors[1].Value - center;
 
             if (unclampedLerp)
             {
-                vectorC.Value = Vector3.SlerpUnclamped(relCenterA, relCenterB, t);
+                vectors[2].Value = Vector3.SlerpUnclamped(relCenterA, relCenterB, t);
             }
             else
             {
-                vectorC.Value = Vector3.Slerp(relCenterA, relCenterB, t);
+                vectors[2].Value = Vector3.Slerp(relCenterA, relCenterB, t);
             }
 
-            vectorC.Value += center;
+            vectors[2].Value += center;
         }
 
         private void SetLerpValue(float t)

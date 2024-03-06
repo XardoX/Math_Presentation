@@ -5,7 +5,7 @@ namespace MathPresentation.Methods
     {
         private MyVector inDirection, inNormal, result;
 
-        private void OnEnable()
+        protected override void SetVectors()
         {
             inDirection = chart.GetFreeVector(Vector3.left + Vector3.up, true, true);
             inDirection.InvertArrow(true);
@@ -17,6 +17,10 @@ namespace MathPresentation.Methods
             result = chart.GetFreeVector(false, true);
             result.SetArrowType(true);
             result.TogglePoint(false);
+
+            vectors.Add(inDirection);
+            vectors.Add(inNormal);
+            vectors.Add(result);
         }
 
         private void LateUpdate()

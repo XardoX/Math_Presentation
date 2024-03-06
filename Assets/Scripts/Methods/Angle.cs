@@ -13,22 +13,21 @@ namespace MathPresentation.Methods
         [SerializeField]
         private float angleTextOffset = 0.5f;
 
-        private MyVector vectorA, vectorB;
-
         private MaterialPropertyBlock materialPropertyBlock;
+
+        protected override void SetVectors() 
+        { 
+            vectors.Add(chart.GetFreeVector(Vector2.left, true, true, true));
+            vectors.Add(chart.GetFreeVector(Vector2.right, true, true, true));
+        }
 
         private void OnEnable()
         {
-            vectorA = chart.GetFreeVector(Vector2.left, true, true, true);
-            vectorB = chart.GetFreeVector(Vector2.right, true, true, true);
-
             angleCircle.gameObject.SetActive(true);
         }
 
         private void OnDisable()
         {
-            vectorA.Toggle(false);
-            vectorB.Toggle(false);
             angleCircle.gameObject.SetActive(false);
         }
 
@@ -40,14 +39,14 @@ namespace MathPresentation.Methods
 
         private void Update()
         {
-            var angle = Vector3.Angle(vectorA.Value, vectorB.Value);
+            var angle = Vector3.Angle(vectors[0].Value, vectors[1].Value);
             angle = Mathf.Round(angle);
             outputText.text = angle.ToString();
 
 
-            var dir = (vectorB.Normalized + vectorA.Normalized).normalized;
+            var dir = (vectors[1].Normalized + vectors[0].Normalized).normalized;
 
-            if (angle == 180) dir = Vector2.Perpendicular(vectorA.Value).normalized;
+            if (angle == 180) dir = Vector2.Perpendicular(vectors[0].Value).normalized;
 
             float angleDir = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             var rot = Quaternion.AngleAxis(angleDir, Vector3.forward);

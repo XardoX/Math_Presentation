@@ -6,17 +6,15 @@ namespace MathPresentation.Methods
 {
     public class Perpendicular : Method
     {
-        private MyVector vectorA, vectorB;
-
-        private void OnEnable()
+        protected override void SetVectors()
         {
-            vectorA = chart.GetFreeVector(Vector2.left);
-            vectorB = chart.GetFreeVector(Vector2.one);
+            vectors.Add(chart.GetFreeVector(Vector2.left));
+            vectors.Add(chart.GetFreeVector(Vector2.one));
         }
 
         private void LateUpdate()
         {
-            vectorB.Value = Vector2.Perpendicular(vectorA.Value);
+            vectors[1].Value = Vector2.Perpendicular(vectors[0].Value);
         }
     }
 }
