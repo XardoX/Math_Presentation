@@ -602,7 +602,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector2MaterialSlot",
     "m_ObjectId": "18b1bc55dc324650b4df0431e2975aa1",
     "m_Id": 0,
-    "m_DisplayName": "TilingAndOffset",
+    "m_DisplayName": "Tiling",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -1230,10 +1230,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1722.0,
-            "y": -555.0,
+            "x": -1866.0,
+            "y": -598.0,
             "width": 208.0,
-            "height": 315.0000305175781
+            "height": 315.0
         }
     },
     "m_Slots": [
@@ -1262,10 +1262,10 @@
     "m_Guid": {
         "m_GuidSerialized": "e425dec6-d885-4dc9-ac58-bea8195adab5"
     },
-    "m_Name": "TilingAndOffset",
+    "m_Name": "Tiling",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "TilingAndOffset",
-    "m_DefaultReferenceName": "_TilingAndOffset",
+    "m_RefNameGeneratedByDisplayName": "Tiling",
+    "m_DefaultReferenceName": "_Tiling",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,

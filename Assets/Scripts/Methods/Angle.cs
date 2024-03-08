@@ -1,9 +1,13 @@
+using Extensions;
 using TMPro;
 using UnityEngine;
 namespace MathPresentation.Methods
 {
     public class Angle : Method
     {
+        [SerializeField]
+        private Color angleColor = Color.yellow;
+
         [SerializeField]
         private SpriteRenderer angleCircle;
 
@@ -17,14 +21,19 @@ namespace MathPresentation.Methods
 
         protected override void SetVectors() 
         { 
-            vectors.Add(chart.GetFreeVector(Vector2.left, true, true, true));
-            vectors.Add(chart.GetFreeVector(Vector2.right, true, true, true));
+            vectors.Add(chart.GetFreeVector(Vector2.up * 2, true, true));
+            vectors[0].SetArrowType(true);
+
+            vectors.Add(chart.GetFreeVector(Vector2.right * 2, true, true));
+            vectors[1].SetArrowType(true);
         }
 
         protected override void OnMethodEnable()
         {
             angleCircle.gameObject.SetActive(true);
             angleText.gameObject.SetActive(true);
+
+            description = $"Calculates the {"angle".Color(angleColor)} between vectors {vectors[0].Id.Color(vectors[0].Color)} and {vectors[1].Id.Color(vectors[1].Color)}";
         }
 
         protected override void OnMethodDisable()
@@ -37,6 +46,9 @@ namespace MathPresentation.Methods
         {
             materialPropertyBlock = new MaterialPropertyBlock();
             angleCircle.GetPropertyBlock(materialPropertyBlock);
+
+            angleText.color = angleColor;
+            angleCircle.color = angleColor;
         }
 
         private void Update()
