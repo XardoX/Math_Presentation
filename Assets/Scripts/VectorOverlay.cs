@@ -31,7 +31,10 @@ namespace MathPresentation
         {
             vectors.Add(vector);
             var newValueText = Instantiate(vectorValuesTextPrefab, transform);
+            newValueText.gameObject.name = vector.Id + "_ValueText";
             var newIdText = Instantiate(vectorIdTextPrefab, transform);
+            newIdText.gameObject.name = vector.Id + "_IdText";
+
             newIdText.text = vector.Id;
 
             vectorsOverlaysInfo.Add(new VectorOverlayInfo(newIdText, newValueText));
