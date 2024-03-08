@@ -59,24 +59,38 @@ namespace MathPresentation
             for (int i = 0; i < vectors.Count; i++)
             {
                 var direction = vectors[i].transform.position.normalized;
-
                 var infoPos = direction;
+                var sign = vectors[i].ArrowFromPointZero ? 1 : -1;
+
                 infoPos.x += 1 * Mathf.Sign(direction.x);
                 infoPos.y += 1 * Mathf.Sign(direction.y);
 
-                vectorsOverlaysInfo[i].ValueText.rectTransform.position = vectors[i].transform.position + infoPos * offset;
+                UpdateVectorOverlayInfo(i, infoPos, sign);
 
-                var x = vectors[i].transform.position.x.ToString("0.0");
-                var y = vectors[i].transform.position.y.ToString("0.0");
-                vectorsOverlaysInfo[i].ValueText.text = $"({x}, {y})";
-
-                vectorsOverlaysInfo[i].Id.rectTransform.position = vectors[i].transform.position;
+                UpdateId(i, infoPos, sign);
             }
 
             if (selectedVector != null)
             {
                 vectorInfo.Set((Vector2)selectedVector.transform.position);
             }
+        }
+
+        private void UpdateVectorOverlayInfo(int i, Vector3 infoPos, int sign)
+        {
+            vectorsOverlaysInfo[i].ValueText.rectTransform.position = vectors[i].transform.position + infoPos * offset * sign;
+
+            var x = vectors[i].transform.position.x.ToString("0.0");
+            var y = vectors[i].transform.position.y.ToString("0.0");
+            vectorsOverlaysInfo[i].ValueText.text = $"({x}, {y})";
+        }
+
+        private void UpdateId(int i, Vector3 infoPos, int sign)
+        {
+            sign = vectors[i].ShowArrowPoint ? sign * -1 : sign;
+            var idOffset = vectors[i].ShowPoint ? Vector3.zero : infoPos * offset * sign * .4f;
+            vectorsOverlaysInfo[i].Id.color = vectors[i].ShowPoint ? Color.black : vectors[i].Color;
+            vectorsOverlaysInfo[i].Id.rectTransform.position = vectors[i].transform.position + idOffset;
         }
 
         private void SetSelectedVector(MyVector v)

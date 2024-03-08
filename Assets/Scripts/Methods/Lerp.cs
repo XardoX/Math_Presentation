@@ -27,7 +27,7 @@ namespace MathPresentation.Methods
         {
             vectors.Add(chart.GetFreeVector(Vector2.left, true, false));
             vectors.Add(chart.GetFreeVector(Vector2.one, true, false));
-            vectors.Add(chart.GetFreeVector(false, true));
+            vectors.Add(chart.GetFreeVector(false, false));
         }
 
         private void Start()

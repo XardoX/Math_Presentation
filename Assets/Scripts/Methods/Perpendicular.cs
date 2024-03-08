@@ -8,8 +8,9 @@ namespace MathPresentation.Methods
     {
         protected override void SetVectors()
         {
-            vectors.Add(chart.GetFreeVector(Vector2.left));
-            vectors.Add(chart.GetFreeVector(Vector2.one));
+            vectors.Add(chart.GetFreeVector(Vector2.left, true, true, true));
+            vectors.Add(chart.GetFreeVector(Vector2.one, false, true, true));
+            vectors[1].TogglePoint(false);
         }
 
         private void LateUpdate()

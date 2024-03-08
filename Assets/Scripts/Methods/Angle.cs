@@ -24,11 +24,13 @@ namespace MathPresentation.Methods
         protected override void OnMethodEnable()
         {
             angleCircle.gameObject.SetActive(true);
+            angleText.gameObject.SetActive(true);
         }
 
         protected override void OnMethodDisable()
         {
             angleCircle.gameObject.SetActive(false);
+            angleText.gameObject.SetActive(false);
         }
 
         private void Start()

@@ -13,44 +13,29 @@ namespace MathPresentation
         private string id;
 
         [SerializeField]
-        private bool showArrow;
-
-        [SerializeField]
-        private bool arrowFromPointZero;
-
-        [SerializeField]
-        private bool showArrowPoint;
-
-        [SerializeField]
-        private bool isArrowInverted;
-
-        [SerializeField]
-        private bool showLine;
-
-        [SerializeField]
-        private bool infiniteLine;
+        private bool showPoint,
+            showArrow,
+            arrowFromPointZero,
+            showArrowPoint,
+            isArrowInverted,
+            showLine,
+            infiniteLine;
 
         [SerializeField]
         private Color color;
 
         [Header("References")]
         [SerializeField]
-        private SpriteRenderer arrow;
+        private DragAndDrop dragAndDrop;
 
         [SerializeField]
-        private SpriteRenderer line;
-
-        [SerializeField]
-        private SpriteRenderer point;
-
-        [SerializeField]
-        private SpriteRenderer arrowPoint;
+        private SpriteRenderer arrow,
+            line,
+            point,
+            arrowPoint;
 
         [SerializeField]
         private SpriteMask mask;
-
-        [SerializeField]
-        private DragAndDrop dragAndDrop;
 
         private Quaternion rotation;
 
@@ -79,6 +64,11 @@ namespace MathPresentation
         public bool IsFree => isFree;
 
         public Vector3 Offset { get => offset; set => offset = value; }
+        public bool ArrowFromPointZero => arrowFromPointZero;
+
+        public bool ShowArrowPoint => showArrowPoint;
+
+        public bool ShowPoint => showPoint;
 
         public void Init(Vector3 value, bool interactable = true, bool arrow = true, bool line = false)
         {
@@ -104,6 +94,7 @@ namespace MathPresentation
 
         public void TogglePoint(bool toggle)
         {
+            showPoint = toggle;
             point.gameObject.SetActive(toggle);
         }
 

@@ -7,8 +7,8 @@ namespace MathPresentation.Methods
     {
         protected override void SetVectors()
         {
-            vectors.Add(chart.GetFreeVector(Vector2.left));
-            vectors.Add(chart.GetFreeVector(Vector2.one));
+            vectors.Add(chart.GetFreeVector(Vector2.up * 2));
+            vectors.Add(chart.GetFreeVector(Vector2.right * 2));
             vectors.Add(chart.GetFreeVector(false));
         }
 
