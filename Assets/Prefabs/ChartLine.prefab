@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7749437609211989126}
   - component: {fileID: 6112050377999552830}
   m_Layer: 0
-  m_Name: Line
+  m_Name: ChartLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
