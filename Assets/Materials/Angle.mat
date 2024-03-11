@@ -37,6 +37,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _ChalkTexture:
+        m_Texture: {fileID: 2800000, guid: 7796c3fb4d1434849b70b442689114d3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -59,5 +63,6 @@ Material:
     - _FillAmount: 1
     - _SymetricalFill: 1
     - _Width: 0.97
-    m_Colors: []
+    m_Colors:
+    - _Chalk_Tiling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

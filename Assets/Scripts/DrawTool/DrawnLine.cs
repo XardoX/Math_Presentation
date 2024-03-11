@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace MathPresentation.DrawingSystem
+namespace MathPresentation.Toolbox
 {
     public class DrawnLine : MonoBehaviour
     {
@@ -14,6 +14,8 @@ namespace MathPresentation.DrawingSystem
         private LineCollider lineCollider;
 
         private List<Vector2> points;
+
+        public List<Vector2> Points => points; 
 
         public void UpdateLine(Vector2 position)
         {
@@ -29,6 +31,12 @@ namespace MathPresentation.DrawingSystem
                 SetPoint(position);
             }
             lineCollider.SetEdgeCollider(lineRenderer);
+        }
+
+        public void SetColor(Color color)
+        {
+            lineRenderer.startColor = color;
+            lineRenderer.endColor = color;
         }
 
         private void SetPoint(Vector2 point)

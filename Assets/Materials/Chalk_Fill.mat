@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5703794119124920918
+--- !u!114 &-6791099072930162939
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Chalk
+  m_Name: Chalk_Fill
   m_Shader: {fileID: -6465566751694194690, guid: f3dcbe5c18a91ca40985c1a868adedb7,
     type: 3}
   m_Parent: {fileID: 0}
@@ -54,7 +54,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ChalkTexture:
-        m_Texture: {fileID: 2800000, guid: 7796c3fb4d1434849b70b442689114d3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 379ef4e70abd48d4b8b28da58dbdd52b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cube:

@@ -1,18 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace MathPresentation.DrawingSystem
+
+namespace MathPresentation.Toolbox
 {
-    public class DrawingSystem : MonoBehaviour
+    public class DrawTool : MonoBehaviour
     {
         [SerializeField]
         private DrawnLine drawnLinePrefab;
+
+        [SerializeField]
+        private Color[] availableColors;
+
+        private Color color;
 
         private DrawnLine activeLine;
 
         private Camera cam;
 
         private int lineCounter = 0;
+
+        private bool isEnabled;
+
+        public void ToggleDrawing(bool toggle)
+        {
+            isEnabled = toggle;
+        }
+
+        public void SetDrawingColor(int colorId)
+        {
+            color = availableColors[Mathf.Min(colorId, availableColors.Length-1)];
+        }
+
+        public void SetDrawingColor(Color color)
+        {
+            this.color = color;
+        }
 
         private void Start()
         {
@@ -21,15 +44,21 @@ namespace MathPresentation.DrawingSystem
 
         private void Update()
         {
+            if (isEnabled == false) return;
+
             if(Input.GetMouseButtonDown(0))
             {
                 activeLine = Instantiate(drawnLinePrefab, transform);
                 activeLine.name = "Line_" + lineCounter.ToString("00");
+                activeLine.SetColor(color);
                 lineCounter++;
             }
 
             if (Input.GetMouseButtonUp(0))
             {
+                if (activeLine?.Points.Count < 2) 
+                    Destroy(activeLine.gameObject);
+
                 activeLine = null;
             }
 
