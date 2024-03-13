@@ -76,8 +76,8 @@ Material:
     - _PerspectiveFilter: 0.337
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9846154
-    - _ScaleRatioB: 0.8
-    - _ScaleRatioC: 0.8
+    - _ScaleRatioB: 0.9107692
+    - _ScaleRatioC: 0.9107692
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -96,8 +96,8 @@ Material:
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
-    - _WeightBold: 0.75
-    - _WeightNormal: 0
+    - _WeightBold: 0.3
+    - _WeightNormal: -0.4
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}
