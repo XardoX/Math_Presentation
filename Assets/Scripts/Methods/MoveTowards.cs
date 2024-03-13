@@ -16,7 +16,7 @@ namespace MathPresentation.Methods
             vectors.Add(chart.GetFreeVector(false, false));
         }
 
-        private void LateUpdate()
+        protected override void UpdateMethod()
         {
             vectors[2].Value = Vector3.MoveTowards(vectors[0].Value, vectors[1].Value, step);
         }

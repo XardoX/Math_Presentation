@@ -4,9 +4,9 @@ namespace MathPresentation
 {
     public class MyVector : MonoBehaviour
     {
-        public Action<MyVector> OnSelected;
-
-        public Action<MyVector> OnDisabled;
+        public Action<MyVector> OnSelected,
+            OnDisabled;
+        public Action OnUpdated;
 
         [Header("Settings")]
         [SerializeField]
@@ -36,6 +36,9 @@ namespace MathPresentation
 
         [SerializeField]
         private SpriteMask mask;
+
+        [SerializeField]
+        private Collider2D collider;
 
         private Quaternion rotation;
 
@@ -76,12 +79,15 @@ namespace MathPresentation
             ToggleArrow(arrow);
             ToggleLine(line);
             dragAndDrop.IsDraggingEnabled = interactable;
+            collider.enabled = interactable;
 
             ToggleArrowPoint(false);
             TogglePoint(true);
             InvertArrow(false);
             SetArrowType(false);
             SetLineType(false);
+
+            UpdateVector();
         }
 
         public void Toggle(bool value)
@@ -153,12 +159,7 @@ namespace MathPresentation
             arrowPoint.color = color;
         }
 
-        private void Start()
-        {
-            SetColor(color);
-        }
-
-        private void LateUpdate()
+        public void UpdateVector(bool withoutNotify = false)
         {
             rotation = Quaternion.FromToRotation(Vector3.right, transform.position);
 
@@ -172,6 +173,20 @@ namespace MathPresentation
 
             if (showArrowPoint)
                 arrowPoint.transform.rotation = rotation;
+
+            if(withoutNotify == false)
+                OnUpdated?.Invoke();
+        }
+
+
+        private void Awake()
+        {
+            dragAndDrop.OnBeingDragged +=() => UpdateVector();
+        }
+
+        private void Start()
+        {
+            SetColor(color);
         }
 
         private void UpdateArrow()
@@ -188,6 +203,8 @@ namespace MathPresentation
         private void UpdateLine()
         {
             line.transform.rotation = rotation;
+            var sizeOffset = showArrowPoint ? 0.5f : 0f;
+
             if (infiniteLine)
             {
                 line.transform.position = Vector3.zero;
@@ -195,7 +212,7 @@ namespace MathPresentation
             else
             {
                 line.transform.position = Vector3.Lerp(Vector3.zero, Value, 0.5f);
-                line.size = new Vector2(Value.magnitude, line.size.y);
+                line.size = new Vector2(Value.magnitude - sizeOffset, line.size.y);
             }
         }
 

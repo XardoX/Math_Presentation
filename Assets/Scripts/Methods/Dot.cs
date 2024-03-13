@@ -19,7 +19,7 @@ namespace MathPresentation.Methods
             triangle.gameObject.SetActive(true);
         }
 
-        private void Update()
+        protected override void UpdateMethod()
         {
             var angle = Vector3.Angle(vectors[0].Value, vectors[1].Value);
 

@@ -195,7 +195,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.6, z: 1}
+  m_LocalScale: {x: 1, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 361501421230574096}
@@ -437,6 +437,7 @@ MonoBehaviour:
   point: {fileID: 4024302200603328864}
   arrowPoint: {fileID: 9073847652059671162}
   mask: {fileID: 1226292264314015816}
+  collider: {fileID: 3187703574350233570}
 --- !u!114 &56361656888999448
 MonoBehaviour:
   m_ObjectHideFlags: 0

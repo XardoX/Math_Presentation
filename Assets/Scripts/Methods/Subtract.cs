@@ -24,7 +24,7 @@ namespace MathPresentation.Methods
             vectors[2].TogglePoint(false);
         }
 
-        private void LateUpdate()
+        protected override void UpdateMethod()
         {
             if(showAsDirection)
             {

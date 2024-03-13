@@ -23,7 +23,7 @@ namespace MathPresentation.Methods
             vectors.Add(result);
         }
 
-        private void LateUpdate()
+        protected override void UpdateMethod()
         {
             result.Value = Vector3.Reflect(inDirection.Value, inNormal.Normalized);
         }

@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
+    public Action OnBeingDragged;
+
     [field: SerializeField]
     public bool IsDraggingEnabled { get; set; }
 
@@ -17,11 +20,13 @@ public class DragAndDrop : MonoBehaviour
 
     private void Update()
     {
+        if (!IsDraggingEnabled) return;
         if (timeElapsed < lerpDuration)
         {
             timeElapsed += Time.deltaTime;
             var lerpedPosition = Vector3.Lerp(transform.position, newPos, timeElapsed / lerpDuration);
             transform.position = lerpedPosition;
+            OnBeingDragged?.Invoke();
         }
     }
 
@@ -37,6 +42,11 @@ public class DragAndDrop : MonoBehaviour
         timeElapsed = 0;
     }
 
+    private void OnMouseUp()
+    {
+        if (!IsDraggingEnabled) return;
+    }
+
     private void OnMouseDrag()
     {
         if (!IsDraggingEnabled) return;
@@ -49,7 +59,7 @@ public class DragAndDrop : MonoBehaviour
                 newPos.z);
         }
         timeElapsed = 0;
-
+        
     }
 
     private float RoundToNearestGrid(float pos)

@@ -41,17 +41,7 @@ namespace MathPresentation.Methods
             angleCircle.gameObject.SetActive(false);
             angleText.gameObject.SetActive(false);
         }
-
-        private void Start()
-        {
-            materialPropertyBlock = new MaterialPropertyBlock();
-            angleCircle.GetPropertyBlock(materialPropertyBlock);
-
-            angleText.color = angleColor;
-            angleCircle.color = angleColor;
-        }
-
-        private void Update()
+        protected override void UpdateMethod()
         {
             var angle = Vector3.Angle(vectors[0].Value, vectors[1].Value);
             angle = Mathf.Round(angle);
@@ -73,5 +63,15 @@ namespace MathPresentation.Methods
             angleText.rectTransform.position = dir * angleTextOffset;
             angleText.text = angle.ToString() + "°";
         }
+
+        private void Awake()
+        {
+            materialPropertyBlock = new MaterialPropertyBlock();
+            angleCircle.GetPropertyBlock(materialPropertyBlock);
+
+            angleText.color = angleColor;
+            angleCircle.color = angleColor;
+        }
+
     }
 }

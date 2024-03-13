@@ -13,7 +13,7 @@ namespace MathPresentation.Methods
             vectors.Add(chart.GetFreeVector(false, true));
         }
 
-        private void LateUpdate()
+        protected override void UpdateMethod()
         {
             vectors[2].Value = vectors[0].Value + vectors[1].Value; 
         }

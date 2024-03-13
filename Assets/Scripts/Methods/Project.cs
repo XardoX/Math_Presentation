@@ -19,7 +19,7 @@ namespace MathPresentation.Methods
             vectors[2].TogglePoint(false);
         }
 
-        private void LateUpdate()
+        protected override void UpdateMethod()
         {
             vectors[2].Value = Vector3.Project(vectors[0].Value, vectors[1].Normalized);
         }

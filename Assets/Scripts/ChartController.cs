@@ -68,6 +68,7 @@ namespace MathPresentation
             {
                 method.Init(this);
                 method.OnEnabled += view.SetMethodText;
+                method.OnUpdated += view.SetMethodText;
                 method.OnDisabled += view.HideMethodText;
             }
         }

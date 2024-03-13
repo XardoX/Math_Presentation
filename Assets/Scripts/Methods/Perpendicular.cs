@@ -13,7 +13,7 @@ namespace MathPresentation.Methods
             vectors[1].TogglePoint(false);
         }
 
-        private void LateUpdate()
+        protected override void UpdateMethod()
         {
             vectors[1].Value = Vector2.Perpendicular(vectors[0].Value);
         }

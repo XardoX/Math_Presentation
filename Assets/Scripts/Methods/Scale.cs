@@ -12,7 +12,7 @@ namespace MathPresentation.Methods
             vectors.Add(chart.GetFreeVector(false));
         }
 
-        private void Update()
+        protected override void UpdateMethod()
         {
             vectors[2].Value = Vector3.Scale(vectors[0].Value, vectors[1].Value);
         }

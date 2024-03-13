@@ -30,18 +30,18 @@ namespace MathPresentation.Methods
             vectors.Add(chart.GetFreeVector(false, false));
         }
 
-        private void Start()
-        {
-            slider.onValueChanged.AddListener(SetLerpValue);
-            description = t.ToString("0.00");
-        }
-
-        private void Update()
+        protected override void UpdateMethod()
         {
             if (isSlerp)
                 HandleSlerp();
             else
                 HandleLerp();
+        }
+
+        private void Start()
+        {
+            slider.onValueChanged.AddListener(SetLerpValue);
+            description = t.ToString("0.00");
         }
 
         private void HandleLerp()
