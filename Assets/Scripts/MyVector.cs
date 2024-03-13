@@ -5,7 +5,9 @@ namespace MathPresentation
     public class MyVector : MonoBehaviour
     {
         public Action<MyVector> OnSelected,
+            OnUnselected,
             OnDisabled;
+
         public Action OnUpdated;
 
         [Header("Settings")]
@@ -38,7 +40,7 @@ namespace MathPresentation
         private SpriteMask mask;
 
         [SerializeField]
-        private Collider2D collider;
+        private Collider2D coll;
 
         private Quaternion rotation;
 
@@ -79,7 +81,7 @@ namespace MathPresentation
             ToggleArrow(arrow);
             ToggleLine(line);
             dragAndDrop.IsDraggingEnabled = interactable;
-            collider.enabled = interactable;
+            coll.enabled = interactable;
 
             ToggleArrowPoint(false);
             TogglePoint(true);
@@ -219,6 +221,11 @@ namespace MathPresentation
         private void OnMouseDown()
         {
             OnSelected?.Invoke(this);
+        }
+
+        private void OnMouseUp()
+        {
+            OnUnselected?.Invoke(this);
         }
 
         private void OnDisable()

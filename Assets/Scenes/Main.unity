@@ -1702,13 +1702,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787292902}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 754733176}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1169162664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &824176321
 GameObject:
@@ -2758,6 +2758,7 @@ Transform:
   m_Children:
   - {fileID: 694313082}
   - {fileID: 400433874}
+  - {fileID: 787292904}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1169162665
@@ -2772,6 +2773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33900d11bcb58743ab4ba9dc9b7014e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolsController: {fileID: 787292903}
   view: {fileID: 1882377978}
   overlay: {fileID: 824176323}
   myVectorPrefab: {fileID: 8751310845869913168, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
@@ -6490,4 +6492,3 @@ SceneRoots:
   - {fileID: 638666824}
   - {fileID: 1952752820}
   - {fileID: 2048437084}
-  - {fileID: 787292904}

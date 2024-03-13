@@ -7,7 +7,9 @@ namespace MathPresentation.Methods
 {
     public abstract class Method : MonoBehaviour
     {
-        public Action<Method> OnEnabled, OnUpdated, OnDisabled;
+        public Action<Method> OnEnabled, 
+            OnUpdated, 
+            OnDisabled;
 
         [SerializeField]
         protected string title;

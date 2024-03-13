@@ -12,6 +12,16 @@ namespace MathPresentation.Toolbox
         [SerializeField]
         private DrawTool drawTool;
 
+        private Tool currentTool;
+
+        public void ToggleCurrentTool(bool toggle)
+        {
+            if (currentTool != null)
+            {
+                currentTool.Toggle(toggle);
+            }
+        }
+
         private void Start()
         {
             toolboxUI.OnToolSelected += SelectTool;
@@ -21,13 +31,15 @@ namespace MathPresentation.Toolbox
 
         private void SelectTool(int id)
         {
-            drawTool.ToggleDrawing(true);
+            drawTool.Toggle(true);
             drawTool.SetDrawingColor(id);
+            currentTool = drawTool;
         }
 
         private void UnselectTool(int id)
         {
-            drawTool.ToggleDrawing(toolboxUI.IsAnyToolSelected);
+            drawTool.Toggle(toolboxUI.IsAnyToolSelected);
+            currentTool = null;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MathPresentation.Toolbox
 {
-    public class DrawTool : MonoBehaviour
+    public class DrawTool : Tool
     {
         [SerializeField]
         private DrawnLine drawnLinePrefab;
@@ -19,13 +19,6 @@ namespace MathPresentation.Toolbox
         private Camera cam;
 
         private int lineCounter = 0;
-
-        private bool isEnabled;
-
-        public void ToggleDrawing(bool toggle)
-        {
-            isEnabled = toggle;
-        }
 
         public void SetDrawingColor(int colorId)
         {

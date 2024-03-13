@@ -5,9 +5,13 @@ using System.Text;
 using UnityEngine;
 namespace MathPresentation
 {
+    using MathPresentation.Toolbox;
     using Methods;
     public class ChartController : MonoBehaviour
     {
+        [SerializeField]
+        private ToolsController toolsController;
+
         [SerializeField]
         private ChartUI view;
 
@@ -21,6 +25,8 @@ namespace MathPresentation
         private Color[] vectorColors;
 
         private Method[] methods;
+
+        private MyVector selectedVector;
 
         private List<MyVector> myVectors = new();
 
@@ -48,6 +54,9 @@ namespace MathPresentation
                 freeVector.SetId(id);
                 freeVector.gameObject.name = "Vector " + id;
                 myVectors.Add(freeVector);
+
+                freeVector.OnSelected += OnVectorSelected;
+                freeVector.OnUnselected += OnVectorUnselected;
             }
             overlay.AddVector(freeVector);
 
@@ -71,6 +80,18 @@ namespace MathPresentation
                 method.OnUpdated += view.SetMethodText;
                 method.OnDisabled += view.HideMethodText;
             }
+        }
+
+        private void OnVectorSelected(MyVector vector)
+        {
+            selectedVector = vector;
+            toolsController.ToggleCurrentTool(false);
+        }
+
+        private void OnVectorUnselected(MyVector vector)
+        {
+            selectedVector = null;
+            toolsController.ToggleCurrentTool(true);
         }
     }
 }

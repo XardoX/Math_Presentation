@@ -39,6 +39,7 @@ namespace MathPresentation
 
             vectorsOverlaysInfo.Add(new VectorOverlayInfo(newIdText, newValueText));
             vector.OnSelected += SetSelectedVector;
+            vector.OnUpdated += UpdateVectors;
             vector.OnDisabled += RemoveVectorOverlay;
         }
 
@@ -54,10 +55,14 @@ namespace MathPresentation
                 vectorsOverlaysInfo.RemoveAt(id);
             }
 
+            vector.OnSelected -= SetSelectedVector;
+            vector.OnUpdated -= UpdateVectors;
+            vector.OnDisabled -= RemoveVectorOverlay;
+
             vectors.RemoveAt(id);
         }
 
-        private void LateUpdate()
+        private void UpdateVectors()
         {
             for (int i = 0; i < vectors.Count; i++)
             {

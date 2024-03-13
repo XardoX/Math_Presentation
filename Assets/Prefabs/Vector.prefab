@@ -437,7 +437,7 @@ MonoBehaviour:
   point: {fileID: 4024302200603328864}
   arrowPoint: {fileID: 9073847652059671162}
   mask: {fileID: 1226292264314015816}
-  collider: {fileID: 3187703574350233570}
+  coll: {fileID: 3187703574350233570}
 --- !u!114 &56361656888999448
 MonoBehaviour:
   m_ObjectHideFlags: 0
