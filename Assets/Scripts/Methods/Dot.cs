@@ -1,3 +1,4 @@
+using Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -24,9 +25,18 @@ namespace MathPresentation.Methods
             var angle = Vector3.Angle(vectors[0].Value, vectors[1].Value);
 
             var dot = Vector3.Dot(vectors[0].Value, vectors[1].Value);
-            description = "Dot product: "+ dot.ToString("0.00");
+            var normalizedDot = Vector3.Dot(vectors[0].Normalized, vectors[1].Normalized);
 
+            var a = vectors[0].Id.Color(vectors[0].Color);
+            var b = vectors[1].Id.Color(vectors[1].Color);
+            description = $"Dot product of {a} and {b}: {dot.ToString("0.00")} \n" +
+                $"Dot product of normalized {a} and {b}: {normalizedDot.ToString("0.00")}";
 
+            UpdateTriangle(angle, dot);
+        }
+
+        private void UpdateTriangle(float angle, float dot)
+        {
             triangle.transform.position = Vector3.Project(vectors[0].Value, vectors[1].Normalized);
             var cos = Mathf.Cos(angle * Mathf.Deg2Rad);
             var x = vectors[0].Length * cos;
@@ -40,6 +50,5 @@ namespace MathPresentation.Methods
             triangle.size = new Vector2(Mathf.Abs(x), Mathf.Abs(y));
             triangle.transform.localScale = new Vector2(Mathf.Sign(x), Mathf.Sign(y));
         }
-
     }
 }

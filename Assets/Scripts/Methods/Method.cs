@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+
 namespace MathPresentation.Methods
 {
     public abstract class Method : MonoBehaviour
@@ -60,6 +61,7 @@ namespace MathPresentation.Methods
             OnEnabled?.Invoke(this);
             UpdateMethod();
             vectors.ForEach(v => v.UpdateVector(true));
+            OnUpdated?.Invoke(this);
         }
 
         private void OnDisable()
