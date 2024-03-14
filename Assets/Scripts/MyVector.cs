@@ -43,6 +43,9 @@ namespace MathPresentation
         [SerializeField]
         private Collider2D coll;
 
+        [SerializeField]
+        private Animator animator;
+
         private Quaternion rotation;
 
         private Vector3 offset;
@@ -236,6 +239,16 @@ namespace MathPresentation
         private void OnMouseUp()
         {
             OnUnselected?.Invoke(this);
+        }
+
+        private void OnMouseEnter()
+        {
+            animator.SetBool("IsMouseOver", true);
+        }
+
+        private void OnMouseExit()
+        {
+            animator.SetBool("IsMouseOver", false);
         }
 
         private void OnDisable()
