@@ -7,6 +7,8 @@ namespace MathPresentation
 {
     using MathPresentation.Toolbox;
     using Methods;
+    using UnityEngine.EventSystems;
+
     public class ChartController : MonoBehaviour
     {
         [SerializeField]
@@ -25,6 +27,8 @@ namespace MathPresentation
         private Color[] vectorColors;
 
         private Method[] methods;
+
+        private int activeMethodId;
 
         private MyVector selectedVector;
 
@@ -70,6 +74,31 @@ namespace MathPresentation
         public MyVector GetFreeVector(bool interactable = true, bool arrow = true, bool line = false) =>
             GetFreeVector(Vector3.zero, interactable, arrow, line);
 
+        public void ShowPreviousMethod()
+        {
+            var id = activeMethodId - 1;
+            ToggleMethod(activeMethodId, false);
+            activeMethodId = Mathf.Clamp(id, 0, methods.Length - 1);
+            ToggleMethod(activeMethodId, true);
+        }
+
+        public void ShowNextMethod()
+        {
+            var id = activeMethodId + 1;
+            ToggleMethod(activeMethodId, false);
+            activeMethodId = Mathf.Clamp(id, 0, methods.Length - 1);
+            ToggleMethod(activeMethodId, true);
+        }
+
+        public void ToggleMethod(int id, bool toggle)
+        {
+            if (toggle)
+            {
+                activeMethodId = id;
+            }
+            else activeMethodId = -1;
+            methods[id].gameObject.SetActive(toggle);
+        }
 
         private void Awake()
         {
@@ -82,6 +111,19 @@ namespace MathPresentation
                 method.OnUpdated += view.SetMethodText;
                 method.OnUpdated += (value) => overlay.UpdateVectors();
                 method.OnDisabled += view.HideMethodText;
+            }
+
+            view.onNextClicked += ShowNextMethod;
+            view.onPreviousClicked += ShowPreviousMethod;
+
+            ToggleMethod(0, true);
+        }
+
+        private void Update()
+        {
+            if(Input.GetMouseButtonUp(0))
+            {
+                EventSystem.current.SetSelectedGameObject(null);
             }
         }
 

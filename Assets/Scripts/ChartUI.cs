@@ -11,6 +11,8 @@ namespace MathPresentation
 
     public class ChartUI : MonoBehaviour
     {
+        public Action onPreviousClicked, onNextClicked;
+
         [SerializeField]
         private CanvasGroup methodInfo;
 
@@ -24,6 +26,9 @@ namespace MathPresentation
 
         [SerializeField]
         private Slider slider;
+
+        [SerializeField]
+        private Button previousMethodButton, nextMethodButton;
 
         public void SetMethodText(Method method)
         {
@@ -61,6 +66,8 @@ namespace MathPresentation
         private void Awake()
         {
             slider.onValueChanged.AddListener(UpdateSliderText);
+            previousMethodButton.onClick.AddListener(() => onPreviousClicked?.Invoke());
+            nextMethodButton.onClick.AddListener(() => onNextClicked?.Invoke());
         }
     }
 }
