@@ -11,6 +11,9 @@ namespace MathPresentation.Methods
         [SerializeField]
         private Color angleColor;
 
+        [SerializeField]
+        private float maxMagnitudeDelta = 0f;
+
         private Slider slider;
 
         private float angleToRotate = 0.5f;
@@ -22,6 +25,7 @@ namespace MathPresentation.Methods
             angleToRotate = Vector3.Angle(A.Value, B.Value);
             slider = chart.View.SetSlider(angleToRotate / 2, 0f, angleToRotate, "angle: ".Color(angleColor));
             slider.onValueChanged.AddListener(SetAngleValue);
+            UpdateMethod();
         }
 
         protected override void OnMethodDisable()
@@ -43,9 +47,9 @@ namespace MathPresentation.Methods
 
         protected override void UpdateMethod()
         {
-            C.Value = Vector3.RotateTowards(A.Value, B.Value, angleToRotate * Mathf.Deg2Rad, 0f);
+            C.Value = Vector3.RotateTowards(A.Value, B.Value, angleToRotate * Mathf.Deg2Rad, maxMagnitudeDelta);
             var angle = Vector3.Angle(A.Value, B.Value);
-            chart.View.SetSlider(angleToRotate, -360f  + angle, angle, "angle: ".Color(angleColor));
+            chart.View.SetSlider(angleToRotate, -360f + angle, angle, "angle: ".Color(angleColor));
         }
 
         private void SetAngleValue(float newAngle)
