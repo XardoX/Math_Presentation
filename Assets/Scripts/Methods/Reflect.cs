@@ -5,6 +5,11 @@ namespace MathPresentation.Methods
     {
         private MyVector inDirection, inNormal, result;
 
+        protected override void OnMethodEnable()
+        {
+            description = $"Reflects {A.Name} off the plane defined by a normal {B.Name} resulting in {C.Name}";
+        }
+
         protected override void SetVectors()
         {
             inDirection = chart.GetFreeVector(Vector3.left + Vector3.up, true, true);

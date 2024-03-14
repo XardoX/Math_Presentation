@@ -15,7 +15,6 @@ namespace MathPresentation.Methods
         [SerializeField]
         protected string title;
 
-        [SerializeField]
         protected string description;
 
         protected List<MyVector> vectors = new();
@@ -25,6 +24,10 @@ namespace MathPresentation.Methods
         public string Title => title;
 
         public string Description => description;
+
+        protected MyVector A => vectors[0];
+        protected MyVector B => vectors[1];
+        protected MyVector C => vectors[2];
 
         public void Init(ChartController chart)
         {

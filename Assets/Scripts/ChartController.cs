@@ -30,6 +30,8 @@ namespace MathPresentation
 
         private List<MyVector> myVectors = new();
 
+        public ChartUI View => view; 
+
         public MyVector GetFreeVector(Vector3 value, bool interactable = true, bool arrow = true, bool line = false)
         {
             var freeVector = myVectors.FirstOrDefault(_ => _.IsFree);
@@ -78,6 +80,7 @@ namespace MathPresentation
                 method.Init(this);
                 method.OnEnabled += view.SetMethodText;
                 method.OnUpdated += view.SetMethodText;
+                method.OnUpdated += (value) => overlay.UpdateVectors();
                 method.OnDisabled += view.HideMethodText;
             }
         }

@@ -62,7 +62,7 @@ namespace MathPresentation
             vectors.RemoveAt(id);
         }
 
-        private void UpdateVectors()
+        public void UpdateVectors()
         {
             for (int i = 0; i < vectors.Count; i++)
             {

@@ -1,3 +1,4 @@
+using Extensions;
 using System;
 using UnityEngine;
 namespace MathPresentation
@@ -50,10 +51,19 @@ namespace MathPresentation
 
         public string Id => id;
 
+        /// <summary>
+        /// <b>id</b> with rich tags color
+        /// </summary>
+        public string Name => id.Color(color);
+
         public Vector3 Value
         {
             get => transform.position + offset;
-            set => transform.position = value + offset;
+            set
+            {
+                transform.position = value + offset;
+                UpdateVector(true);
+            }
         }
 
         public Vector3 Normalized => Value.normalized;

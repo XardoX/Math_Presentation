@@ -13,7 +13,12 @@ namespace MathPresentation.Methods
         {
             showAsDirection = show;
             if (showAsDirection == false && vectors.Count > 1)
-                vectors[2].Offset = Vector3.zero;
+                C.Offset = Vector3.zero;
+        }
+
+        protected override void OnMethodEnable()
+        {
+            description = $"Subtracts {B.Name} from {A.Name} which results in {C.Name}";
         }
 
         protected override void SetVectors()
@@ -21,16 +26,16 @@ namespace MathPresentation.Methods
             vectors.Add(chart.GetFreeVector(Vector2.left));
             vectors.Add(chart.GetFreeVector(Vector2.right));
             vectors.Add(chart.GetFreeVector(false, true));
-            vectors[2].TogglePoint(false);
+            C.TogglePoint(false);
         }
 
         protected override void UpdateMethod()
         {
             if(showAsDirection)
             {
-                vectors[2].Offset = vectors[1].Value;
+                C.Offset = B.Value;
             }
-            vectors[2].Value = vectors[0].Value - vectors[1].Value;
+            C.Value = A.Value - B.Value;
         }
 
 #if UNITY_EDITOR

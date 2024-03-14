@@ -23,10 +23,10 @@ namespace MathPresentation.Methods
         protected override void SetVectors() 
         { 
             vectors.Add(chart.GetFreeVector(Vector2.up * 2, true, true));
-            vectors[0].SetArrowType(true);
+            A.SetArrowType(true);
 
             vectors.Add(chart.GetFreeVector(Vector2.right * 2, true, true));
-            vectors[1].SetArrowType(true);
+            B.SetArrowType(true);
         }
 
         protected override void OnMethodEnable()
@@ -34,7 +34,7 @@ namespace MathPresentation.Methods
             angleCircle.gameObject.SetActive(true);
             angleText.gameObject.SetActive(true);
 
-            description = $"Calculates the {"angle".Color(angleColor)} between vectors {vectors[0].Id.Color(vectors[0].Color)} and {vectors[1].Id.Color(vectors[1].Color)}";
+            description = $"Calculates the {"angle".Color(angleColor)} between vectors {A.Name} and {B.Name}";
         }
 
         protected override void OnMethodDisable()
@@ -44,12 +44,12 @@ namespace MathPresentation.Methods
         }
         protected override void UpdateMethod()
         {
-            var angle = Vector3.Angle(vectors[0].Value, vectors[1].Value);
+            var angle = Vector3.Angle(A.Value, B.Value);
             angle = Mathf.Round(angle);
 
-            var dir = (vectors[1].Normalized + vectors[0].Normalized).normalized;
+            var dir = (B.Normalized + A.Normalized).normalized;
 
-            if (angle == 180) dir = Vector2.Perpendicular(vectors[0].Value).normalized;
+            if (angle == 180) dir = Vector2.Perpendicular(A.Value).normalized;
 
             float angleDir = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             var rot = Quaternion.AngleAxis(angleDir, Vector3.forward);

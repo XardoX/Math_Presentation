@@ -6,6 +6,9 @@ using UnityEngine;
 namespace MathPresentation
 {
     using Methods;
+    using System;
+    using UnityEngine.UI;
+
     public class ChartUI : MonoBehaviour
     {
         [SerializeField]
@@ -13,7 +16,14 @@ namespace MathPresentation
 
         [SerializeField]
         private TextMeshProUGUI methodTitleText,
-            methodDescriptionText;
+            methodDescriptionText,
+            sliderValueText,
+            sliderDescriptionText;
+        [SerializeField]
+        private RectTransform sliderParent;
+
+        [SerializeField]
+        private Slider slider;
 
         public void SetMethodText(Method method)
         {
@@ -25,7 +35,32 @@ namespace MathPresentation
         public void HideMethodText(Method method)
         {
             methodInfo.alpha = 0f;
+        }
 
+        public Slider SetSlider(float value, float min = 0f, float max = 1f, string description = "")
+        {
+            sliderParent.gameObject.SetActive(true);
+            slider.minValue = min;
+            slider.maxValue = max;
+            slider.SetValueWithoutNotify(value);
+            sliderValueText.text = value.ToString("0.00");
+            sliderDescriptionText.text = description;
+            return slider;
+        }
+
+        public void UpdateSliderText(float value)
+        {
+            sliderValueText.text = value.ToString("0.00");
+        }
+
+        public void HideSlider()
+        {
+            sliderParent.gameObject.SetActive(false);
+        }
+
+        private void Awake()
+        {
+            slider.onValueChanged.AddListener(UpdateSliderText);
         }
     }
 }

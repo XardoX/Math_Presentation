@@ -13,40 +13,40 @@ namespace MathPresentation.Methods
         protected override void SetVectors()
         {
             vectors.Add(chart.GetFreeVector(Vector2.left, true, true));
-            vectors[0].SetArrowType(true);
+            A.SetArrowType(true);
 
             vectors.Add(chart.GetFreeVector(Vector2.one, true, true));
-            vectors[1].SetArrowType(true);
+            B.SetArrowType(true);
             triangle.gameObject.SetActive(true);
         }
 
         protected override void UpdateMethod()
         {
-            var angle = Vector3.Angle(vectors[0].Value, vectors[1].Value);
+            var angle = Vector3.Angle(A.Value, B.Value);
 
-            var dot = Vector3.Dot(vectors[0].Value, vectors[1].Value);
-            var normalizedDot = Vector3.Dot(vectors[0].Normalized, vectors[1].Normalized);
+            var dot = Vector3.Dot(A.Value, B.Value);
+            var normalizedDot = Vector3.Dot(A.Normalized, B.Normalized);
 
-            var a = vectors[0].Id.Color(vectors[0].Color);
-            var b = vectors[1].Id.Color(vectors[1].Color);
-            description = $"Dot product of {a} and {b}: {dot.ToString("0.00")} \n" +
-                $"Dot product of normalized {a} and {b}: {normalizedDot.ToString("0.00")}";
+            var a = A.Id.Color(A.Color);
+            var b = B.Id.Color(B.Color);
+            description = $"Dot product of {A.Name} and {B.Name}: {dot.ToString("0.00")} \n" +
+                $"Dot product of normalized {A.Name} and {B.Name}: {normalizedDot.ToString("0.00")}";
 
             UpdateTriangle(angle, dot);
         }
 
         private void UpdateTriangle(float angle, float dot)
         {
-            triangle.transform.position = Vector3.Project(vectors[0].Value, vectors[1].Normalized);
+            triangle.transform.position = Vector3.Project(A.Value, B.Normalized);
             var cos = Mathf.Cos(angle * Mathf.Deg2Rad);
-            var x = vectors[0].Length * cos;
+            var x = A.Length * cos;
             var perp = Vector2.Perpendicular(triangle.transform.position);
-            var perpDir = triangle.transform.position - vectors[0].Value;
+            var perpDir = triangle.transform.position - A.Value;
             var y = Mathf.Sign(Vector3.Dot(perpDir, perp)) * Mathf.Sign(dot) * perpDir.magnitude;
 
-            if (vectors[1].Value.x < 0f && vectors[1].Value.y == 0f) y *= -1;
+            if (B.Value.x < 0f && B.Value.y == 0f) y *= -1;
 
-            triangle.transform.rotation = vectors[1].Rotation * Quaternion.AngleAxis(180f, Vector3.forward);
+            triangle.transform.rotation = B.Rotation * Quaternion.AngleAxis(180f, Vector3.forward);
             triangle.size = new Vector2(Mathf.Abs(x), Mathf.Abs(y));
             triangle.transform.localScale = new Vector2(Mathf.Sign(x), Mathf.Sign(y));
         }
