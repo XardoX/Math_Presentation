@@ -116,7 +116,7 @@ namespace MathPresentation
         public void TogglePoint(bool toggle)
         {
             showPoint = toggle;
-            point.gameObject.SetActive(toggle);
+            animator.SetBool("PointDisabled", !toggle);
         }
 
         public void ToggleArrowPoint(bool toggle)
