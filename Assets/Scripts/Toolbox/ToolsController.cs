@@ -22,6 +22,14 @@ namespace MathPresentation.Toolbox
             }
         }
 
+        /// <summary>
+        /// Clears blackboard of all tools
+        /// </summary>
+        public void ClearAll()
+        {
+            drawTool.ClearAllLines();
+        }
+
         private void Start()
         {
             toolboxUI.OnToolSelected += SelectTool;

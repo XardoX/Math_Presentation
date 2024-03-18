@@ -48,8 +48,6 @@ namespace MathPresentation
 
         private Quaternion rotation;
 
-        private Vector3 offset;
-
         private bool isFree = true;
 
         public string Id => id;
@@ -61,13 +59,17 @@ namespace MathPresentation
 
         public Vector3 Value
         {
-            get => transform.position + offset;
+            get => transform.localPosition;
             set
             {
-                transform.position = value + offset;
+                transform.localPosition = value;
                 UpdateVector(true);
             }
         }
+        /// <summary>
+        /// Offset from absolute Center
+        /// </summary>
+        public Vector3 Offset => transform.position - transform.localPosition;
 
         public Vector3 Normalized => Value.normalized;
 
@@ -81,7 +83,6 @@ namespace MathPresentation
 
         public bool IsFree => isFree;
 
-        public Vector3 Offset { get => offset; set => offset = value; }
         public bool ArrowFromPointZero => arrowFromPointZero;
 
         public bool ShowArrowPoint => showArrowPoint;
@@ -90,7 +91,7 @@ namespace MathPresentation
 
         public void Init(Vector3 value, bool interactable = true, bool arrow = true, bool line = false)
         {
-            transform.position = value;
+            transform.localPosition = value;
             ToggleArrow(arrow);
             ToggleLine(line);
             dragAndDrop.IsDraggingEnabled = interactable;
@@ -136,11 +137,11 @@ namespace MathPresentation
             arrowFromPointZero = fromPointZero;
             if (fromPointZero)
             {
-                arrow.transform.position = Vector3.zero;
+                arrow.transform.localPosition = -Value;
             }
             else
             {
-                arrow.transform.position = Value;
+                arrow.transform.localPosition = Vector3.zero;
             }
         }
 
@@ -161,7 +162,7 @@ namespace MathPresentation
         public void SetLineType(bool isInfinite)
         {
             infiniteLine = isInfinite;
-            line.transform.position = Vector3.zero;
+            line.transform.localPosition = Vector3.zero;
             line.size = new Vector2(100f, line.size.y); //todo size based on screen/camera view
         }
 
@@ -176,7 +177,7 @@ namespace MathPresentation
 
         public void UpdateVector(bool withoutNotify = false)
         {
-            rotation = Quaternion.FromToRotation(Vector3.right, transform.position);
+            rotation = Quaternion.FromToRotation(Vector3.right, transform.localPosition);
 
             mask.transform.localScale = Vector3.one * Value.magnitude;
 
@@ -211,7 +212,7 @@ namespace MathPresentation
             arrow.transform.rotation = rotation;
             if (arrowFromPointZero)
             {
-                arrow.transform.position = Vector3.zero;
+                arrow.transform.localPosition = -Value;
             }
         }
 
@@ -222,11 +223,11 @@ namespace MathPresentation
 
             if (infiniteLine)
             {
-                line.transform.position = Vector3.zero;
+                line.transform.localPosition = -Value;
             }
             else
             {
-                line.transform.position = Vector3.Lerp(Vector3.zero, Value, 0.5f);
+                line.transform.localPosition = Vector3.Lerp(-Value, Vector3.zero, 0.5f);
                 line.size = new Vector2(Value.magnitude - sizeOffset, line.size.y);
             }
         }

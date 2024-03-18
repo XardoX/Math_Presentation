@@ -66,7 +66,7 @@ namespace MathPresentation
         {
             for (int i = 0; i < vectors.Count; i++)
             {
-                var direction = vectors[i].transform.position.normalized;
+                var direction = vectors[i].Normalized;
                 var infoPos = direction;
                 var sign = vectors[i].ArrowFromPointZero ? 1 : -1;
 
@@ -80,7 +80,7 @@ namespace MathPresentation
 
             if (selectedVector != null)
             {
-                vectorInfo.Set((Vector2)selectedVector.transform.position);
+                vectorInfo.Set((Vector2)selectedVector.Value);
             }
         }
 
@@ -88,8 +88,8 @@ namespace MathPresentation
         {
             vectorsOverlaysInfo[i].ValueText.rectTransform.position = vectors[i].transform.position + infoPos * offset * sign;
 
-            var x = vectors[i].transform.position.x.ToString("0.0");
-            var y = vectors[i].transform.position.y.ToString("0.0");
+            var x = vectors[i].Value.x.ToString("0.0");
+            var y = vectors[i].Value.y.ToString("0.0");
             vectorsOverlaysInfo[i].ValueText.text = $"({x}, {y})";
         }
 
@@ -105,7 +105,7 @@ namespace MathPresentation
         {
             selectedVector = v;
             vectorInfo.ToggleVisibility(true);
-            vectorInfo.Set((Vector2)selectedVector.transform.position);
+            vectorInfo.Set((Vector2)selectedVector.Value);
         }
 
         [System.Serializable]

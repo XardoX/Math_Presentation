@@ -37,12 +37,14 @@ namespace MathPresentation.Methods
 
         private void UpdateTriangle(float angle, float dot)
         {
-            triangle.transform.position = Vector3.Project(A.Value, B.Normalized);
+            triangle.transform.position = Vector3.Project(A.Value, B.Normalized) + A.Offset;
             var cos = Mathf.Cos(angle * Mathf.Deg2Rad);
             var x = A.Length * cos;
-            var perp = Vector2.Perpendicular(triangle.transform.position);
-            var perpDir = triangle.transform.position - A.Value;
-            var y = Mathf.Sign(Vector3.Dot(perpDir, perp)) * Mathf.Sign(dot) * perpDir.magnitude;
+
+            var perp = Vector2.Perpendicular(triangle.transform.localPosition);
+            var dir = triangle.transform.position - A.Value - A.Offset;
+
+            var y = Mathf.Sign(Vector3.Dot(dir, perp)) * Mathf.Sign(dot) * dir.magnitude;
 
             if (B.Value.x < 0f && B.Value.y == 0f) y *= -1;
 

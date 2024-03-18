@@ -27,6 +27,8 @@ namespace MathPresentation.Methods
 
             vectors.Add(chart.GetFreeVector(Vector2.right * 2, true, true));
             B.SetArrowType(true);
+
+            angleCircle.transform.position = A.Offset;
         }
 
         protected override void OnMethodEnable()
@@ -59,7 +61,8 @@ namespace MathPresentation.Methods
             materialPropertyBlock.SetFloat("_FillAmount", angle / 360);
             angleCircle.SetPropertyBlock(materialPropertyBlock);
 
-            angleText.rectTransform.position = dir * angleTextOffset;
+
+            angleText.rectTransform.position = dir * angleTextOffset + A.Offset;
             angleText.text = angle.ToString() + "°";
         }
 

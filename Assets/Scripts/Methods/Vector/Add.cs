@@ -9,8 +9,8 @@ namespace MathPresentation.Methods
     {
         protected override void SetVectors()
         {
-            vectors.Add(chart.GetFreeVector(Vector2.left));
-            vectors.Add(chart.GetFreeVector(Vector2.right));
+            vectors.Add(chart.GetFreeVector(Vector2.left + Vector2.up));
+            vectors.Add(chart.GetFreeVector(Vector2.right * 3));
             vectors.Add(chart.GetFreeVector(false, true));
             C.TogglePoint(false);
         }

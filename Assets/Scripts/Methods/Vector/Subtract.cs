@@ -12,8 +12,6 @@ namespace MathPresentation.Methods
         public void SetShowAsDirection(bool show)
         {
             showAsDirection = show;
-            if (showAsDirection == false && vectors.Count > 1)
-                C.Offset = Vector3.zero;
         }
 
         protected override void OnMethodEnable()
@@ -24,17 +22,13 @@ namespace MathPresentation.Methods
         protected override void SetVectors()
         {
             vectors.Add(chart.GetFreeVector(Vector2.left));
-            vectors.Add(chart.GetFreeVector(Vector2.right));
+            vectors.Add(chart.GetFreeVector(Vector2.down * 2));
             vectors.Add(chart.GetFreeVector(false, true));
             C.TogglePoint(false);
         }
 
         protected override void UpdateMethod()
         {
-            if(showAsDirection)
-            {
-                C.Offset = B.Value;
-            }
             C.Value = A.Value - B.Value;
         }
 

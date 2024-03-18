@@ -13,7 +13,7 @@ namespace MathPresentation.Methods
 
         protected override void SetVectors()
         {
-            vectors.Add(chart.GetFreeVector(Vector2.left, true, true, true));
+            vectors.Add(chart.GetFreeVector(Vector2.left * 2, true, true, true));
             vectors.Add(chart.GetFreeVector(Vector2.one, false, true, true));
             B.TogglePoint(false);
         }

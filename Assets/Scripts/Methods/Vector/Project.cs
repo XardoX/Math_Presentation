@@ -13,10 +13,10 @@ namespace MathPresentation.Methods
 
         protected override void SetVectors()
         {
-            vectors.Add(chart.GetFreeVector(Vector2.left, true, true));
+            vectors.Add(chart.GetFreeVector(Vector2.one + Vector2.right, true, true));
             A.SetArrowType(true);
 
-            vectors.Add(chart.GetFreeVector(Vector2.one, true, true));
+            vectors.Add(chart.GetFreeVector(Vector2.left * 2, true, true));
             B.SetArrowType(true);
 
             vectors.Add(chart.GetFreeVector(false, false, true));

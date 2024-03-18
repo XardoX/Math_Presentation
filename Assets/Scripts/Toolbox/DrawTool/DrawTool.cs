@@ -16,6 +16,8 @@ namespace MathPresentation.Toolbox
 
         private DrawnLine activeLine;
 
+        private List<DrawnLine> drawnLines = new();
+
         private Camera cam;
 
         private int lineCounter = 0;
@@ -28,6 +30,12 @@ namespace MathPresentation.Toolbox
         public void SetDrawingColor(Color color)
         {
             this.color = color;
+        }
+
+        public void ClearAllLines()
+        {
+            drawnLines.ForEach(_ => Destroy(_.gameObject));
+            drawnLines.Clear();
         }
 
         private void Start()
@@ -44,6 +52,7 @@ namespace MathPresentation.Toolbox
                 activeLine = Instantiate(drawnLinePrefab, transform);
                 activeLine.name = "Line_" + lineCounter.ToString("00");
                 activeLine.SetColor(color);
+                drawnLines.Add(activeLine);
                 lineCounter++;
             }
 

@@ -981,10 +981,10 @@
             "m_Id": "d2cff886fb9c4d978d729116107fa760"
         },
         {
-            "m_Id": "7ac5fe754bd544069d8aaae3502241ef"
+            "m_Id": "d979ce9b7ec549618bde92e84f55da32"
         },
         {
-            "m_Id": "d979ce9b7ec549618bde92e84f55da32"
+            "m_Id": "7ac5fe754bd544069d8aaae3502241ef"
         },
         {
             "m_Id": "488821f321564f33a7fa980fdcedd69c"
@@ -4388,7 +4388,7 @@
     "m_DefaultRefNameVersion": 1,
     "m_RefNameGeneratedByDisplayName": "LineTexture",
     "m_DefaultReferenceName": "_LineTexture",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "_MainTex",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",

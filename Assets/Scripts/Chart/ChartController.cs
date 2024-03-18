@@ -98,6 +98,7 @@ namespace MathPresentation
             }
             else activeMethodId = -1;
             methods[id].gameObject.SetActive(toggle);
+            toolsController.ClearAll();
         }
 
         private void Awake()

@@ -37,12 +37,14 @@ namespace MathPresentation.Methods
         protected override void SetVectors()
         {
             vectors.Add(chart.GetFreeVector(Vector2.left, true, true));
-            vectors.Add(chart.GetFreeVector(Vector2.one, true, true));
+            vectors.Add(chart.GetFreeVector(Vector2.one + Vector2.right, true, true));
             vectors.Add(chart.GetFreeVector(false, true));
             A.SetArrowType(true);
             B.SetArrowType(true);
             C.SetArrowType(true);
             C.TogglePoint(false);
+
+            angleToRotate = 90f;
         }
 
         protected override void UpdateMethod()

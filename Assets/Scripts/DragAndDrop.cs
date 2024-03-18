@@ -51,7 +51,8 @@ public class DragAndDrop : MonoBehaviour
     {
         if (!IsDraggingEnabled) return;
         newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition - mousePostion);
-        if (enableSnapping)
+
+        if (enableSnapping && Input.GetKey(KeyCode.LeftControl))
         {
             newPos = new Vector3(
                 RoundToNearestGrid(newPos.x),
@@ -59,7 +60,6 @@ public class DragAndDrop : MonoBehaviour
                 newPos.z);
         }
         timeElapsed = 0;
-        
     }
 
     private float RoundToNearestGrid(float pos)
