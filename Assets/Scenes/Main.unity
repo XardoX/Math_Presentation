@@ -186,6 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Vector3.MoveTowards
+  doubleChart: 0
   distanceColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &79612861
 GameObject:
@@ -608,6 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Vector3.SmoothDamp
+  doubleChart: 0
   timeColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &274051211
 GameObject:
@@ -1012,6 +1014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Vector3.Dot
+  doubleChart: 0
   triangle: {fileID: 486685017}
 --- !u!1 &410087039
 GameObject:
@@ -1382,6 +1385,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VerticalArrow
       objectReference: {fileID: 0}
+    - target: {fileID: 3476986164882036222, guid: da49f5416f64e7a4f8895ea20410fba8,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6612686785950166479, guid: da49f5416f64e7a4f8895ea20410fba8,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1470,6 +1478,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VerticalArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476986164882036222, guid: da49f5416f64e7a4f8895ea20410fba8,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6612686785950166479, guid: da49f5416f64e7a4f8895ea20410fba8,
         type: 3}
@@ -1568,7 +1581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &651611589
 Transform:
   m_ObjectHideFlags: 0
@@ -1632,6 +1645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Vector2.Perpendicular
+  doubleChart: 0
 --- !u!1 &653926789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Vector3.Scale
+  doubleChart: 0
 --- !u!224 &890507463 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7850773969967582438, guid: 484ebb4ef17cd764193b455745b80675,
@@ -2660,7 +2675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1114723743
 Transform:
   m_ObjectHideFlags: 0
@@ -2857,6 +2872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Adding vectors
+  doubleChart: 0
 --- !u!1 &1169162663
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,6 +2923,9 @@ MonoBehaviour:
   toolsController: {fileID: 787292903}
   view: {fileID: 1882377978}
   overlay: {fileID: 824176323}
+  mainChart: {fileID: 713085188}
+  leftChart: {fileID: 651611588}
+  rightChart: {fileID: 1792443229}
   myVectorPrefab: {fileID: 8751310845869913168, guid: 6912bb3ccee7bf345acf64143cc2a3a7,
     type: 3}
   vectorColors:
@@ -3491,6 +3510,52 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1346188952
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1346188953}
+  - component: {fileID: 1346188954}
+  m_Layer: 0
+  m_Name: Normalize
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1346188953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346188952}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2048437084}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1346188954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346188952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba57d97550826fd43814af579bc38e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: Vector3.Normalize
+  doubleChart: 1
 --- !u!1001 &1363341436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4042,6 +4107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Vector3.Angle
+  doubleChart: 0
   angleColor: {r: 0.9490196, g: 0.79678106, b: 0.56941175, a: 1}
   angleCircle: {fileID: 1772289309}
   angleText: {fileID: 1116491949}
@@ -4091,6 +4157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Vector3.Reflect
+  doubleChart: 0
 --- !u!224 &1535779519 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4727554677668631873, guid: 9ed8a0febfcbe024abc8ee3669694096,
@@ -4413,6 +4480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Calculating direction
+  doubleChart: 0
   showAsDirection: 0
 --- !u!1001 &1587688555
 PrefabInstance:
@@ -5004,6 +5072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Vector3.RotateTowards
+  doubleChart: 0
   angleColor: {r: 0.9490196, g: 0.79607844, b: 0.5686275, a: 1}
   maxMagnitudeDelta: 0
 --- !u!1 &1762199269
@@ -5052,6 +5121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Vector3.Lerp
+  doubleChart: 0
   tColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   unclampedLerp: 0
   isSlerp: 0
@@ -5157,7 +5227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1792443230
 Transform:
   m_ObjectHideFlags: 0
@@ -5266,6 +5336,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HorizontalArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476986164882036222, guid: da49f5416f64e7a4f8895ea20410fba8,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6612686785950166479, guid: da49f5416f64e7a4f8895ea20410fba8,
         type: 3}
@@ -5715,6 +5790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   title: Vector3.Project
+  doubleChart: 0
 --- !u!1 &2048437083
 GameObject:
   m_ObjectHideFlags: 0
@@ -5756,6 +5832,7 @@ Transform:
   - {fileID: 29004236}
   - {fileID: 1717987130}
   - {fileID: 268600405}
+  - {fileID: 1346188953}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2075586380
@@ -5770,6 +5847,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HorizontalArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3476986164882036222, guid: da49f5416f64e7a4f8895ea20410fba8,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6612686785950166479, guid: da49f5416f64e7a4f8895ea20410fba8,
         type: 3}

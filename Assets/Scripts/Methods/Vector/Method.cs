@@ -15,6 +15,9 @@ namespace MathPresentation.Methods
         [SerializeField]
         protected string title;
 
+        [SerializeField]
+        private bool doubleChart = false;
+
         protected string description;
 
         protected List<MyVector> vectors = new();
@@ -65,6 +68,7 @@ namespace MathPresentation.Methods
             UpdateMethod();
             vectors.ForEach(v => v.UpdateVector(true));
             OnUpdated?.Invoke(this);
+            chart.ToggleDoubleChart(doubleChart);
         }
 
         private void OnDisable()

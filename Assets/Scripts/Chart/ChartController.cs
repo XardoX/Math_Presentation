@@ -21,6 +21,11 @@ namespace MathPresentation
         private VectorOverlay overlay;
 
         [SerializeField]
+        private GameObject mainChart,
+            leftChart,
+            rightChart;
+
+        [SerializeField]
         private MyVector myVectorPrefab;
 
         [SerializeField]
@@ -42,7 +47,7 @@ namespace MathPresentation
 
             if (freeVector == null)
             {
-                freeVector = Instantiate(myVectorPrefab, this.transform);
+                freeVector = Instantiate(myVectorPrefab, mainChart.transform);
                 if(vectorColors.Length > myVectors.Count)
                 {
                     freeVector.SetColor(vectorColors[myVectors.Count]);
@@ -64,6 +69,11 @@ namespace MathPresentation
                 freeVector.OnSelected += OnVectorSelected;
                 freeVector.OnUnselected += OnVectorUnselected;
             }
+            else
+            {
+                freeVector.transform.parent = mainChart.transform;
+            }
+
             overlay.AddVector(freeVector);
 
             freeVector.Init(value, interactable, arrow, line);
@@ -73,6 +83,26 @@ namespace MathPresentation
 
         public MyVector GetFreeVector(bool interactable = true, bool arrow = true, bool line = false) =>
             GetFreeVector(Vector3.zero, interactable, arrow, line);
+
+        public void TransferVectorToChart(MyVector vector, int chartId)
+        {
+            var localPos = vector.transform.localPosition;
+            _ = chartId switch
+            {
+                0 => vector.transform.parent = mainChart.transform,
+                1 => vector.transform.parent = leftChart.transform,
+                2 => vector.transform.parent = rightChart.transform,
+                _ => vector.transform.parent = mainChart.transform
+            };
+            vector.transform.localPosition = localPos;
+        }
+
+        public void ToggleDoubleChart(bool toggle)
+        {
+            leftChart.SetActive(toggle);
+            rightChart.SetActive(toggle);
+            mainChart.SetActive(!toggle);
+        }
 
         public void ShowPreviousMethod()
         {
