@@ -22,7 +22,7 @@ namespace MathPresentation.Methods
 
         protected override void OnMethodEnable()
         {
-            description = $"Adds {A.Name} to {B.Name} component-wise which results in {C.Name}";
+            description = $"Adds {A.Name} to {B.Name} component-wise, which results in {C.Name}";
         }
     }
 }
