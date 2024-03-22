@@ -30,15 +30,26 @@ namespace MathPresentation.Methods
         [SerializeField]
         private MethodData[] similarMethods;
 
-#if UNITY_EDITOR
-        private void OnValidate()
+        private void OnEnable()
         {
+            SetName();
+        }
+
+        private void SetName()
+        {
+
             var tags = name.Split("_", System.StringSplitOptions.None);
             if(tags.Length > 1)
             {
                 Id = tags[0];
                 type = Enum.Parse<MethodType>(tags[1]);
             }
+        }
+
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            SetName();
         }
 #endif
     }

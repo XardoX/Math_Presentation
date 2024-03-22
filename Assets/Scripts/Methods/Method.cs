@@ -13,6 +13,9 @@ namespace MathPresentation.Methods
             OnDisabled;
 
         [SerializeField]
+        private MethodData data;
+
+        [SerializeField]
         protected string title;
 
         [SerializeField]
