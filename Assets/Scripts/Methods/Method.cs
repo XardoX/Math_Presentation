@@ -35,6 +35,10 @@ namespace MathPresentation.Methods
         protected MyVector B => vectors[1];
         protected MyVector C => vectors[2];
 
+        public MethodData Data => data;
+
+        public List<MyVector> Vectors => vectors;
+
         public void Init(ChartController chart)
         {
             this.chart = chart;

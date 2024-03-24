@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   Id: Add
-  descriptionKey: 
   mathBehindIt: 
   whatIsUsedFor: 
-  code: 
+  code: C = A + B;
+  similarMethods: []

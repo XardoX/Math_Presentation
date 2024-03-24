@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 748dfb8f993716147b9104e7c4d272a1, type: 3}
-  m_Name: RotateTowards_Vector3
+  m_Script: {fileID: 11500000, guid: 690dc3fed9d1d8f4fb22414f4d8c4cfa, type: 3}
+  m_Name: DefaultHighlighting
   m_EditorClassIdentifier: 
-  type: 1
-  Id: RotateTowards
-  mathBehindIt: 
-  whatIsUsedFor: 
-  code: C = Vector3.RotateTowards(A, B, angle * Mathf.Deg2Rad, maxMagnitudeDelta
-  similarMethods: []
+  highlights:
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    chars: 7b007d00280029002d002b003d002e002c003b005b005d002a002f00

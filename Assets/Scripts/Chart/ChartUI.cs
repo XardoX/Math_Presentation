@@ -14,6 +14,9 @@ namespace MathPresentation
         public Action onPreviousClicked, onNextClicked;
 
         [SerializeField]
+        private CodeBlock codeBlock;
+
+        [SerializeField]
         private CanvasGroup methodInfo;
 
         [SerializeField]
@@ -21,6 +24,7 @@ namespace MathPresentation
             methodDescriptionText,
             sliderValueText,
             sliderDescriptionText;
+
         [SerializeField]
         private RectTransform sliderParent;
 
@@ -35,11 +39,16 @@ namespace MathPresentation
             methodInfo.alpha = 1f;
             methodTitleText.text = method.Title;
             methodDescriptionText.text = method.Description;
+
+            codeBlock.ClearDynamicHighlights();
+            method.Vectors.ForEach(v => codeBlock.AddDynamicHighLights(v.Id, v.Color));
+            codeBlock.SetCodeText(method.Data.Code);
         }
 
         public void HideMethodText(Method method)
         {
             methodInfo.alpha = 0f;
+            codeBlock.ClearDynamicHighlights();
         }
 
         public Slider SetSlider(float value, float min = 0f, float max = 1f, string description = "")

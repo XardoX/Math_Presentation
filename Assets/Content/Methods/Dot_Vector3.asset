@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748dfb8f993716147b9104e7c4d272a1, type: 3}
   m_Name: Dot_Vector3
   m_EditorClassIdentifier: 
-  type: 0
-  Id: 
+  type: 1
+  Id: Dot
   mathBehindIt: 
   whatIsUsedFor: 
-  code: 
+  code: dot = Vector3.Dot(A, B);
   similarMethods: []
