@@ -15,3 +15,4 @@ MonoBehaviour:
   highlights:
   - color: {r: 1, g: 1, b: 1, a: 1}
     chars: 7b007d00280029002d002b003d002e002c003b005b005d002a002f00
+    strings: []

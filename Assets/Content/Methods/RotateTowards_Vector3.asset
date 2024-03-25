@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RotateTowards_Vector3
   m_EditorClassIdentifier: 
   type: 1
-  Id: RotateTowards
+  id: RotateTowards
   mathBehindIt: 
   whatIsUsedFor: 
-  code: C = Vector3.RotateTowards(A, B, angle * Mathf.Deg2Rad, maxMagnitudeDelta
+  code: C = Vector3.RotateTowards(A, B, angle * Mathf.Deg2Rad, maxMagnitudeDelta);
   similarMethods: []

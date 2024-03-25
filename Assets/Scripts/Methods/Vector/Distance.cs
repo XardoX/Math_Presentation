@@ -7,17 +7,23 @@ namespace MathPresentation.Methods
 {
     public class Distance : Method
     {
+        [SerializeField]
+        private Line line;
+
         protected override void SetVectors()
         {
             vectors.Add(chart.GetFreeVector(Vector2.left + Vector2.up));
             vectors.Add(chart.GetFreeVector(Vector2.right * 3));
-            vectors.Add(chart.GetFreeVector(false, false, true));
-            C.TogglePoint(false);
         }
 
         protected override void UpdateMethod()
         {
-            C.Value = Vector3.Lerp(A.Value, B.Value, 0.5f);
+            line.transform.position = Vector3.Lerp(A.Value, B.Value, 0.5f);
+            var target = Quaternion.Euler(0, 0, 90) * (A.Value - B.Value);
+            line.transform.rotation = Quaternion.LookRotation(Vector3.forward,target );
+
+            var distance = Vector3.Distance(A.Value, B.Value);
+            line.SetLength(distance);
         }
 
         protected override void OnMethodEnable()

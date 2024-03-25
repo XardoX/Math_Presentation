@@ -59,10 +59,10 @@ namespace MathPresentation
 
         public Vector3 Value
         {
-            get => transform.localPosition;
+            get => transform.localPosition + CustomOffset;
             set
             {
-                transform.localPosition = value;
+                transform.localPosition = value + CustomOffset;
                 UpdateVector(true);
             }
         }
@@ -70,6 +70,8 @@ namespace MathPresentation
         /// Offset from absolute Center
         /// </summary>
         public Vector3 Offset => transform.position - transform.localPosition;
+
+        public Vector3 CustomOffset { get; set; }
 
         public Vector3 Normalized => Value.normalized;
 
