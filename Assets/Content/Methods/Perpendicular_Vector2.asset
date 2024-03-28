@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Perpendicular_Vector2
   m_EditorClassIdentifier: 
   type: 0
-  Id: Perpendicular
+  id: Perpendicular
   mathBehindIt: 
   whatIsUsedFor: 
-  code: B = Vector2. Perpendicular(A);
+  code: B = Vector2.Perpendicular(A);
   similarMethods: []

@@ -4212,10 +4212,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Vector3 A, B, C;\r\n\r\nprivate void Start()\r\n{\r\n\tC = A + B;\n}\u200B"
+  m_text: "Vector3 A, B, C;\r\n\r\nprivate void Start()\r\n{\r\n    C = A + B;\n}\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 02bbadcf937e06f4b8ce2588b9b7b726, type: 2}
+  m_sharedMaterial: {fileID: 7775187624386538430, guid: 02bbadcf937e06f4b8ce2588b9b7b726,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
