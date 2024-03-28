@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Lerp_Vector3
   m_EditorClassIdentifier: 
   type: 1
-  Id: Lerp
+  id: Lerp
   mathBehindIt: 
   whatIsUsedFor: 
-  code: C = Vector3.Lerp(A, B, t);
+  code: 'private float t;
+
+    C = Vector3.Lerp(A, B, t);'
   similarMethods: []

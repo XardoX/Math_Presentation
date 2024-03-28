@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: MoveTowards_Vector3
   m_EditorClassIdentifier: 
   type: 1
-  Id: MoveTowards
+  id: MoveTowards
   mathBehindIt: 
   whatIsUsedFor: 
-  code: C = Vector3.MoveTowards(A, B, distance);
+  code: 'private float distance;
+
+    C = Vector3.MoveTowards(A, B, distance);'
   similarMethods: []

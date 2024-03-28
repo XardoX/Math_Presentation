@@ -43,7 +43,7 @@ namespace MathPresentation
 
                 if (char.IsWhiteSpace(c) && !char.IsLetter(c))
                 {
-                    coloredText += nextWord + c;
+                    coloredText += HighlightWord(nextWord) + c;
                     nextWord = string.Empty;
                     continue;
                 }
@@ -87,14 +87,17 @@ namespace MathPresentation
 
         private string HighlightWord(string word)
         {
-            highlights.ForEach(_ =>
+            var coloredWord = word;
+            highlights.Any(_ =>
             {
                 if(_.Strings.Any(s => s == word))
                 {
-                    word = word.Color(_.Color);
+                    coloredWord = word.Color(_.Color);
+                    return true;
                 }
+                return false;
             });
-            return word;
+            return coloredWord;
         }
     }
 }

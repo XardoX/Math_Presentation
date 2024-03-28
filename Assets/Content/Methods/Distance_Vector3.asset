@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748dfb8f993716147b9104e7c4d272a1, type: 3}
   m_Name: Distance_Vector3
   m_EditorClassIdentifier: 
-  type: 0
-  id: 
+  type: 1
+  id: Distance
   mathBehindIt: 
   whatIsUsedFor: 
-  code: 
+  code: distance = Vector3.Distance(A,B);
   similarMethods: []
