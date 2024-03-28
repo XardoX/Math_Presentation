@@ -41,6 +41,7 @@ namespace MathPresentation
             vector.OnSelected += SetSelectedVector;
             vector.OnUpdated += UpdateVectors;
             vector.OnDisabled += RemoveVectorOverlay;
+            Debug.Log("co jest");
         }
 
         public void RemoveVectorOverlay(MyVector vector)
@@ -60,6 +61,7 @@ namespace MathPresentation
             vector.OnDisabled -= RemoveVectorOverlay;
 
             vectors.RemoveAt(id);
+            Debug.Log("kurwa");
         }
 
         public void UpdateVectors()

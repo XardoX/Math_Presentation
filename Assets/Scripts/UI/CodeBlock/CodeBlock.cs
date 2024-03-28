@@ -64,7 +64,6 @@ namespace MathPresentation
                 if (found)
                 {
                     coloredText += HighlightWord(nextWord) + coloredChar;
-                    Debug.Log(nextWord);
                     nextWord = string.Empty;
                 }else
                 {

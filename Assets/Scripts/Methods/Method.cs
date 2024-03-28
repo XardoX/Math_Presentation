@@ -67,6 +67,7 @@ namespace MathPresentation.Methods
 
         private void OnEnable()
         {
+            chart.ToggleDoubleChart(doubleChart);
             vectors.Clear();
             SetVectors();
             vectors.ForEach(v => v.OnUpdated += OnVectorsUpdate);
@@ -75,7 +76,6 @@ namespace MathPresentation.Methods
             UpdateMethod();
             vectors.ForEach(v => v.UpdateVector(true));
             OnUpdated?.Invoke(this);
-            chart.ToggleDoubleChart(doubleChart);
         }
 
         private void OnDisable()
