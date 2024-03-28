@@ -1627,6 +1627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0.3
+  overlayTextPrefeb: {fileID: 0}
   vectorValuesTextPrefab: {fileID: 2115420053273763216, guid: de813a4109dd6b64183d7d7610c52e13,
     type: 3}
   vectorIdTextPrefab: {fileID: 5070145289020202546, guid: 0539346266a40464a92d9427bbb88155,

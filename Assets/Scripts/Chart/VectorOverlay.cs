@@ -13,6 +13,9 @@ namespace MathPresentation
 
         [Header("References")]
         [SerializeField]
+        private TextMeshProUGUI overlayTextPrefeb;
+
+        [SerializeField]
         private TextMeshProUGUI vectorValuesTextPrefab;
 
         [SerializeField]

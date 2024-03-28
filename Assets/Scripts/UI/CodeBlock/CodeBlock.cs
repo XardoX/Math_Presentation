@@ -6,11 +6,12 @@ using System.Linq;
 using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace MathPresentation
 {
-    public class CodeBlock : MonoBehaviour
+    public class CodeBlock : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField]
         private SyntaxHighlightingData data;
@@ -98,6 +99,12 @@ namespace MathPresentation
                 return false;
             });
             return coloredWord;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            GUIUtility.systemCopyBuffer = rawCode;
+            Debug.Log("Copied!");
         }
     }
 }

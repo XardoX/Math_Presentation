@@ -39,7 +39,9 @@ namespace MathPresentation
 
         private List<MyVector> myVectors = new();
 
-        public ChartUI View => view; 
+        public ChartUI View => view;
+
+        public VectorOverlay Overlay => overlay;
 
         public MyVector GetFreeVector(Vector3 value, bool interactable = true, bool arrow = true, bool line = false)
         {
