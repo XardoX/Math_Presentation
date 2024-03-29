@@ -34,7 +34,7 @@ namespace MathPresentation.Toolbox
 
         public void ClearAllLines()
         {
-            drawnLines.ForEach(_ => Destroy(_.gameObject));
+            drawnLines.ForEach(_ => Destroy(_ != null ? _.gameObject : null));
             drawnLines.Clear();
         }
 

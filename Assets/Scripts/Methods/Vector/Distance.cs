@@ -16,15 +16,14 @@ namespace MathPresentation.Methods
 
         private void Start()
         {
-            distanceText.gameObject.SetActive(false);
             distanceText.transform.parent = chart.Overlay.transform;
             distanceText.transform.localScale = Vector3.one;
         }
 
         protected override void SetVectors()
         {
-            vectors.Add(chart.GetFreeVector(Vector2.left + Vector2.up));
-            vectors.Add(chart.GetFreeVector(Vector2.right * 3));
+            vectors.Add(chart.GetFreeVector(new Vector2(-3f,1f), true, false));
+            vectors.Add(chart.GetFreeVector(new Vector2(3f, 2f), true, false));
         }
 
         protected override void UpdateMethod()
@@ -38,7 +37,7 @@ namespace MathPresentation.Methods
 
             distanceText.text = "Distance: " + distance.ToString("0.00");
             var offset = 0.25f;
-            if(A.Value.x > B.Value.x)
+            if(A.Value.x < B.Value.x)
             {
                 offset *= -1;
                 distanceText.transform.rotation = line.transform.rotation *= Quaternion.Euler(0,0, 180f);
