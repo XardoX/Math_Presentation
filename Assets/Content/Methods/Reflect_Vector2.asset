@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Reflect_Vector2
   m_EditorClassIdentifier: 
   type: 0
-  Id: Reflect
+  id: Reflect
+  title: Vector2.Reflect
   mathBehindIt: 
   whatIsUsedFor: 
   code: C = Vector3.Reflect(A, B.normalized);

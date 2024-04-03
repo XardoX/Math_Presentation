@@ -14,10 +14,7 @@ namespace MathPresentation.Methods
 
         [SerializeField]
         private MethodData data;
-
-        [SerializeField]
-        protected string title;
-
+        
         [SerializeField]
         private bool doubleChart = false;
 
@@ -27,7 +24,7 @@ namespace MathPresentation.Methods
 
         protected ChartController chart;
 
-        public string Title => title;
+        public string Title => data.Title;
 
         public string Description => description;
 

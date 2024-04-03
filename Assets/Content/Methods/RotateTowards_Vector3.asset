@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   id: RotateTowards
+  title: Vector3.RotateTowards
   mathBehindIt: 
   whatIsUsedFor: 
   code: C = Vector3.RotateTowards(A, B, angle * Mathf.Deg2Rad, maxMagnitudeDelta);

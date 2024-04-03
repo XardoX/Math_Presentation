@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   id: Lerp
+  title: Vector3.Lerp
   mathBehindIt: 
   whatIsUsedFor: 
   code: 'private float t;

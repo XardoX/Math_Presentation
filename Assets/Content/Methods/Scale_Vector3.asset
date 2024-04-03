@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Scale_Vector3
   m_EditorClassIdentifier: 
   type: 1
-  Id: Scale
+  id: Scale
+  title: Vector3.Scale
   mathBehindIt: 
   whatIsUsedFor: 
   code: C = Vector3.Scale(A, B);

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: Magnitude_Vector3
   m_EditorClassIdentifier: 
   type: 1
-  Id: Magnitude
+  id: Magnitude
+  title: Vector3.Magnitude
   mathBehindIt: 
   whatIsUsedFor: 
-  code: todo
+  code: "Vector3 A;\nfloat magnitude;\n\nprivate void MagnitudeExample()\n{\n\tmagnitude
+    = A.magnitude;\n}"
   similarMethods: []

@@ -16,6 +16,9 @@ namespace MathPresentation.Methods
         private string id;
 
         [SerializeField]
+        private string title;
+
+        [SerializeField]
         [TextArea(3, 10)]
         private string mathBehindIt;
 
@@ -32,6 +35,7 @@ namespace MathPresentation.Methods
 
         public MethodType Type => type;
         public string Id => id; 
+        public string Title => title;
         public string MathBehindIt => mathBehindIt;
         public string WhatIsUsedFor => whatIsUsedFor;
         public string Code => code;

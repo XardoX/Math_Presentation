@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Project_Vector3
   m_EditorClassIdentifier: 
   type: 1
-  Id: Project
+  id: Project
+  title: Vector3.Project
   mathBehindIt: 
   whatIsUsedFor: 
   code: C = Vector3.Project(A, B.normalized);
