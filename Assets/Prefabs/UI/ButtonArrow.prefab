@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7082816082255663323}
   - component: {fileID: 7579636207105980936}
   - component: {fileID: 8714741752554926014}
+  - component: {fileID: 8096647787549249928}
   m_Layer: 5
   m_Name: ButtonArrow
   m_TagString: Untagged
@@ -121,6 +122,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8096647787549249928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6224130111990622198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0507d294f5b0b46489107388a11f9ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverScale: 1.25
+  enterDuration: 0.2
+  enterEase: 10
+  exitDuration: 0.2
+  exitEase: 22
 --- !u!1 &7899804168379081807
 GameObject:
   m_ObjectHideFlags: 0
