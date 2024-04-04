@@ -19,6 +19,12 @@ namespace MathPresentation.Methods
         protected override void OnMethodEnable()
         {
             description = $"Returns the length of this vector.";
+            magnitudeText.gameObject.SetActive(true);
+        }
+
+        protected override void OnMethodDisable()
+        {
+            magnitudeText.gameObject.SetActive(false);
         }
 
         protected override void SetVectors()
