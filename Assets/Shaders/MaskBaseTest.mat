@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8795299930580360913
+--- !u!114 &-2768097161090162242
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,14 +20,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Grid
-  m_Shader: {fileID: -6465566751694194690, guid: afb5f6d69a70da64faa792511688128f,
+  m_Name: MaskBaseTest
+  m_Shader: {fileID: -6465566751694194690, guid: d223995dcf092b04db240f198a38d228,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -37,20 +37,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _ColorMask_c80aa0d4a9ec4f79b525301187ee913b_Mask_2883856052_Texture2D:
-        m_Texture: {fileID: 8400000, guid: 31d0acf7d0b365948b22f2310bc8bdce, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ColorMask_e46eeb0d68984a0c8c036edcb02de27a_Mask_2883856052_Texture2D:
-        m_Texture: {fileID: 8400000, guid: 31d0acf7d0b365948b22f2310bc8bdce, type: 2}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _LineTexture:
-        m_Texture: {fileID: 2800000, guid: 816273d632366644cb436b44541149a2, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 8400000, guid: 31d0acf7d0b365948b22f2310bc8bdce, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -67,10 +59,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CellSize: 1
-    - _LineWidth: 0.02
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _Color: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+    - _B: 0
+    - _G: 0
+    - _Invert: 0
+    - _R: 1
+    m_Colors: []
   m_BuildTextureStacks: []

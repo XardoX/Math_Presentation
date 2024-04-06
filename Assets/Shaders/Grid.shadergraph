@@ -139,9 +139,6 @@
             "m_Id": "9e11998d3f5541b7b0018d48b7e505ec"
         },
         {
-            "m_Id": "40d8f2285920491ead94001dd4aa1fc3"
-        },
-        {
             "m_Id": "a1df86b835e8475aa673cac1e22e0508"
         },
         {
@@ -681,9 +678,6 @@
             },
             {
                 "m_Id": "e956f86b0d804dbea2d53d16e39c6e8e"
-            },
-            {
-                "m_Id": "40d8f2285920491ead94001dd4aa1fc3"
             }
         ]
     },
@@ -1697,40 +1691,6 @@
         "z": 0.0,
         "w": 0.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
-    "m_ObjectId": "40d8f2285920491ead94001dd4aa1fc3",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "SurfaceDescription.SpriteMask",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": 0.0,
-            "y": 0.0,
-            "width": 0.0,
-            "height": 0.0
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "d1f9f9d1e8af41e7ac7568c403965273"
-        }
-    ],
-    "synonyms": [],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_DismissedVersion": 0,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_SerializedDescriptor": "SurfaceDescription.SpriteMask"
 }
 
 {
@@ -3533,9 +3493,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1072.0,
-            "y": 2065.0,
-            "width": 131.0,
+            "x": 972.0000610351563,
+            "y": 2058.0,
+            "width": 120.99993896484375,
             "height": 34.0
         }
     },
@@ -4259,31 +4219,6 @@
         "z": 0.0,
         "w": 0.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.ColorRGBAMaterialSlot",
-    "m_ObjectId": "d1f9f9d1e8af41e7ac7568c403965273",
-    "m_Id": 0,
-    "m_DisplayName": "Sprite Mask",
-    "m_SlotType": 0,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "SpriteMask",
-    "m_StageCapability": 2,
-    "m_Value": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0,
-        "w": 1.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
-    },
-    "m_Labels": []
 }
 
 {
