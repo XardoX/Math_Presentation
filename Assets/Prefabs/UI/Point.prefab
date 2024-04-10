@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2817197142399924120}
   - component: {fileID: 1806804520637803303}
   - component: {fileID: 2115420053273763216}
+  - component: {fileID: 5233147958960634960}
   m_Layer: 5
   m_Name: Point
   m_TagString: Untagged
@@ -134,3 +135,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5233147958960634960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7935382404069598683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c97dc914cee32a499a367e798d86a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transformToScale: {fileID: 0}
+  duration: 0.7
+  ease: 19

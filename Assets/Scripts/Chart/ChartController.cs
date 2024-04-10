@@ -12,6 +12,9 @@ namespace MathPresentation
     public class ChartController : MonoBehaviour
     {
         [SerializeField]
+        private MethodSwitcher methodSwitcher;
+
+        [SerializeField]
         private ToolsController toolsController;
 
         [SerializeField]
@@ -32,8 +35,6 @@ namespace MathPresentation
         private Color[] vectorColors;
 
         private Method[] methods;
-
-        private int activeMethodId;
 
         private MyVector selectedVector;
 
@@ -106,33 +107,6 @@ namespace MathPresentation
             mainChart.SetActive(!toggle);
         }
 
-        public void ShowPreviousMethod()
-        {
-            var id = activeMethodId - 1;
-            ToggleMethod(activeMethodId, false);
-            activeMethodId = Mathf.Clamp(id, 0, methods.Length - 1);
-            ToggleMethod(activeMethodId, true);
-        }
-
-        public void ShowNextMethod()
-        {
-            var id = activeMethodId + 1;
-            ToggleMethod(activeMethodId, false);
-            activeMethodId = Mathf.Clamp(id, 0, methods.Length - 1);
-            ToggleMethod(activeMethodId, true);
-        }
-
-        public void ToggleMethod(int id, bool toggle)
-        {
-            if (toggle)
-            {
-                activeMethodId = id;
-            }
-            else activeMethodId = -1;
-            methods[id].gameObject.SetActive(toggle);
-            toolsController.ClearAll();
-        }
-
         private void Awake()
         {
             methods = FindObjectsOfType<Method>(true);
@@ -146,10 +120,11 @@ namespace MathPresentation
                 method.OnDisabled += view.HideMethodText;
             }
 
-            view.onNextClicked += ShowNextMethod;
-            view.onPreviousClicked += ShowPreviousMethod;
+            view.onNextClicked += methodSwitcher.ShowNextMethod;
+            view.onPreviousClicked += methodSwitcher.ShowPreviousMethod;
 
-            ToggleMethod(0, true);
+            methodSwitcher.ToggleMethod(0, true);
+            methodSwitcher.OnSwitched += overlay.UpdateVectors;
         }
 
         private void Update()
