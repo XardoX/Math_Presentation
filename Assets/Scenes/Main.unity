@@ -5690,7 +5690,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  _channelWeights: {r: 0, g: 0, b: 0, a: 1}
+  _channelWeights: {r: 1, g: 0, b: 0, a: 0}
   _raycastThreshold: 0
   _invertMask: 1
   _invertOutsides: 0
