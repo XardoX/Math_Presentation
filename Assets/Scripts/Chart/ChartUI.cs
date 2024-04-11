@@ -47,7 +47,7 @@ namespace MathPresentation
 
         public void HideMethodText(Method method)
         {
-            methodInfo.alpha = 0f;
+            //methodInfo.alpha = 0f;
             codeBlock.ClearDynamicHighlights();
         }
 

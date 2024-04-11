@@ -32,6 +32,9 @@ namespace MathPresentation
         [SerializeField]
         private Transform chartParent;
 
+        [SerializeField]
+        private MaskController maskController;
+
         private Method[] methods;
 
         private int activeMethodId;
@@ -77,12 +80,18 @@ namespace MathPresentation
                 activeMethodId = id;
                 tween = chartParent.DOMove(Vector3.zero, showduration)
                     .SetEase(showEase)
-                    .OnComplete(() => OnSwitched?.Invoke());
-            } else
+                    .OnComplete(() =>
+                    {
+                        OnSwitched?.Invoke();
+                        methods[id].gameObject.SetActive(true);
+                    });
+            }
+            else
             {
+                maskController.Play();
+                methods[id].gameObject.SetActive(false);
                 activeMethodId = -1;
             }
-            methods[id].gameObject.SetActive(toggle);
         }
 
         private void Awake()

@@ -123,8 +123,12 @@ namespace MathPresentation
             view.onNextClicked += methodSwitcher.ShowNextMethod;
             view.onPreviousClicked += methodSwitcher.ShowPreviousMethod;
 
-            methodSwitcher.ToggleMethod(0, true);
             methodSwitcher.OnSwitched += overlay.UpdateVectors;
+        }
+
+        private void Start()
+        {
+            methodSwitcher.ToggleMethod(0, true);
         }
 
         private void Update()
