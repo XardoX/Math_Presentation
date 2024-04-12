@@ -37,40 +37,27 @@ namespace MathPresentation
 
         private Method[] methods;
 
+        private ChartUI chartUI;
+
         private int activeMethodId;
 
         private Tween tween;
 
+        public void Init(ChartUI chartUI)
+        { 
+            this.chartUI = chartUI;
+        }
+
         public void ShowPreviousMethod()
         {
             var id = activeMethodId - 1;
-            ToggleMethod(activeMethodId, false);
-            activeMethodId = Mathf.Clamp(id, 0, methods.Length - 1);
-
-            tween?.Kill();
-
-            tween = chartParent.DOMove(hidePos * -1, hideDuration)
-                .SetEase(hideEase)
-                .OnComplete(() =>
-                {
-                    chartParent.transform.position = hidePos;
-                    ToggleMethod(activeMethodId, true);
-                });
+            SwitchMethods(id, hidePos);
         }
 
         public void ShowNextMethod()
         {
             var id = activeMethodId + 1;
-            ToggleMethod(activeMethodId, false);
-            activeMethodId = Mathf.Clamp(id, 0, methods.Length - 1);
-
-            tween = chartParent.DOMove(hidePos, hideDuration)
-                .SetEase(hideEase)
-                .OnComplete(() =>
-                {
-                    chartParent.transform.position = showPos;
-                    ToggleMethod(activeMethodId, true);
-                });
+            SwitchMethods(id, showPos);
         }
 
         public void ToggleMethod(int id, bool toggle)
@@ -94,9 +81,49 @@ namespace MathPresentation
             }
         }
 
+        private void SwitchMethods(int id, Vector2 pos)
+        {
+            chartUI.TogglePreviousButton(true);
+            chartUI.ToggleNextButton(true);
+
+            ToggleMethod(activeMethodId, false);
+            activeMethodId = Mathf.Clamp(id, 0, methods.Length - 1);
+
+            if (activeMethodId <= 0)
+            {
+                chartUI.TogglePreviousButton(false);
+            } 
+            else if(activeMethodId >= methods.Length -1)
+            {
+                chartUI.ToggleNextButton(false);
+            }
+
+            tween?.Kill();
+
+            tween = chartParent.DOMove(-pos, hideDuration)
+                .SetEase(hideEase)
+                .OnComplete(() =>
+                {
+                    chartParent.transform.position = pos;
+                    ToggleMethod(activeMethodId, true);
+                });
+        }
+
         private void Awake()
         {
             methods = FindObjectsOfType<Method>(true);
+        }
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                ShowPreviousMethod();
+            }
+            else if(Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                ShowNextMethod();
+            }
         }
     }
 }

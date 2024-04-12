@@ -8,6 +8,7 @@ namespace MathPresentation
     using MathPresentation.Toolbox;
     using Methods;
     using UnityEngine.EventSystems;
+    using UnityEngine.SceneManagement;
 
     public class ChartController : MonoBehaviour
     {
@@ -123,12 +124,15 @@ namespace MathPresentation
             view.onNextClicked += methodSwitcher.ShowNextMethod;
             view.onPreviousClicked += methodSwitcher.ShowPreviousMethod;
 
+            methodSwitcher.Init(view);
+
             methodSwitcher.OnSwitched += overlay.UpdateVectors;
         }
 
         private void Start()
         {
             methodSwitcher.ToggleMethod(0, true);
+            view.TogglePreviousButton(true);
         }
 
         private void Update()
@@ -136,6 +140,11 @@ namespace MathPresentation
             if(Input.GetMouseButtonUp(0))
             {
                 EventSystem.current.SetSelectedGameObject(null);
+            }
+
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadSceneAsync("Menu");
             }
         }
 

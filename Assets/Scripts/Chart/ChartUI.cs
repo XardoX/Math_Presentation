@@ -72,6 +72,16 @@ namespace MathPresentation
             sliderParent.gameObject.SetActive(false);
         }
 
+        public void TogglePreviousButton(bool toggle)
+        {
+            previousMethodButton.gameObject.SetActive(toggle);
+        }
+
+        public void ToggleNextButton(bool toggle)
+        {
+            nextMethodButton.gameObject.SetActive(toggle);
+        }
+
         private void Awake()
         {
             slider.onValueChanged.AddListener(UpdateSliderText);
