@@ -52,12 +52,16 @@ namespace MathPresentation
         {
             var id = activeMethodId - 1;
             SwitchMethods(id, hidePos);
+
+            maskController.Play();
         }
 
         public void ShowNextMethod()
         {
             var id = activeMethodId + 1;
             SwitchMethods(id, showPos);
+
+            maskController.PlayReverse();
         }
 
         public void ToggleMethod(int id, bool toggle)
@@ -75,7 +79,6 @@ namespace MathPresentation
             }
             else
             {
-                maskController.Play();
                 methods[id].gameObject.SetActive(false);
                 activeMethodId = -1;
             }
