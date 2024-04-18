@@ -27,7 +27,7 @@ namespace MathPresentation.Toolbox
         public void ToggleToolbox()
         {
             isToolboxShown = !isToolboxShown;
-            animator.SetBool("Show", isToolboxShown);
+            //animator.SetBool("Show", isToolboxShown);
         }
 
         private void Awake()

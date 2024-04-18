@@ -1,4 +1,5 @@
 using Extensions;
+using MathPresentation.UI.Tabs;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +19,9 @@ namespace MathPresentation
 
         [SerializeField]
         private TextMeshProUGUI codeText;
+
+        [SerializeField]
+        private TabWindow tabWindow;
 
         private string rawCode;
 
@@ -73,6 +77,7 @@ namespace MathPresentation
             }
 
             codeText.text = coloredText;
+            Invoke(nameof(UpdateTabWindow), 0.1f);
         }
 
         public void AddDynamicHighLights(string character, Color color)
@@ -105,6 +110,11 @@ namespace MathPresentation
         {
             GUIUtility.systemCopyBuffer = rawCode;
             Debug.Log("Copied!");
+        }
+
+        private void UpdateTabWindow()
+        {
+            tabWindow.Show();
         }
     }
 }
