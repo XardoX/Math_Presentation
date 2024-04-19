@@ -108,7 +108,11 @@ namespace MathPresentation
 
         public void OnPointerClick(PointerEventData eventData)
         {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            WebGLClipboard.CopyToWebGLClipboard(rawCode);
+#else
             GUIUtility.systemCopyBuffer = rawCode;
+#endif
             Debug.Log("Copied!");
         }
 
