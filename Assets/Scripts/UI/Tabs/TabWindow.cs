@@ -37,7 +37,9 @@ namespace MathPresentation.UI.Tabs
 
         private Vector2 startPos;
 
-        private bool isShown;
+        private bool isShown = false;
+
+        public bool IsShown => isShown;
 
         public void Show()
         {
@@ -69,7 +71,6 @@ namespace MathPresentation.UI.Tabs
         public void HideCompletly()
         {
             rectTransform.DOAnchorPos(startPos - tabButton.Rect.anchoredPosition, hideDuration).SetEase(hideEase);
-
         }
 
         public void Toggle()

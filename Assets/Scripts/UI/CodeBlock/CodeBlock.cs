@@ -118,7 +118,8 @@ namespace MathPresentation
 
         private void UpdateTabWindow()
         {
-            tabWindow.Show();
+            if(tabWindow.IsShown)
+                tabWindow.Show();
         }
     }
 }
