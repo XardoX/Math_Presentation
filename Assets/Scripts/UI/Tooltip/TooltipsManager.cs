@@ -12,6 +12,12 @@ namespace MathPresentation.UI.TooltipSystem
 
         private List<Tooltip> tooltips;
 
+        public Tooltip GetTooltip()
+        {
+            return null;
+        }
+
+
         private void Awake()
         {
             if (Instance == null)
