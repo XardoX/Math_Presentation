@@ -1,5 +1,6 @@
 using Extensions;
 using MathPresentation.UI.Tabs;
+using MathPresentation.UI.TooltipSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,6 +23,9 @@ namespace MathPresentation
 
         [SerializeField]
         private TabWindow tabWindow;
+
+        [SerializeField]
+        private TooltipTrigger tooltipTrigger;
 
         private string rawCode;
 
@@ -113,6 +117,7 @@ namespace MathPresentation
 #else
             GUIUtility.systemCopyBuffer = rawCode;
 #endif
+            tooltipTrigger.OverrideText("Copied!");
             Debug.Log("Copied!");
         }
 
