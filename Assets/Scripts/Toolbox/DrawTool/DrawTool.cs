@@ -20,6 +20,8 @@ namespace MathPresentation.Toolbox
 
         private Camera cam;
 
+        private Transform currentParent;
+
         private int lineCounter = 0;
 
         public void SetDrawingColor(int colorId)
@@ -38,6 +40,31 @@ namespace MathPresentation.Toolbox
             drawnLines.Clear();
         }
 
+        public void ClearAllInCurrentParent()
+        {
+            var lines = currentParent.GetComponentsInChildren<DrawnLine>();
+            foreach (var line in lines)
+            {
+                drawnLines.Remove(line);
+                Destroy(line != null ? line.gameObject : null);
+            }
+        }
+
+        public void SetCurrentParent(Transform newParent)
+        {
+            currentParent = newParent;
+        }
+
+        public void ResetParent()
+        {
+            currentParent = transform;
+        }
+
+        private void Awake()
+        {
+            ResetParent();
+        }
+
         private void Start()
         {
             cam = Camera.main;
@@ -49,7 +76,7 @@ namespace MathPresentation.Toolbox
 
             if(Input.GetMouseButtonDown(0))
             {
-                activeLine = Instantiate(drawnLinePrefab, transform);
+                activeLine = Instantiate(drawnLinePrefab, currentParent);
                 activeLine.name = "Line_" + lineCounter.ToString("00");
                 activeLine.SetColor(color);
                 drawnLines.Add(activeLine);

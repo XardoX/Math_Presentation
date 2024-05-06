@@ -30,6 +30,11 @@ namespace MathPresentation.Toolbox
             drawTool.ClearAllLines();
         }
 
+        public void OnMethodSwitched(Methods.Method method)
+        {
+            drawTool.SetCurrentParent(method.transform);
+        }
+
         private void Start()
         {
             toolboxUI.OnToolSelected += SelectTool;

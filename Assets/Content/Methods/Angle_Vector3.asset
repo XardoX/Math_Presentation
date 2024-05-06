@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   id: Angle
-  title: Vectror3.Angle
+  title: Vector3.Angle
   mathBehindIt: 
   whatIsUsedFor: 
   code: angle = Vector3.Angle(A, B);

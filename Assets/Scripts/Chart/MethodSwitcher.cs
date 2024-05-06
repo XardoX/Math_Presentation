@@ -13,7 +13,7 @@ namespace MathPresentation
 {
     public class MethodSwitcher : MonoBehaviour
     {
-        public Action OnSwitched;
+        public Action<Method> OnSwitched;
 
         [Header("Settings")]
         [SerializeField]
@@ -70,12 +70,13 @@ namespace MathPresentation
             if (toggle)
             {
                 activeMethodId = id;
+                var method = methods[id];
                 tween = chartParent.DOMove(Vector3.zero, showduration)
                     .SetEase(showEase)
                     .OnComplete(() =>
                     {
-                        OnSwitched?.Invoke();
-                        methods[id].gameObject.SetActive(true);
+                        OnSwitched?.Invoke(method);
+                        method.gameObject.SetActive(true);
                     });
             }
             else

@@ -125,8 +125,7 @@ namespace MathPresentation
             view.onPreviousClicked += methodSwitcher.ShowPreviousMethod;
 
             methodSwitcher.Init(view);
-
-            methodSwitcher.OnSwitched += overlay.UpdateVectors;
+            methodSwitcher.OnSwitched += OnMethodSwitched;
         }
 
         private void Start()
@@ -158,6 +157,12 @@ namespace MathPresentation
         {
             selectedVector = null;
             toolsController.ToggleCurrentTool(true);
+        }
+
+        private void OnMethodSwitched(Method newMethod)
+        {
+            overlay.UpdateVectors();
+            toolsController.OnMethodSwitched(newMethod);
         }
     }
 }
