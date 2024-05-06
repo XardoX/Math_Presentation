@@ -51,6 +51,7 @@ namespace MathPresentation
         public void ShowPreviousMethod()
         {
             var id = activeMethodId - 1;
+            if (id < 0) return;
             SwitchMethods(id, hidePos);
 
             maskController.Play();
@@ -59,8 +60,8 @@ namespace MathPresentation
         public void ShowNextMethod()
         {
             var id = activeMethodId + 1;
+            if (id > methods.Length - 1) return;
             SwitchMethods(id, showPos);
-
             maskController.PlayReverse();
         }
 
@@ -92,14 +93,7 @@ namespace MathPresentation
             ToggleMethod(activeMethodId, false);
             activeMethodId = Mathf.Clamp(id, 0, methods.Length - 1);
 
-            if (activeMethodId <= 0)
-            {
-                chartUI.TogglePreviousButton(false);
-            } 
-            else if(activeMethodId >= methods.Length -1)
-            {
-                chartUI.ToggleNextButton(false);
-            }
+            ToggleMethodButtons();
 
             tween?.Kill();
 
@@ -112,9 +106,26 @@ namespace MathPresentation
                 });
         }
 
+        private void ToggleMethodButtons()
+        {
+            if (activeMethodId <= 0)
+            {
+                chartUI.TogglePreviousButton(false);
+            }
+            else if (activeMethodId >= methods.Length - 1)
+            {
+                chartUI.ToggleNextButton(false);
+            }
+        }
+
         private void Awake()
         {
             methods = FindObjectsOfType<Method>(true);
+        }
+
+        private void Start()
+        {
+            ToggleMethodButtons();
         }
 
         private void Update()
