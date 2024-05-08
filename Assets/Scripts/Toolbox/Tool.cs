@@ -12,5 +12,15 @@ namespace MathPresentation.Toolbox
         {
             isEnabled = toggle;
         }
+
+        public virtual void OnToolClickedDown()
+        {
+
+        }
+
+        public virtual void OnToolClickedUp()
+        {
+
+        }
     }
 }

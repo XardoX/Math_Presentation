@@ -83,8 +83,9 @@ namespace MathPresentation.Toolbox
                 lineCounter++;
             }
 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && activeLine != null)
             {
+
                 if (activeLine?.Points.Count < 2) 
                     Destroy(activeLine.gameObject);
 

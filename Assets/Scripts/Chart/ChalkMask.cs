@@ -6,7 +6,7 @@ using DG.Tweening;
 
 namespace MathPresentation
 {
-    public class MaskController : MonoBehaviour
+    public class ChalkMask : MonoBehaviour
     {
         [SerializeField]
         private ParticleSystem particles;
@@ -36,6 +36,11 @@ namespace MathPresentation
         public void ResetMask()
         {
             splineAnimate.Restart(false);
+        }
+
+        public void ClearMask()
+        {
+            particles.Clear();
         }
     }
 }

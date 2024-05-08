@@ -33,7 +33,7 @@ namespace MathPresentation
         private Transform chartParent;
 
         [SerializeField]
-        private MaskController maskController;
+        private ChalkMask chalkMask;
 
         private Method[] methods;
 
@@ -54,7 +54,7 @@ namespace MathPresentation
             if (id < 0) return;
             SwitchMethods(id, hidePos);
 
-            maskController.Play();
+            chalkMask.Play();
         }
 
         public void ShowNextMethod()
@@ -62,7 +62,7 @@ namespace MathPresentation
             var id = activeMethodId + 1;
             if (id > methods.Length - 1) return;
             SwitchMethods(id, showPos);
-            maskController.PlayReverse();
+            chalkMask.PlayReverse();
         }
 
         public void ToggleMethod(int id, bool toggle)

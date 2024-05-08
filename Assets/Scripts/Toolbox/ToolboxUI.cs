@@ -5,12 +5,13 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 namespace MathPresentation.Toolbox
 {
     public class ToolboxUI : MonoBehaviour
     {
-        public Action<int> OnToolSelected, OnToolUnselected;
+        public Action<int> OnToolSelected, OnToolUnselected, OnToolPointerDown, OnToolPointerUp;
 
         [SerializeField]
         private Animator animator;
@@ -28,13 +29,19 @@ namespace MathPresentation.Toolbox
         public void ToggleToolbox()
         {
             isToolboxShown = !isToolboxShown;
-            //animator.SetBool("Show", isToolboxShown);
+            //animator.SetBool("Show", isToolboxShown); //animation done by Dotween
         }
 
         private void Awake()
         {
             toolToggles = GetComponentsInChildren<ToolToggle>().ToList();
-            toolToggles.ForEach(_ => _.OnValueChanged.AddListener((value) => OnToolClicked(_)));
+            toolToggles.ForEach(_ =>
+            {
+                var id = toolToggles.IndexOf(_);
+                _.OnValueChanged.AddListener((value) => OnToolClicked(_));
+                _.onPointerDown += () => OnToolPointerDown?.Invoke(id);
+                _.onPointerUp += () => OnToolPointerUp?.Invoke(id);
+            });
         }
 
         private void OnToolClicked(ToolToggle toggle)
