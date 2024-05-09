@@ -49,6 +49,9 @@ namespace MathPresentation.Toolbox
 
         private void SelectTool(int id)
         {
+            if(currentTool != null)
+                currentTool.Toggle(false);
+
             if(id == 6) //todo get rid of hardcode
             {
                 eraserTool.Toggle(true);
@@ -65,6 +68,7 @@ namespace MathPresentation.Toolbox
         private void UnselectTool(int id)
         {
             drawTool.Toggle(toolboxUI.IsAnyToolSelected);
+            currentTool.Toggle(false);
             currentTool = null;
         }
 

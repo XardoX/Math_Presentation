@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Mask
-  - 
+  - Tools
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Tools
+    uniqueID: 3997799867
     locked: 0

@@ -11,6 +11,10 @@ namespace MathPresentation.Toolbox
         public void Toggle(bool toggle)
         {
             isEnabled = toggle;
+            if(toggle)
+                OnEnabled();
+            else 
+                OnDisabled();
         }
 
         public virtual void OnToolClickedDown()
@@ -19,6 +23,16 @@ namespace MathPresentation.Toolbox
         }
 
         public virtual void OnToolClickedUp()
+        {
+
+        }
+
+        protected virtual void OnEnabled()
+        {
+
+        }
+
+        protected virtual void OnDisabled()
         {
 
         }

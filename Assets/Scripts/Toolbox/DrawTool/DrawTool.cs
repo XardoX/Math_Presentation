@@ -61,6 +61,11 @@ namespace MathPresentation.Toolbox
             currentParent = transform;
         }
 
+        public void ClearMissing()
+        {
+            drawnLines = drawnLines.Where(item => item != null).ToList();
+        }
+
         private void Awake()
         {
             ResetParent();
