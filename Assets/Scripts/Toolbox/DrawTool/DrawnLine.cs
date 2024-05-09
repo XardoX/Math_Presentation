@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,8 @@ namespace MathPresentation.Toolbox
 {
     public class DrawnLine : MonoBehaviour
     {
+        public Action<DrawnLine> OnRightClick;
+
         [SerializeField]
         private LineRenderer lineRenderer;
 
@@ -51,7 +54,7 @@ namespace MathPresentation.Toolbox
         {
             if(Input.GetMouseButtonDown(1))
             {
-                Destroy(gameObject);
+                OnRightClick?.Invoke(this);
             }
         }
     }

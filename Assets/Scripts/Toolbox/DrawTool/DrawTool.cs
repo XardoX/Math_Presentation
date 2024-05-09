@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace MathPresentation.Toolbox
@@ -72,26 +73,60 @@ namespace MathPresentation.Toolbox
 
         private void Update()
         {
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                UndoDraw();
+            }
+#endif
+            if (Input.GetKeyDown(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Z))
+            {
+                UndoDraw();
+            }
+
             if (isEnabled == false) return;
 
             if(Input.GetMouseButtonDown(0))
             {
-                activeLine = Instantiate(drawnLinePrefab, currentParent);
-                activeLine.name = "Line_" + lineCounter.ToString("00");
-                activeLine.SetColor(color);
-                drawnLines.Add(activeLine);
-                lineCounter++;
+                CreateLine();
             }
 
             if (Input.GetMouseButtonUp(0) && activeLine != null)
             {
-
-                if (activeLine?.Points.Count < 2) 
-                    Destroy(activeLine.gameObject);
-
-                activeLine = null;
+                DeleteActiveLine();
+            }else
+            {
+                DrawActiveLine();
             }
 
+        }
+
+        private void DeleteActiveLine()
+        {
+            if (activeLine?.Points.Count < 2)
+                DeleteLine(activeLine);
+
+            activeLine = null;
+        }
+
+        private void DeleteLine(DrawnLine line)
+        {
+            drawnLines.Remove(line);
+            Destroy(line.gameObject);
+        }
+
+        private void CreateLine()
+        {
+            activeLine = Instantiate(drawnLinePrefab, currentParent);
+            activeLine.name = "Line_" + lineCounter.ToString("00");
+            activeLine.SetColor(color);
+            activeLine.OnRightClick += DeleteLine;
+            drawnLines.Add(activeLine);
+            lineCounter++;
+        }
+
+        private void DrawActiveLine()
+        {
             if(activeLine != null)
             {
                 Vector3 screenPosDepth = Input.mousePosition;
@@ -99,6 +134,13 @@ namespace MathPresentation.Toolbox
                 var mousePos = cam.ScreenToWorldPoint(screenPosDepth);
                 activeLine.UpdateLine(mousePos);
             }
+        }
+
+        private void UndoDraw()
+        {
+            var lineToDelete = drawnLines.LastOrDefault(_ => _.gameObject.activeInHierarchy && _ != activeLine);
+            if(lineToDelete != null)
+                DeleteLine(lineToDelete);
         }
     }
 }
