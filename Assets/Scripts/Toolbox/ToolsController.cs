@@ -73,6 +73,7 @@ namespace MathPresentation.Toolbox
             if (id == 6) //todo get rid of hardcode
             {
                 eraserTool.OnToolClickedDown();
+                toolboxUI.ToolToggles[id].StartFill(eraserTool.HoldTimeToEraseAll); 
             }
         }
 

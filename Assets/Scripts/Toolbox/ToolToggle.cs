@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +16,9 @@ namespace MathPresentation.Toolbox
         [SerializeField]
         private Toggle toggle;
 
+        [SerializeField]
+        private Image fill;
+
         public bool IsOn => toggle.isOn;
 
         public UnityEvent<bool> OnValueChanged => toggle.onValueChanged;
@@ -27,6 +31,22 @@ namespace MathPresentation.Toolbox
         public void OnPointerUp(PointerEventData eventData)
         {
             onPointerUp.Invoke();
+            StopFill();
+        }
+
+        Tween fillTween;
+        public void StartFill(float duration)
+        {
+            if (fill == null) return;
+            fillTween?.Kill();
+            fillTween = fill.DOFillAmount(1f, duration);
+        }
+
+        public void StopFill()
+        {
+            if (fill == null) return;
+            fillTween?.Kill();
+            fillTween = fill.DOFillAmount(0f, 0.25f).SetEase(Ease.OutQuint);
         }
     }
 }

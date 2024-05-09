@@ -26,6 +26,8 @@ namespace MathPresentation.Toolbox
 
         public bool IsAnyToolSelected => selectedTool != null;
 
+        public List<ToolToggle> ToolToggles => toolToggles;
+
         public void ToggleToolbox()
         {
             isToolboxShown = !isToolboxShown;

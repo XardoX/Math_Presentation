@@ -18,9 +18,10 @@ namespace MathPresentation.Toolbox
 
         private bool erasing;
 
+        public float HoldTimeToEraseAll => holdTimeToEraseAll;
+
         public override void OnToolClickedDown()
         {
-            Debug.Log("Down");
             base.OnToolClickedDown();
             startHoldTime = Time.time;
             endHoldtime = Time.time + holdTimeToEraseAll;
@@ -29,7 +30,6 @@ namespace MathPresentation.Toolbox
 
         public override void OnToolClickedUp()
         {
-            Debug.Log("up");
             base.OnToolClickedUp();
             endHoldtime = Time.time;
             CheckHoldTime();
