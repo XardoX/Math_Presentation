@@ -14,6 +14,9 @@ namespace MathPresentation.Toolbox
         private float radius = 1f;
 
         [SerializeField]
+        private float eraseAllTime = 1f;
+
+        [SerializeField]
         private ContactFilter2D contactFilter;
 
         [SerializeField]
@@ -50,7 +53,7 @@ namespace MathPresentation.Toolbox
         {
             erasing = true;
             chalkMask.Play();
-            Invoke(nameof(EraseAll), 1f); //todo courutine?
+            Invoke(nameof(EraseAll), eraseAllTime); //todo courutine?
         }
 
         public void EraseAll()
