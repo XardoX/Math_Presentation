@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine.EventSystems;
 using System;
+using Ami.BroAudio;
 
 namespace MathPresentation
 {
@@ -27,6 +28,9 @@ namespace MathPresentation
 
         [SerializeField]
         private Ease showEase, hideEase;
+
+        [SerializeField]
+        private SoundID previousMethodSFX, nextMethodSFX;
 
         [Header("References")]
         [SerializeField]
@@ -55,18 +59,27 @@ namespace MathPresentation
             SwitchMethods(id, hidePos);
 
             chalkMask.Play();
+            BroAudio.Play(previousMethodSFX);
         }
 
         public void ShowNextMethod()
         {
             var id = activeMethodId + 1;
-            if (id > methods.Length - 1) return;
+            if (id >= methods.Length) return;
             SwitchMethods(id, showPos);
+
             chalkMask.PlayReverse();
+            BroAudio.Play(nextMethodSFX);
         }
 
         public void ToggleMethod(int id, bool toggle)
         {
+            if(id >= methods.Length)
+            {
+                Debug.LogWarning("No methods found");
+                return;
+            }
+
             if (toggle)
             {
                 activeMethodId = id;
@@ -121,7 +134,7 @@ namespace MathPresentation
 
         private void Awake()
         {
-            methods = FindObjectsOfType<Method>(true);
+            methods = FindObjectsByType<Method>(FindObjectsInactive.Include, FindObjectsSortMode.None);
         }
 
         private void Start()

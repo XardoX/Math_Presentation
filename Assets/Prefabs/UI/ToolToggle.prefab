@@ -112,6 +112,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggle: {fileID: 2589257490127932837}
+  fill: {fileID: 0}
+  onToggleOnSFX:
+    ID: 536870915
+    _sourceAsset: {fileID: 11400000, guid: 768c2005f4803254a86411d65d99c073, type: 2}
+    <DebugObject>k__BackingField: {fileID: 515635219906202828}
+  onToggleOffSFX:
+    ID: 536870916
+    _sourceAsset: {fileID: 11400000, guid: 768c2005f4803254a86411d65d99c073, type: 2}
+    <DebugObject>k__BackingField: {fileID: 515635219906202828}
+  onFillSFX:
+    ID: 536870917
+    _sourceAsset: {fileID: 11400000, guid: 768c2005f4803254a86411d65d99c073, type: 2}
+    <DebugObject>k__BackingField: {fileID: 515635219906202828}
 --- !u!1 &7959368410368925226
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,6 +49,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -131,7 +134,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 9dd3e0b19c1c9f4438b6045cf8735382, type: 2}
-  title: Vector3.Angle
   doubleChart: 0
   angleColor: {r: 0.9490196, g: 0.79678106, b: 0.56941175, a: 1}
   angleCircle: {fileID: 7252607055457250751}

@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d67bae80f57af5146bd572d9846ae194, type: 2}
-  title: Vector3.Lerp
   doubleChart: 0
   tColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   unclampedLerp: 0
@@ -102,6 +101,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

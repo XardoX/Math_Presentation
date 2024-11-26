@@ -1,3 +1,4 @@
+using Ami.BroAudio;
 using DG.Tweening;
 using System;
 using System.Collections;
@@ -19,6 +20,9 @@ namespace MathPresentation.Toolbox
         [SerializeField]
         private Image fill;
 
+        [SerializeField]
+        private SoundID onToggleOnSFX, onToggleOffSFX, onFillSFX;
+
         public bool IsOn => toggle.isOn;
 
         public UnityEvent<bool> OnValueChanged => toggle.onValueChanged;
@@ -26,6 +30,8 @@ namespace MathPresentation.Toolbox
         public void OnPointerDown(PointerEventData eventData)
         {
             onPointerDown?.Invoke();
+            var toggleSFX = toggle.isOn ? onToggleOnSFX : onToggleOffSFX;
+            BroAudio.Play(toggleSFX);
         }
 
         public void OnPointerUp(PointerEventData eventData)
@@ -40,6 +46,7 @@ namespace MathPresentation.Toolbox
             if (fill == null) return;
             fillTween?.Kill();
             fillTween = fill.DOFillAmount(1f, duration);
+            BroAudio.Play(onFillSFX);
         }
 
         public void StopFill()
@@ -47,6 +54,7 @@ namespace MathPresentation.Toolbox
             if (fill == null) return;
             fillTween?.Kill();
             fillTween = fill.DOFillAmount(0f, 0.25f).SetEase(Ease.OutQuint);
+            BroAudio.Stop(onFillSFX);
         }
     }
 }

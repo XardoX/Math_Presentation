@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-using DigitalRuby.SoundManager;
 namespace MathPresentation
 {
     using MathPresentation.Toolbox;
@@ -111,7 +110,7 @@ namespace MathPresentation
 
         private void Awake()
         {
-            methods = FindObjectsOfType<Method>(true);
+            methods = FindObjectsByType<Method>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
             foreach (var method in methods)
             {
