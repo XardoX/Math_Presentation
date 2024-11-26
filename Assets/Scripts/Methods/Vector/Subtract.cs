@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 namespace MathPresentation.Methods
 {
@@ -17,6 +16,7 @@ namespace MathPresentation.Methods
         protected override void OnMethodEnable()
         {
             description = $"Subtracts {B.Name} from {A.Name} which results in {C.Name}";
+            
         }
 
         protected override void SetVectors()

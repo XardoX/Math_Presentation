@@ -1,8 +1,7 @@
 // Summaries were copied from https://docs.unity3d.com/Packages/com.unity.textmeshpro@4.0/manual/RichTextSupportedTags.html
-
+using System;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 
 namespace Extensions
 {
@@ -60,7 +59,7 @@ namespace Extensions
         /// <param name="textValue">Can be anything tht can be converted to string</param>
         /// <param name="color"></param>
         /// <returns></returns>
-        public static string Color<T>(this T textValue, Color color) => $"<color=#{color.ToHexString()}>{textValue}</color>";
+        public static string Color<T>(this T textValue, Color color) => $"<color=#{ColorUtility.ToHtmlStringRGBA(color)}>{textValue}</color>";
 
         /// <summary>
         /// Changes text color or color and opacity. The following color names are supported: black, blue, green, orange, purple, red, white, and yellow.
@@ -210,7 +209,7 @@ namespace Extensions
         /// <param name="textValue">Can be anything tht can be converted to string</param>
         /// <param name="color"></param>
         /// <returns></returns>
-        public static string Mark<T>(this T textValue, Color color) => $"<mark={color.ToHexString()}>{textValue}</mark>";
+        public static string Mark<T>(this T textValue, Color color) => $"<mark={ColorUtility.ToHtmlStringRGBA(color)}>{textValue}</mark>";
 
         /// <summary>
         /// Renders the text as monospace.

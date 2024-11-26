@@ -36,3 +36,4 @@ Material:
     - _ScaleRatioC: 0.902439
     m_Colors: []
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
