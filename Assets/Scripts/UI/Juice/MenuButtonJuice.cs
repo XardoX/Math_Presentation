@@ -5,31 +5,15 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using UnityEngine.UI;
 using System.Runtime.InteropServices;
+using MyBox;
 
 namespace MathPresentation.UI.Juice
 {
-    public class MenuButtonJuice : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class MenuButtonJuice : InteractableBase
     {
-        [Header("Juice Settings")]
-        [SerializeField]
-        private float hoverScale = 1.1f;
-
-        [SerializeField]
-        private float enterDuration = 0.25f;
-
-        [SerializeField]
-        private Ease enterEase = Ease.Linear;
-
-        [SerializeField]
-        private float exitDuration = 0.25f;
-
-        [SerializeField]
-        private Ease exitEase = Ease.Linear;
-
-        [Header("References")]
+        [Foldout("References")]
         [SerializeField]
         private Image image;
-
 
         private float startWidth;
 
@@ -39,19 +23,18 @@ namespace MathPresentation.UI.Juice
 
             image.material = mat;
             startWidth = mat.GetFloat("_Width");
-
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
+        protected override void OnHoverEnter()
         {
-            transform.DOScale(hoverScale, enterDuration).SetEase(enterEase);
+            base.OnHoverEnter();
             image.material.DOFloat(startWidth * hoverScale, "_Width", enterDuration)
                 .SetEase(enterEase);
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        protected override void OnHoverExit()
         {
-            transform.DOScale(1f, exitDuration).SetEase(exitEase);
+            base.OnHoverExit();
             image.material.DOFloat(startWidth, "_Width", exitDuration)
                 .SetEase(exitEase);
         }

@@ -2,6 +2,7 @@
   "dependencies": {
     "com.annulusgames.tween-playables": "https://github.com/AnnulusGames/TweenPlayables.git?path=/Assets/TweenPlayables",
     "com.coffee.softmask-for-ugui": "https://github.com/mob-sakai/SoftMaskForUGUI.git",
+    "com.domybest.mybox": "https://github.com/Deadcows/MyBox.git",
     "com.olegknyazev.softmask": "https://github.com/olegknyazev/SoftMask.git?path=/Packages/com.olegknyazev.softmask#1.7.0",
     "com.unity.collab-proxy": "2.5.2",
     "com.unity.feature.2d": "2.0.1",
