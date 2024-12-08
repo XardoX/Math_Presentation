@@ -9,6 +9,11 @@ namespace MathPresentation.Settings
 
         protected bool Enabled { get => enable; set => enable = value; }
 
+        public virtual string[] GetAllPossibleValues()
+        {
+            return new string[] {};
+        }
+
 #if UNITY_EDITOR
         protected virtual void OnValidate()
         {

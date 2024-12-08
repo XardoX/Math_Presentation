@@ -22,6 +22,22 @@ MonoBehaviour:
     m_Localized: Ustawienia
     m_Metadata:
       m_Items: []
+  - m_Id: 4033270217449472
+    m_Localized: "J\u0119zyk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4057170791899136
+    m_Localized: "G\u0142o\u015Bno\u015B\u0107 efekt\xF3w d\u017Awi\u0119kowych"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4057618802286592
+    m_Localized: "G\u0142o\u015Bno\u015B\u0107 muzyki"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4057912533590016
+    m_Localized: "Og\xF3lna glo\u015Bno\u015B\u0107"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

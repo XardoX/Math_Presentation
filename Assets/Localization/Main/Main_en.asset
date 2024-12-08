@@ -16,12 +16,36 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: e6ffaa02ae343564686af2bcb5c58029, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 8339204353416495195
   m_TableData:
   - m_Id: 911674085376
     m_Localized: Settings
     m_Metadata:
       m_Items: []
+  - m_Id: 4033270217449472
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4057170791899136
+    m_Localized: SFX Volume
+    m_Metadata:
+      m_Items:
+      - rid: 8339204353416495195
+  - m_Id: 4057618802286592
+    m_Localized: Music Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4057912533590016
+    m_Localized: Master volume
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 8339204353416495195
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 4057170791899136

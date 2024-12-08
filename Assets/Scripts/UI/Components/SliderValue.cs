@@ -20,9 +20,11 @@ namespace MathPresentation.UI.Components
         private bool remapValue;
 
         [SerializeField]
-        private float _outMin = 0f;
+        private float outMin = 0f;
+
         [SerializeField]
-        private float _outMax = 100f;
+        private float outMax = 100f;
+
         private void Awake()
         {
             if (slider == null)
@@ -41,7 +43,7 @@ namespace MathPresentation.UI.Components
         {
             if (remapValue)
             {
-                text.text = slider.value.RemapValue(slider.minValue, slider.maxValue, _outMin, _outMax).ToString("0");
+                text.text = slider.value.RemapValue(slider.minValue, slider.maxValue, outMin, outMax).ToString("0");
             }
             else
             {

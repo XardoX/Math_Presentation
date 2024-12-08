@@ -97,6 +97,8 @@ namespace UnityEngine.UI
             set { _onValueChanged = value; }
         }
 
+        public TextMeshProUGUI Text => _text;
+
         protected Stepper()
         { }
 

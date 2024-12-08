@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fc84192d1d3ad394e85e9f44a9922a78, type: 3}
-  m_Name: SettingsData
+  m_Name: _SettingsData
   m_EditorClassIdentifier: 
   models:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a37de385ae66a8546a9fdb1ad3855bee, type: 2}

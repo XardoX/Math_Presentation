@@ -2,10 +2,15 @@ using UnityEngine;
 
 namespace MathPresentation.Settings
 {
-    public class FloatSettingModel : SettingModel, ISetting<float>
+    public class FloatSettingModel : SettingModel
     {
         [SerializeField]
-        private float value;
+        protected float value, 
+            min = 0f, 
+            max = 99999f;
+
+        public float Min => min;
+        public float Max => max;
 
         public virtual float GetValue()
         {
@@ -14,7 +19,12 @@ namespace MathPresentation.Settings
 
         public virtual void SetValue(float value)
         {
-            throw new System.NotImplementedException();
+            OnValueChanged(this.value);
+            this.value = Mathf.Clamp(value, min, max);
+        }
+
+        protected virtual void OnValueChanged(float oldValue)
+        {
         }
     }
 }

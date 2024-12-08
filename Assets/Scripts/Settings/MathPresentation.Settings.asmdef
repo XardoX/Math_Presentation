@@ -1,5 +1,5 @@
 {
-    "name": "MathPresentation",
+    "name": "MathPresentation.Settings",
     "rootNamespace": "",
     "references": [
         "GUID:6055be8ebefd69e48b49212b09b47b2f",
@@ -7,7 +7,8 @@
         "GUID:21d1eb854b91ade49bc69a263d12bee2",
         "GUID:111d4e39aeddad44898002abada9c174",
         "GUID:48c9f6afdac61634db0e0f241c7d4d51",
-        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5"
+        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
+        "GUID:9fa96ef68044427478fc8da1d33b476e"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

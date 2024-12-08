@@ -1,16 +1,16 @@
 using TMPro;
 using UnityEngine;
 
-namespace MathPresentation.Settings
+namespace MathPresentation.Settings.Components
 {
-    public class DropdownSetting : SettingComponent<TMP_Dropdown, int>
+    public class DropdownSetting : SettingComponent<TMP_Dropdown, IntSettingModel>
     {
-        public override void LoadSetting()
+        public void LoadSetting()
         {
             throw new System.NotImplementedException();
         }
 
-        public override void SetSetting(int value)
+        public void SetSetting(int value)
         {
             throw new System.NotImplementedException();
         }

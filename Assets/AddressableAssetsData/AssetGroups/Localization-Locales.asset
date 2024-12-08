@@ -15,42 +15,6 @@ MonoBehaviour:
   m_GroupName: Localization-Locales
   m_GUID: ff3500741959dda42815d6495d60b64a
   m_SerializeEntries:
-  - m_GUID: 0d22ee3d223cd8d4896d9a6fc1b8ee6e
-    m_Address: Vietnamese (vi)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1e90f15910e0a544f80081be9c50a936
-    m_Address: Spanish (es)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 731625ebe68273048a2edc305cd2551d
-    m_Address: Italian (it)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 78c71473448bd464b84abe48f47509e4
-    m_Address: French (fr)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7d2d830de083f2f4e9fa467258c012d5
-    m_Address: Russian (ru)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 945def5ffc3ab2645afed13e239fe740
-    m_Address: Portuguese (pt)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: af4ebbcf1e427a6478833a40703563d3
     m_Address: Polish (pl)
     m_ReadOnly: 1
@@ -59,30 +23,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0cb481104a165a459f6a0ea749900e6
     m_Address: English (en)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c17c24d431947034f8ae766ac0344c6c
-    m_Address: Japanese (ja)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c2a20cde7c1353b4fb9946b728a21eb7
-    m_Address: German (de)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c46cade0212172a40b177e2148f56fc3
-    m_Address: Chinese (Simplified) (zh)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f24f233e873a5df4faeeb5a40ac5a34e
-    m_Address: Hindi (hi)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale

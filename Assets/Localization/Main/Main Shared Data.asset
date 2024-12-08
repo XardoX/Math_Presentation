@@ -19,6 +19,22 @@ MonoBehaviour:
     m_Key: SETTINGS
     m_Metadata:
       m_Items: []
+  - m_Id: 4033270217449472
+    m_Key: LANGUAGE_SETTING
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4057170791899136
+    m_Key: SETTINGS_SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4057618802286592
+    m_Key: SETTINGS_MUSIC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4057912533590016
+    m_Key: SETTINGS_MASTER
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

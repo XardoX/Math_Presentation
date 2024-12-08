@@ -480,6 +480,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2513806990276472543}
+    - targetCorrespondingSourceObject: {fileID: 6617736279418808545, guid: 9dbb8dc7be7e12a4d9176eb083e4d55b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8437900882754034}
   m_SourcePrefab: {fileID: 100100000, guid: 9dbb8dc7be7e12a4d9176eb083e4d55b, type: 3}
 --- !u!224 &4324243513558812785 stripped
 RectTransform:
@@ -508,9 +512,24 @@ MonoBehaviour:
   slider: {fileID: 4407249331880998523}
   text: {fileID: 2472552478082706000}
   percentageValue: 0
-  remapValue: 0
-  _outMin: 0
-  _outMax: 100
+  remapValue: 1
+  outMin: 0
+  outMax: 100
+--- !u!114 &8437900882754034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7317215337181066626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a489792efcd374aac6c765d389aa3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setting: {fileID: 0}
+  component: {fileID: 4407249331880998523}
+  sliderValue: {fileID: 2513806990276472543}
 --- !u!1001 &5097643423836023173
 PrefabInstance:
   m_ObjectHideFlags: 0

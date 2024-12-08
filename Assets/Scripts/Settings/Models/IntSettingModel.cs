@@ -1,10 +1,17 @@
 using UnityEngine;
 namespace MathPresentation.Settings
 {
-    public class IntSettingModel : SettingModel, ISetting<int>
+    public abstract class IntSettingModel : SettingModel
     {
         [SerializeField]
-        private int value;
+        protected int value;
+        [SerializeField]
+        protected int min;
+        [SerializeField]
+        protected int max;
+
+        public int Min => min;
+        public int Max => max;
 
         public int GetValue()
         {
@@ -13,7 +20,12 @@ namespace MathPresentation.Settings
 
         public void SetValue(int value)
         {
-            this.value = value;
+            this.value = Mathf.Clamp(value, min, max);
+            OnValueChanged(value);
+        }
+        
+        protected virtual void OnValueChanged(int oldValue)
+        {
         }
     }
 }

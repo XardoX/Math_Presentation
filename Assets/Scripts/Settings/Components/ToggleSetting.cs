@@ -1,16 +1,17 @@
 using UnityEngine;
-
-public class ToggleSetting : MonoBehaviour
+using UnityEngine.UI;
+namespace MathPresentation.Settings.Components
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class ToggleSetting : SettingComponent<Toggle, BoolSettingModel>
     {
-        
-    }
+        public void LoadSetting()
+        {
+            throw new System.NotImplementedException();
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void SetSetting(bool value)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

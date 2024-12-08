@@ -1,18 +1,14 @@
 using UnityEngine;
 
-namespace MathPresentation.Settings
+namespace MathPresentation.Settings.Components
 {
-    public abstract class SettingComponent<C,T> : MonoBehaviour
+    public abstract class SettingComponent<C, T> : MonoBehaviour where T : SettingModel
     {
         [SerializeField]
-        private SettingsData data;
+        protected T setting;
 
         [SerializeField]
-        private C component;
-
-        public abstract void LoadSetting();
-
-        public abstract void SetSetting(T value);
+        protected C component;
 
         protected virtual void GetUIComponent()
         {
@@ -22,16 +18,6 @@ namespace MathPresentation.Settings
         protected virtual void Awake()
         {
             GetUIComponent();
-        }
-
-        private void OnEnable()
-        {
-
-        }
-
-        private void OnDisable()
-        {
-
         }
     }
 }

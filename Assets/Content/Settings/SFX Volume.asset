@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 748dfb8f993716147b9104e7c4d272a1, type: 3}
-  m_Name: Distance_Vector3
+  m_Script: {fileID: 11500000, guid: e16273417e7dcc941b9eb05b432b577b, type: 3}
+  m_Name: SFX Volume
   m_EditorClassIdentifier: 
-  type: 1
-  id: Distance
-  title: Distance
-  mathBehindIt: 
-  whatIsUsedFor: 
-  code: distance = Vector3.Distance(A,B);
-  similarMethods: []
+  enable: 1
+  value: 1
+  min: 0
+  max: 1
