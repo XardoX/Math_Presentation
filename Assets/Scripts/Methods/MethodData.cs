@@ -1,8 +1,11 @@
+using Extensions;
+using MathPresentation.LocalizationWrapper;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace MathPresentation.Methods
 {
@@ -16,7 +19,10 @@ namespace MathPresentation.Methods
         private string id;
 
         [SerializeField]
-        private string title;
+        private LocalizedString title;
+
+        [SerializeField]
+        private LocalizedString description;
 
         [SerializeField]
         [TextArea(3, 10)]
@@ -35,11 +41,15 @@ namespace MathPresentation.Methods
 
         public MethodType Type => type;
         public string Id => id; 
-        public string Title => title;
+
+        public string Title => title.GetLocalizedString();
+        public string Description => description.GetLocalizedString();
+        public LocalizedString DescriptionString => description;
         public string MathBehindIt => mathBehindIt;
         public string WhatIsUsedFor => whatIsUsedFor;
         public string Code => code;
         public MethodData[] SimilarMethods => similarMethods;
+
 
         private void OnEnable()
         {
@@ -57,10 +67,19 @@ namespace MathPresentation.Methods
             }
         }
 
+
 #if UNITY_EDITOR
+        private void SetLocalizedStrings()
+        {
+            title.SetReference("Vectors", id.ToUpper() + "_TITLE");
+            description.SetReference("Vectors", id.ToUpper() + "_DESC");
+
+        }
+
         private void OnValidate()
         {
             SetName();
+            SetLocalizedStrings();
         }
 #endif
     }

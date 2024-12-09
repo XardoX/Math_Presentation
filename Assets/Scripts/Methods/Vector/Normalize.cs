@@ -8,7 +8,7 @@ namespace MathPresentation.Methods
     {
         protected override void OnMethodEnable()
         {
-            description = $"Makes vector have a magniutude(length) of 1\nVector {B.Name} represents normalized vector {A.Name}";
+            description = $"Makes vector have a magnitude(length) of 1\nVector {B.Name} represents normalized vector {A.Name}";
         }
 
         protected override void SetVectors()

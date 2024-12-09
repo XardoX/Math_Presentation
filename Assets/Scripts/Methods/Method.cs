@@ -18,6 +18,7 @@ namespace MathPresentation.Methods
         [SerializeField]
         private bool doubleChart = false;
 
+        [SerializeField]
         protected string description;
 
         protected List<MyVector> vectors = new();

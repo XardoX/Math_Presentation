@@ -15,7 +15,19 @@ MonoBehaviour:
   type: 1
   id: Add
   title: Adding Vectors
+  titleString:
+    m_TableReference:
+      m_TableCollectionName: GUID:e6ffaa02ae343564686af2bcb5c58029
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   mathBehindIt: 
   whatIsUsedFor: 
   code: C = A + B;
   similarMethods: []
+  references:
+    version: 2
+    RefIds: []

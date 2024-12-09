@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Vectors Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Vectors
+  m_TableCollectionNameGuidString: 96299f164899b334ca179c2e1fe03b76
+  m_Entries:
+  - m_Id: 200267014144
+    m_Key: ADD_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2027163230208
+    m_Key: ADD_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2201541419008
+    m_Key: SUBTRACT_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2308970127360
+    m_Key: SUBTRACT_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2389819531264
+    m_Key: SCALE_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2412032565248
+    m_Key: SCALE_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2546866855936
+    m_Key: PERPENDICULAR_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2598809116672
+    m_Key: PERPENDICULAR_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2643717529600
+    m_Key: ANGLE_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4172751052800
+    m_Key: ANGLE_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5218856607744
+    m_Key: KEYWORD_ANGLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5337349890048
+    m_Key: DISTANCE_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5482443448320
+    m_Key: DISTANCE_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5811872473088
+    m_Key: DISTANCE_VALUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5955980369920
+    m_Key: DOT_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6039736426496
+    m_Key: DOT_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6365617070080
+    m_Key: LERP_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6412387753984
+    m_Key: LERP_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9877725913088
+    m_Key: KEYWORD_T
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10021649260544
+    m_Key: MAGNITUDE_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10067497197568
+    m_Key: MAGNITUDE_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10122102841344
+    m_Key: MAGNITUDE_VALUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10799306776576
+    m_Key: MOVETOWARDS_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10935508410368
+    m_Key: MOVETOWARDS_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11253201772544
+    m_Key: NORMALIZE_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11300597407744
+    m_Key: NORMALIZE_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12227978993664
+    m_Key: PROJECT_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12775444717568
+    m_Key: PROJECT_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12913357627392
+    m_Key: REFLECT_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12960690348032
+    m_Key: REFLECT_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13032228397056
+    m_Key: ROTATETOWARDS_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13996716990464
+    m_Key: ROTATETOWARDS_VALUE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14204918046720
+    m_Key: SMOOTHDAMP_TITLE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14620435161088
+    m_Key: SMOOTHDAMP_DESC
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8339204378449936466
+  references:
+    version: 2
+    RefIds:
+    - rid: 8339204378449936466
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1733760499770

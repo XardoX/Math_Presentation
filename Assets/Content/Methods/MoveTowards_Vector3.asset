@@ -14,10 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   id: MoveTowards
-  title: Vector3.MoveTowards
+  title: 
+  description: 
+  titleString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   mathBehindIt: 
   whatIsUsedFor: 
   code: 'private float distance;
 
     C = Vector3.MoveTowards(A, B, distance);'
   similarMethods: []
+  references:
+    version: 2
+    RefIds: []

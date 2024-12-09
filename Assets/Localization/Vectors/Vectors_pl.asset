@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Vectors_pl
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: pl
+  m_SharedData: {fileID: 11400000, guid: 96299f164899b334ca179c2e1fe03b76, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 8339204378449936472
+  m_TableData:
+  - m_Id: 2027163230208
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 6039736426496
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 6412387753984
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 5482443448320
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 4172751052800
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 11300597407744
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 10935508410368
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 10122102841344
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 2598809116672
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 12775444717568
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 2412032565248
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 13996716990464
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 2308970127360
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  - m_Id: 5811872473088
+    m_Localized: 
+    m_Metadata:
+      m_Items:
+      - rid: 8339204378449936472
+  references:
+    version: 2
+    RefIds:
+    - rid: 8339204378449936472
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 2027163230208
+        - id: 6039736426496
+        - id: 6412387753984
+        - id: 5482443448320
+        - id: 4172751052800
+        - id: 11300597407744
+        - id: 10935508410368
+        - id: 10122102841344
+        - id: 2598809116672
+        - id: 12775444717568
+        - id: 2412032565248
+        - id: 13996716990464
+        - id: 2308970127360
+        - id: 5811872473088

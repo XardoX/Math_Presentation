@@ -15,6 +15,12 @@ MonoBehaviour:
   m_GroupName: Localization-String-Tables-Polish (pl)
   m_GUID: 5f6face126610ce44851811568f02790
   m_SerializeEntries:
+  - m_GUID: 1ced2585ef9ef824b8fb49f2b4475bb2
+    m_Address: Vectors_pl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pl
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a054ea55fda4b074e9e1860cf1880aa4
     m_Address: Main_pl
     m_ReadOnly: 1

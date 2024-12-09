@@ -14,8 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   id: Substract
-  title: Vector3.Substract
+  title: 
+  description: 
+  titleString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   mathBehindIt: 
   whatIsUsedFor: 
   code: C = A - B;
   similarMethods: []
+  references:
+    version: 2
+    RefIds: []
