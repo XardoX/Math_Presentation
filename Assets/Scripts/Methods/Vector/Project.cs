@@ -8,7 +8,12 @@ namespace MathPresentation.Methods
     {
         protected override void OnMethodEnable()
         {
-            description = $"Projects {A.Name} on to {B.Name} which results in {C.Name}";
+            description = Data.DescriptionString.GetLocalizedString(new
+            {
+                A = A.Name,
+                B = B.Name,
+                C = C.Name
+            });
         }
 
         protected override void SetVectors()

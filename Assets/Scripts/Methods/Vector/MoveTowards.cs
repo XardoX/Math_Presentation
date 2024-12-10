@@ -1,4 +1,5 @@
 using Extensions;
+using MathPresentation.LocalizationWrapper;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,12 +16,19 @@ namespace MathPresentation.Methods
 
         private float distance = 0.5f;
 
+        private string distanceString;
+
         protected override void OnMethodEnable()
         {
-            description = $"Calculates a position between {A.Name} and {B.Name} using";
+            description = Data.DescriptionString.GetLocalizedString(new 
+            { 
+                A = A.Name, 
+                B = B.Name 
+            });
 
             distance = Vector3.Distance(A.Value, B.Value);
-            slider = chart.View.SetSlider(distance/2, 0f, distance, "distance: ".Color(distanceColor));
+            distanceString = Localization.GetVectors("DISTANCE_VALUE");
+            slider = chart.View.SetSlider(distance/2, 0f, distance, distanceString.Color(distanceColor));
             slider.onValueChanged.AddListener(SetDistanceValue);
         }
 
@@ -41,7 +49,7 @@ namespace MathPresentation.Methods
         protected override void UpdateMethod()
         {
             C.Value = Vector3.MoveTowards(A.Value, B.Value, distance);
-            chart.View.SetSlider(distance, 0f, Vector3.Distance(A.Value, B.Value), "distance: ".Color(distanceColor));
+            chart.View.SetSlider(distance, 0f, Vector3.Distance(A.Value, B.Value), distanceString.Color(distanceColor));
         }
 
         private void SetDistanceValue(float newDistance)

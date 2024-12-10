@@ -1,4 +1,5 @@
 using Extensions;
+using MathPresentation.LocalizationWrapper;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,10 +19,11 @@ namespace MathPresentation.Methods
 
         protected override void OnMethodEnable()
         {
-            description = $"Gradually changes a vector towards a desired goal over time.";
+            description = description = Data.DescriptionString.GetLocalizedString();
 
+            var timeString = Localization.GetVectors("TIME_VALUE");
             smoothTime = .5f;
-            slider = chart.View.SetSlider(smoothTime, 0f, 1f, "time: ".Color(timeColor));
+            slider = chart.View.SetSlider(smoothTime, 0f, 1f, timeString.Color(timeColor));
             slider.onValueChanged.AddListener(SetTimeValue);
             UpdateMethod();
         }

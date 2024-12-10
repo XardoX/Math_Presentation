@@ -7,7 +7,12 @@ namespace MathPresentation.Methods
     {
         protected override void OnMethodEnable()
         {
-            description = $"Muliplies {A.Name} by {B.Name} components-wise resulting in {C.Name}";
+            description = Data.DescriptionString.GetLocalizedString(new
+            {
+                A = A.Name,
+                B = B.Name,
+                C = C.Name
+            });
         }
 
         protected override void SetVectors()

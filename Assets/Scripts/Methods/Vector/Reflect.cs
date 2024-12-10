@@ -7,7 +7,12 @@ namespace MathPresentation.Methods
 
         protected override void OnMethodEnable()
         {
-            description = $"Reflects {A.Name} off the plane defined by a normal {B.Name} resulting in {C.Name}";
+            description = Data.DescriptionString.GetLocalizedString(new
+            {
+                A = A.Name,
+                B = B.Name,
+                C = C.Name
+            });
         }
 
         protected override void SetVectors()

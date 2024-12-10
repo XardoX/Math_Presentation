@@ -8,7 +8,11 @@ namespace MathPresentation.Methods
     {
         protected override void OnMethodEnable()
         {
-            description = $"Returns the 2D vector {B.Name} perpendicular to vector {A.Name}";
+            description = Data.DescriptionString.GetLocalizedString(new
+            {
+                A = A.Name,
+                B = B.Name
+            });
         }
 
         protected override void SetVectors()

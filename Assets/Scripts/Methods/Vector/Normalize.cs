@@ -8,7 +8,11 @@ namespace MathPresentation.Methods
     {
         protected override void OnMethodEnable()
         {
-            description = $"Makes vector have a magnitude(length) of 1\nVector {B.Name} represents normalized vector {A.Name}";
+            description = Data.DescriptionString.GetLocalizedString(new
+            {
+                A = A.Name,
+                B = B.Name
+            });
         }
 
         protected override void SetVectors()

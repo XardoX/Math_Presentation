@@ -29,8 +29,13 @@ namespace MathPresentation.Methods
 
             var a = A.Id.Color(A.Color);
             var b = B.Id.Color(B.Color);
-            description = $"Dot product of {A.Name} and {B.Name}: {dot.ToString("0.00")} \n" +
-                $"Dot product of normalized {A.Name} and {B.Name}: {normalizedDot.ToString("0.00")}";
+            description = Data.DescriptionString.GetLocalizedString(new 
+            { 
+                dot = dot.ToString("0.00"), 
+                normalizedDot = normalizedDot.ToString("0.00"), 
+                A = A.Name, 
+                B = B.Name 
+            });
 
             UpdateTriangle(angle, dot);
         }

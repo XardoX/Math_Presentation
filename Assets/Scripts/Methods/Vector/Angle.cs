@@ -1,4 +1,5 @@
 using Extensions;
+using MathPresentation.LocalizationWrapper;
 using TMPro;
 using UnityEngine;
 
@@ -35,8 +36,13 @@ namespace MathPresentation.Methods
         {
             angleCircle.gameObject.SetActive(true);
             angleText.gameObject.SetActive(true);
-
-            description = $"Calculates the {"angle".Color(angleColor)} between vectors {A.Name} and {B.Name}";
+            var angleKeyword = Localization.GetVectors("KEYWORD_ANGLE");
+            description = Data.DescriptionString.GetLocalizedString(new 
+            { 
+                angle = angleKeyword.Color(angleColor), 
+                A = A.Name, 
+                B = B.Name
+            });
         }
 
         protected override void OnMethodDisable()

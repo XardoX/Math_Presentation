@@ -1,4 +1,5 @@
 using Extensions;
+using MathPresentation.LocalizationWrapper;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,9 +31,16 @@ namespace MathPresentation.Methods
 
         protected override void OnMethodEnable()
         {
-            description = $"Lineary interpolates between {A.Name} and {B.Name} by the {"t".Color(tColor)} resulting in {C.Name}";
+            var tString = Localization.GetVectors("KEYWORD_T").Color(tColor);
+            description = Data.DescriptionString.GetLocalizedString(
+                new { 
+                    T = tString, 
+                    A = A.Name, 
+                    B = B.Name, 
+                    C = C.Name 
+                });
             t = 0.5f;
-            slider = chart.View.SetSlider(t, 0f, 1f, "t: ".Color(tColor));
+            slider = chart.View.SetSlider(t, 0f, 1f, tString+": ".Color(tColor));
             slider.onValueChanged.AddListener(SetLerpValue);
         }
 

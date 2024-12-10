@@ -1,4 +1,5 @@
 using Extensions;
+using MathPresentation.LocalizationWrapper;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,6 +14,8 @@ namespace MathPresentation.Methods
 
         [SerializeField]
         private TextMeshProUGUI distanceText;
+
+        private string distanceString;
 
         private void Start()
         {
@@ -35,7 +38,7 @@ namespace MathPresentation.Methods
             var distance = Vector3.Distance(A.Value, B.Value);
             line.SetLength(distance);
 
-            distanceText.text = "Distance: " + distance.ToString("0.00");
+            distanceText.text = distanceString + distance.ToString("0.00");
             var offset = 0.25f;
             if(A.Value.x < B.Value.x)
             {
@@ -51,8 +54,13 @@ namespace MathPresentation.Methods
 
         protected override void OnMethodEnable()
         {
-            description = $"Calculates distance between {A.Name} and {B.Name}";
+            description = Data.DescriptionString.GetLocalizedString(new 
+            {
+                A = A.Name,
+                B = B.Name 
+            });
             distanceText.gameObject.SetActive(true);
+            distanceString = Localization.GetVectors("DISTANCE_VALUE");
         }
 
         protected override void OnMethodDisable()

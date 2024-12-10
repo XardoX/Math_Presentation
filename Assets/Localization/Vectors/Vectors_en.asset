@@ -29,7 +29,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2308970127360
-    m_Localized: Subtracts {B} from {A} which results in {C}
+    m_Localized: Subtracts {A} from {B} which results in {C}
     m_Metadata:
       m_Items:
       - rid: 8339204378449936471
@@ -62,10 +62,9 @@ MonoBehaviour:
       m_Items:
       - rid: 8339204378449936471
   - m_Id: 5811872473088
-    m_Localized: 'Distance: {A}'
+    m_Localized: 'Distance: '
     m_Metadata:
-      m_Items:
-      - rid: 8339204378449936471
+      m_Items: []
   - m_Id: 5955980369920
     m_Localized: Dot product
     m_Metadata:
@@ -97,7 +96,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10122102841344
-    m_Localized: 'Magnitude: {A}'
+    m_Localized: 'Magnitude: '
     m_Metadata:
       m_Items:
       - rid: 8339204378449936471
@@ -114,7 +113,7 @@ MonoBehaviour:
     m_Localized: 'Makes vector have a magnitude(length) of 1
 
       Vector {B} represents
-      normalized vector {A.Name}'
+      normalized vector {A}'
     m_Metadata:
       m_Items:
       - rid: 8339204378449936471
@@ -129,11 +128,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13032228397056
-    m_Localized: Returns {C} which is result of rotating {B} towards {A} by angle
+    m_Localized: Rotate towards
     m_Metadata:
       m_Items: []
   - m_Id: 13996716990464
-    m_Localized: 'angle: {A}'
+    m_Localized: 'angle: '
     m_Metadata:
       m_Items:
       - rid: 8339204378449936471
@@ -177,6 +176,14 @@ MonoBehaviour:
     m_Localized: Smoothdamp
     m_Metadata:
       m_Items: []
+  - m_Id: 347434863042560
+    m_Localized: Returns {C} which is result of rotating {B} towards {A} by angle.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359677189169152
+    m_Localized: 'time: '
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -198,4 +205,3 @@ MonoBehaviour:
         - id: 2412032565248
         - id: 13996716990464
         - id: 2308970127360
-        - id: 5811872473088

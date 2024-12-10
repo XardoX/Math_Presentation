@@ -151,6 +151,14 @@ MonoBehaviour:
     m_Key: SMOOTHDAMP_DESC
     m_Metadata:
       m_Items: []
+  - m_Id: 347434863042560
+    m_Key: ROTATETOWARDS_DESC
+    m_Metadata:
+      m_Items: []
+  - m_Id: 359677189169152
+    m_Key: TIME_VALUE
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -1,4 +1,5 @@
 using Extensions;
+using MathPresentation.LocalizationWrapper;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,12 +19,19 @@ namespace MathPresentation.Methods
 
         private float angleToRotate = 0.5f;
 
+        private string angleKeyword;
         protected override void OnMethodEnable()
         {
-            description = $"Returns {C.Name} which is result of rotating {B.Name} towards {A.Name} by angle";
+            description = Data.DescriptionString.GetLocalizedString(new
+            {
+                A = A.Name,
+                B = B.Name,
+                C = C.Name
+            });
+            angleKeyword = Localization.GetVectors("ROTATETOWARDS_VALUE");
 
             angleToRotate = Vector3.Angle(A.Value, B.Value);
-            slider = chart.View.SetSlider(angleToRotate / 2, 0f, angleToRotate, "angle: ".Color(angleColor));
+            slider = chart.View.SetSlider(angleToRotate / 2, 0f, angleToRotate, angleKeyword.Color(angleColor));
             slider.onValueChanged.AddListener(SetAngleValue);
             UpdateMethod();
         }
@@ -51,7 +59,7 @@ namespace MathPresentation.Methods
         {
             C.Value = Vector3.RotateTowards(A.Value, B.Value, angleToRotate * Mathf.Deg2Rad, maxMagnitudeDelta);
             var angle = Vector3.Angle(A.Value, B.Value);
-            chart.View.SetSlider(angleToRotate, -360f + angle, angle, "angle: ".Color(angleColor));
+            chart.View.SetSlider(angleToRotate, -360f + angle, angle, angleKeyword.Color(angleColor));
         }
 
         private void SetAngleValue(float newAngle)

@@ -10,18 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 748dfb8f993716147b9104e7c4d272a1, type: 3}
-  m_Name: Substract_Vector3
+  m_Name: Subtract_Vector3
   m_EditorClassIdentifier: 
   type: 1
-  id: Substract
-  title: 
-  description: 
-  titleString:
+  id: Subtract
+  title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Vectors
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: SUBTRACT_TITLE
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  description:
+    m_TableReference:
+      m_TableCollectionName: Vectors
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: SUBTRACT_DESC
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
