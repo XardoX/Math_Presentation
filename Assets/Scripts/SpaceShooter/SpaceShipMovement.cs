@@ -1,12 +1,15 @@
 using MyBox;
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
-
 namespace MathPresentation.SpaceShooter
 {
+    [Serializable, Inspectable]
     public class SpaceShipMovement : MonoBehaviour
     {
         [Foldout("Movement Settings", true)]
         [SerializeField]
+        [Inspectable]
         private float moveSpeed = 10f,
             rotationSpeed = 100f,
             boostMultiplier = 2f;
