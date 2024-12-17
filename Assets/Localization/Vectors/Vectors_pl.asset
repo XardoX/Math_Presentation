@@ -162,7 +162,8 @@ MonoBehaviour:
     m_Localized: "Odbija {A} od p\u0142aszczyzny okre\u015Blonej przez normaln\u0105
       {B}, co daje {C}"
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 8339204378449936472
   - m_Id: 13032228397056
     m_Localized: "Obr\xF3\u0107 w kierunku"
     m_Metadata:
@@ -180,7 +181,8 @@ MonoBehaviour:
     m_Localized: "Zwraca {C}, kt\xF3re jest wynikiem obrotu {B} w kierunku {A} o
       k\u0105t."
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 8339204378449936472
   - m_Id: 359677189169152
     m_Localized: 'czas: '
     m_Metadata:
@@ -206,3 +208,5 @@ MonoBehaviour:
         - id: 2412032565248
         - id: 13996716990464
         - id: 2308970127360
+        - id: 12960690348032
+        - id: 347434863042560

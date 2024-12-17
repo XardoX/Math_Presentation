@@ -126,7 +126,8 @@ MonoBehaviour:
     m_Localized: Reflects {A} off the plane defined by a normal {B} resulting in
       {C}
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 8339204378449936471
   - m_Id: 13032228397056
     m_Localized: Rotate towards
     m_Metadata:
@@ -179,7 +180,8 @@ MonoBehaviour:
   - m_Id: 347434863042560
     m_Localized: Returns {C} which is result of rotating {B} towards {A} by angle.
     m_Metadata:
-      m_Items: []
+      m_Items:
+      - rid: 8339204378449936471
   - m_Id: 359677189169152
     m_Localized: 'time: '
     m_Metadata:
@@ -205,3 +207,5 @@ MonoBehaviour:
         - id: 2412032565248
         - id: 13996716990464
         - id: 2308970127360
+        - id: 12960690348032
+        - id: 347434863042560
