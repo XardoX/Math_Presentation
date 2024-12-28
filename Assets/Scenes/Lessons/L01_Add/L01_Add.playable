@@ -16,6 +16,29 @@ MonoBehaviour:
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 6c3f2d3a40bd36846a7e160fcc7fc5dd, type: 2}
+--- !u!114 &-4486901948487545735
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a39d2acf00ae465fad03b6f40a73486, type: 3}
+  m_Name: Tween TMP_Text Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32,6 +55,8 @@ MonoBehaviour:
   m_Tracks:
   - {fileID: 8513957049967863628}
   - {fileID: 5366878057183689160}
+  - {fileID: 6034457271244241519}
+  - {fileID: -4486901948487545735}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -110,6 +135,29 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: -7842185159021926806}
+--- !u!114 &6034457271244241519
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4c6dca4c6104146a980452cd07ed09, type: 3}
+  m_Name: Text Track
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects: []
 --- !u!114 &8513957049967863628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,4 +197,4 @@ MonoBehaviour:
   m_Time: 0.8666666666666667
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 0}
+  m_Asset: {fileID: 11400000, guid: 65c48882d9996da4aa9cfd748649b2e6, type: 2}
