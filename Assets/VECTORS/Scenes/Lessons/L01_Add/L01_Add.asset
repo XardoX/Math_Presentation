@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40cc383208e458e4b84f3b527b481e4b, type: 3}
+  m_Name: L01_Add
+  m_EditorClassIdentifier: 
+  id: L01_Add
+  tableName: Dialog
+  charactersPath: Assets/Data
+  characters:
+  - {fileID: 11400000, guid: 39d395594b06ff247ad9505ec6d92a32, type: 2}
+  dialog:
+  - name: L1 CROC
+    key: L01_Add_L1_CROC
+    manualEdit: 0
+    englishLine: Hello
+    line: 
+    speakingCharacter: {fileID: 11400000, guid: 39d395594b06ff247ad9505ec6d92a32,
+      type: 2}
+    charactersLeft: []
+    charactersRight: []
+    overrideGraphicRight: {fileID: 0}
+    overrideGraphicLeft: {fileID: 0}
+    localizedString:
+      m_TableReference:
+        m_TableCollectionName: Dialog
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: L01_Add_L1_CROC
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - name: L2 Narrator
+    key: L01_Add_L2_Narrator
+    manualEdit: 0
+    englishLine: Huh
+    line: 
+    speakingCharacter: {fileID: 11400000, guid: ca0bb1f409ca168499c1b13bfd5f9e88,
+      type: 2}
+    charactersLeft: []
+    charactersRight: []
+    overrideGraphicRight: {fileID: 0}
+    overrideGraphicLeft: {fileID: 0}
+    localizedString:
+      m_TableReference:
+        m_TableCollectionName: Dialog
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: L01_Add_L2_Narrator
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  background: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []

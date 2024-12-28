@@ -1,7 +1,9 @@
 #if TEXT_TRACK_REQUIRES_TEXTMESH_PRO
 
 using System;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.Playables;
 
 namespace Timeline.Samples
@@ -18,7 +20,13 @@ namespace Timeline.Samples
         public int fontSize = 14;
 
         [Tooltip("The text to display")]
-        public string text = "";
+
+        [SerializeField]
+        private LocalizedString localizedString;
+
+        public string Text => localizedString.GetLocalizedString();
+
+        public string EditorText => localizedString.GetLocalizedString();
     }
 }
 
