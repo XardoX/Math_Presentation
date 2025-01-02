@@ -1,3 +1,4 @@
+using MyBox;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,6 +93,11 @@ namespace MathPresentation.LocalizationWrapper
 
         public static string GetLocalizedStringInEditor(string table, string entry)
         {
+            if(entry.IsNullOrEmpty())
+            {
+                Debug.LogWarning("Entry is null");
+                return null;
+            }
             var stringTableCollection = LocalizationEditorSettings.GetStringTableCollection(table);
             if (stringTableCollection == null)
             {

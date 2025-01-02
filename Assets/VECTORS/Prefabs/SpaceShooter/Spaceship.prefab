@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd00b4f7c2c2004baa4de0ca97cc406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 7553990434273343850}
+  shooting: {fileID: 1311121093533122234}
 --- !u!114 &7553990434273343850
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 #if TEXT_TRACK_REQUIRES_TEXTMESH_PRO
 
+using MathPresentation.LocalizationWrapper;
 using System;
 using System.Linq;
 using UnityEngine;
@@ -24,7 +25,21 @@ namespace Timeline.Samples
         [SerializeField]
         private LocalizedString localizedString;
 
-        public string Text => localizedString.GetLocalizedString();
+        public string Text
+        {
+            get
+            {
+                if(Application.isPlaying)
+                {
+                    return localizedString.GetLocalizedString();
+                }
+                else
+                {
+                    return localizedString.TableEntryReference.Key ;
+                    //return Localization.GetLocalizedStringInEditor("Dialog", localizedString.TableEntryReference.Key);
+                }
+            }
+        }
 
         public string EditorText => localizedString.GetLocalizedString();
     }

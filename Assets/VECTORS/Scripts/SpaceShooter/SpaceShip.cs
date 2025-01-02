@@ -9,7 +9,16 @@ namespace MathPresentation.SpaceShooter
         public Action onDeath, 
             onKill;
 
+        [SerializeField]
+        private SpaceShipMovement movement;
+
+        [SerializeField]
+        private SpaceShipShooting shooting;
+
         private Vector3 startPostion;
+
+        public SpaceShipShooting Shooting => shooting;
+        public SpaceShipMovement Movement => movement;
 
         public void TakeDamage(int damage)
         {
