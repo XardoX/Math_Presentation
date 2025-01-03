@@ -43,6 +43,18 @@ MonoBehaviour:
     m_Key: Character_Narrator
     m_Metadata:
       m_Items: []
+  - m_Id: 13493359366119424
+    m_Key: Character_Doge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13495185037598720
+    m_Key: Character_Sheep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13495266839109632
+    m_Key: Character_Croc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -7,12 +7,15 @@ namespace MathPresentation.DialogSystem.Timeline
     public class DialogPlayableAsset : PlayableAsset
     {
         public DialogData dialogData;
+        public bool pauseTimeline;
 
         public override Playable CreatePlayable(PlayableGraph graph, GameObject owner)
         {
             var playable = ScriptPlayable<DialogPlayableBehaviour>.Create(graph);
+
             DialogPlayableBehaviour dialogBehaviour = playable.GetBehaviour();
             dialogBehaviour.dialogData = dialogData;
+            dialogBehaviour.pauseTimeline = pauseTimeline;
 
             return playable;
         }

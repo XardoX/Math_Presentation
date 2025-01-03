@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28b9e49d99e33044c894c96dcc225e57, type: 3}
-  m_Name: Croc
+  m_Name: Sheep
   m_EditorClassIdentifier: 
-  id: Croc
-  characterName: Croc
+  id: Sheep
+  characterName: Sheep
   characterGraphic: {fileID: 0}
   mouthSounds: {fileID: 0}
   localizedName:
@@ -21,7 +21,7 @@ MonoBehaviour:
       m_TableCollectionName: Main
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: Character_Croc
+      m_Key: Character_Sheep
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []

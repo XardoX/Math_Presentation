@@ -14,8 +14,7 @@ namespace MathPresentation.DialogSystem
     public class DialogCharacter : Model
     {
         [SerializeField]
-        [ReadOnly]
-        [OverrideLabel("Character name preview")]
+        [ReadOnly(nameof(isLocalizationKeyPresent))]
         private string characterName;
 
         [SerializeField]
@@ -72,6 +71,8 @@ namespace MathPresentation.DialogSystem
         private void CreateLocalizationKey()
         {
             Localization.CreateKey(tableName, prefix + id);
+            Localization.AddEntry(tableName, prefix + id, characterName);
+            OnValidate();
         }
 #endif
     }

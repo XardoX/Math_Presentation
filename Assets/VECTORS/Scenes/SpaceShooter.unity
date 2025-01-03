@@ -262,7 +262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -555,6 +555,52 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1047895780442516506}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &811171285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811171286}
+  - component: {fileID: 811171287}
+  m_Layer: 0
+  m_Name: DialogContoller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &811171286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811171285}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1781388874}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &811171287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811171285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e930a17da359548bee867d19a2fa37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogUI: {fileID: 2123353286}
+  currentDialog: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,6 +1581,7 @@ Transform:
   - {fileID: 599991542}
   - {fileID: 1880199498}
   - {fileID: 1632785839}
+  - {fileID: 811171286}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1880199498 stripped
@@ -1664,7 +1711,6 @@ GameObject:
   - component: {fileID: 2123353284}
   - component: {fileID: 2123353285}
   - component: {fileID: 2123353286}
-  - component: {fileID: 2123353287}
   m_Layer: 5
   m_Name: DialogWindow
   m_TagString: Untagged
@@ -1701,7 +1747,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123353283}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1729,38 +1775,6 @@ MonoBehaviour:
   textSpeed: 2
   leftCharacterSource: {fileID: 0}
   rightCharacaterSource: {fileID: 0}
---- !u!114 &2123353287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2123353283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Events:
-    m_Signals:
-    - {fileID: 11400000, guid: 521a3c6af4f489c4493c1e2ed5a7a3c6, type: 2}
-    m_Events:
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 2123353286}
-          m_TargetAssemblyTypeName: MathPresentation.DialogSystem.DialogUI, MathPresentation
-          m_MethodName: StartDialog
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: b1b1dbd025c2c7247a3df714a6d7d911,
-              type: 2}
-            m_ObjectArgumentAssemblyTypeName: MathPresentation.DialogSystem.DialogData,
-              MathPresentation
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &2141310330
 GameObject:
   m_ObjectHideFlags: 0
@@ -1789,19 +1803,17 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 00e90f7fe44813f4dad3c379a7856d69, type: 2}
-  m_InitialState: 0
-  m_WrapMode: 2
+  m_InitialState: 1
+  m_WrapMode: 1
   m_DirectorUpdateMode: 2
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 5618947720129659931, guid: 00e90f7fe44813f4dad3c379a7856d69, type: 2}
     value: {fileID: 2141310333}
-  - key: {fileID: 6034457271244241519, guid: 00e90f7fe44813f4dad3c379a7856d69, type: 2}
-    value: {fileID: 326162856}
-  - key: {fileID: -1584093409782996444, guid: 00e90f7fe44813f4dad3c379a7856d69, type: 2}
-    value: {fileID: 2123353287}
   - key: {fileID: -3129318838948677825, guid: 00e90f7fe44813f4dad3c379a7856d69, type: 2}
     value: {fileID: 1047895780442516507}
+  - key: {fileID: -9131564766312964809, guid: 00e90f7fe44813f4dad3c379a7856d69, type: 2}
+    value: {fileID: 599991541}
   m_ExposedReferences:
     m_References:
     - 4f2c3d4f065e18643884b1ba21e1748e: {fileID: 599991541}

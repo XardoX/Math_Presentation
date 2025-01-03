@@ -91,6 +91,35 @@ namespace MathPresentation.LocalizationWrapper
         public static bool IsKeyPresent(string table, string key) =>
             LocalizationEditorSettings.GetStringTableCollection(table).GetRowEnumerator().Any(_ => _.KeyEntry.Key == key);
 
+        public static void AddEntry(string tableKey, string key, string entry)
+        {
+            var table = GetLocalizationTable(tableKey);
+            if (table != null)
+            {
+                table.AddEntry(key, entry);
+                EditorUtility.SetDirty(table);
+            }
+        }
+
+        public static void RemoveEntry(string tableKey, string key)
+        {
+            var table = GetLocalizationTable(tableKey);
+            if (table != null)
+            {
+                table.RemoveEntry(key);
+                EditorUtility.SetDirty(table);
+            }
+        }
+
+        public static StringTable GetLocalizationTable(string tableName, string localeIdentifier ="en")
+        {
+            var tableCollection = AssetDatabase.FindAssets($"t:StringTableCollection {tableName}")
+                .Select(guid => AssetDatabase.LoadAssetAtPath<StringTableCollection>(AssetDatabase.GUIDToAssetPath(guid)))
+                .FirstOrDefault();
+
+            return tableCollection?.GetTable(localeIdentifier) as StringTable;
+        }
+
         public static string GetLocalizedStringInEditor(string table, string entry)
         {
             if(entry.IsNullOrEmpty())
@@ -114,6 +143,11 @@ namespace MathPresentation.LocalizationWrapper
                 return null;
             }
 
+            if (englishTable[entry] == null)
+            {
+                Debug.LogError($"English table entry not found in the collection '{table}'. Entry: {entry}");
+                return null;
+            }
             return englishTable[entry].LocalizedValue;
         }
 

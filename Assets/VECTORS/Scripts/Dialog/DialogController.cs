@@ -14,6 +14,8 @@ namespace MathPresentation.DialogSystem
         private DialogData currentDialog;
         private int currentDialogLine;
 
+        public DialogUI DialogUI => dialogUI;
+
         [ButtonMethod]
         public void StartDialog()
         {

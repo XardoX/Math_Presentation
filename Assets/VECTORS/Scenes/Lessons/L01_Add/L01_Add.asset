@@ -18,47 +18,5 @@ MonoBehaviour:
   characters:
   - {fileID: 11400000, guid: 39d395594b06ff247ad9505ec6d92a32, type: 2}
   dialog:
-  - name: L1 CROC
-    key: L01_Add_L1_CROC
-    manualEdit: 0
-    englishLine: Hello
-    line: 
-    speakingCharacter: {fileID: 11400000, guid: 39d395594b06ff247ad9505ec6d92a32,
-      type: 2}
-    charactersLeft: []
-    charactersRight: []
-    overrideGraphicRight: {fileID: 0}
-    overrideGraphicLeft: {fileID: 0}
-    localizedString:
-      m_TableReference:
-        m_TableCollectionName: Dialog
-      m_TableEntryReference:
-        m_KeyId: 0
-        m_Key: L01_Add_L1_CROC
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-  - name: L2 Narrator
-    key: L01_Add_L2_Narrator
-    manualEdit: 0
-    englishLine: Huh
-    line: 
-    speakingCharacter: {fileID: 11400000, guid: ca0bb1f409ca168499c1b13bfd5f9e88,
-      type: 2}
-    charactersLeft: []
-    charactersRight: []
-    overrideGraphicRight: {fileID: 0}
-    overrideGraphicLeft: {fileID: 0}
-    localizedString:
-      m_TableReference:
-        m_TableCollectionName: Dialog
-      m_TableEntryReference:
-        m_KeyId: 0
-        m_Key: L01_Add_L2_Narrator
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
+  - {fileID: 0}
   background: {fileID: 0}
-  references:
-    version: 2
-    RefIds: []

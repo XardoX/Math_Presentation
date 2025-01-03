@@ -48,6 +48,18 @@ MonoBehaviour:
     m_Localized: Narrator
     m_Metadata:
       m_Items: []
+  - m_Id: 13495185037598720
+    m_Localized: Sheep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13495266839109632
+    m_Localized: Croc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13493359366119424
+    m_Localized: Doge
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

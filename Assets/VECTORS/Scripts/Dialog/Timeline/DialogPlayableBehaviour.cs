@@ -7,30 +7,43 @@ namespace MathPresentation.DialogSystem.Timeline
     public class DialogPlayableBehaviour : PlayableBehaviour
     {
         public DialogData dialogData;
+        public bool pauseTimeline;
 
-        private DialogUI dialogUI;
+        private DialogController dialogController;
+        private PlayableDirector director;
+
+        private bool dialogPlayed;
 
         public override void OnGraphStart(Playable playable)
         {
-            dialogUI = Object.FindFirstObjectByType<DialogUI>();
+            dialogController = Object.FindFirstObjectByType<DialogController>();
+            director = Object.FindFirstObjectByType<PlayableDirector>();
         }
 
         public override void ProcessFrame(Playable playable, FrameData info, object playerData)
         {
-            if (dialogUI == null || dialogData == null) return;
+            if(Application.isPlaying == false) return;
+            if (dialogPlayed) return;
+            if (dialogController == null || dialogData == null) return;
 
-            if (!dialogUI.IsTyping)
+            if (!dialogController.DialogUI.IsTyping)
             {
-                dialogUI.StartDialog(dialogData);
+                dialogController.StartDialog(dialogData);
+                dialogPlayed = true;
+            }
+
+            if (pauseTimeline && director != null)
+            {
+                director.Pause();
+                dialogController.DialogUI.onDialogEnded += Resume;
             }
         }
 
-        public override void OnGraphStop(Playable playable)
+        private void Resume()
         {
-            if (dialogUI != null)
-            {
-                dialogUI.EndDialog();
-            }
+            Debug.Log("Resumed");
+            director.Resume();
+            dialogController.DialogUI.onDialogEnded -= Resume;
         }
     }
 }

@@ -7,11 +7,14 @@ using TMPro;
 using Extensions;
 using DG.Tweening;
 using MathPresentation.UI;
+using System;
 
 namespace MathPresentation.DialogSystem
 {
     public class DialogUI : Window
     {
+        public Action onDialogEnded;
+
         [SerializeField]
         private Image characterGraphicLeft, 
             characterGraphicRight;
@@ -57,52 +60,23 @@ namespace MathPresentation.DialogSystem
                 return;
             }
 
-            var firstDialog = data.Dialog[0];
-            if (firstDialog == null)
+            var firstLine = data.Dialog[0];
+            if (firstLine == null)
             {
                 Debug.LogError("First dialog entry is null. Cannot process dialog.");
                 return;
             }
 
-            Time.timeScale = 0f;
-
-            // Handle left characters
-            if (firstDialog.CharactersLeft != null && firstDialog.CharactersLeft.Length > 0 && firstDialog.CharactersLeft[0] != null)
-            {
-                leftGraphic = firstDialog.CharactersLeft[0]?.CharacterGraphic;
-                characterNameLeft.text = firstDialog.CharactersLeft[0]?.CharacterName ?? string.Empty;
-                characterGraphicLeft.sprite = leftGraphic;
-            }
-            else Debug.LogWarning("Left characters are null, empty, or invalid.");
-            
-
-            // Handle right characters
-            if (firstDialog.CharactersRight != null && firstDialog.CharactersRight.Length > 0 && firstDialog.CharactersRight[0] != null)
-            {
-                rightGraphic = firstDialog.CharactersRight[0]?.CharacterGraphic;
-                characterNameRight.text = firstDialog.CharactersRight[0]?.CharacterName ?? string.Empty;
-                characterGraphicRight.sprite = rightGraphic;
-            }
-            else Debug.LogWarning("Right characters are null, empty, or invalid.");
-            
+            SetCharacters(firstLine);
 
             Toggle(true);
 
-            if (data.Characters != null && data.Characters.Length > 0 && leftCharacterSource != null && rightCharacaterSource != null)
-            {
-                leftCharacterSource.clip = data.Characters[0]?.MouthSounds;
+            SetAudioSources(data);
 
-                if (data.Characters.Length > 1)
-                {
-                    rightCharacaterSource.clip = data.Characters[1]?.MouthSounds;
-                }
-                else Debug.LogWarning("Right character audio source is missing or invalid.");
-            }
-            else Debug.LogWarning("Characters data is null or empty. Audio sources not assigned.");
-            
-
-            PlayNextLine(firstDialog);
+            PlayNextLine(firstLine);
         }
+
+       
 
         public void PlayNextLine(DialogLine line)
         {
@@ -123,6 +97,7 @@ namespace MathPresentation.DialogSystem
                 {
                     if (leftCharacterSource != null)
                         leftCharacterSource.Play();
+
                     HighlightSpeakingCharacter(true);
 
                 }
@@ -130,6 +105,7 @@ namespace MathPresentation.DialogSystem
                 {
                     if (rightCharacaterSource != null)
                         rightCharacaterSource.Play();
+
                     HighlightSpeakingCharacter(false);
 
                 }
@@ -155,6 +131,8 @@ namespace MathPresentation.DialogSystem
                     ;
             if (rightCharacaterSource != null)
                 rightCharacaterSource.Stop();
+
+            onDialogEnded?.Invoke();
         }
 
         public void DisplayInstantly(string text)
@@ -168,6 +146,44 @@ namespace MathPresentation.DialogSystem
 
             if (rightCharacaterSource != null)
                 rightCharacaterSource.Stop();
+        }
+
+        private void SetCharacters(DialogLine line)
+        {
+            // Handle left characters
+            if (line.CharactersLeft != null && line.CharactersLeft.Length > 0 && line.CharactersLeft[0] != null)
+            {
+                leftGraphic = line.CharactersLeft[0]?.CharacterGraphic;
+                characterNameLeft.text = line.CharactersLeft[0]?.CharacterName ?? string.Empty;
+                characterGraphicLeft.sprite = leftGraphic;
+            }
+            else Debug.LogWarning("Left characters are null, empty, or invalid.");
+
+
+            // Handle right characters
+            if (line.CharactersRight != null && line.CharactersRight.Length > 0 && line.CharactersRight[0] != null)
+            {
+                rightGraphic = line.CharactersRight[0]?.CharacterGraphic;
+                characterNameRight.text = line.CharactersRight[0]?.CharacterName ?? string.Empty;
+                characterGraphicRight.sprite = rightGraphic;
+            }
+            else Debug.LogWarning("Right characters are null, empty, or invalid.");
+        }
+
+        private void SetAudioSources(DialogData data)
+        {
+            if (data.Characters != null && data.Characters.Length > 0 && leftCharacterSource != null && rightCharacaterSource != null)
+            {
+                leftCharacterSource.clip = data.Characters[0]?.MouthSounds;
+
+                if (data.Characters.Length > 1)
+                {
+                    rightCharacaterSource.clip = data.Characters[1]?.MouthSounds;
+                }
+                else Debug.LogWarning("Right character audio source is missing or invalid.");
+            }
+            else Debug.LogWarning("Characters data is null or empty. Audio sources not assigned.");
+
         }
 
         private IEnumerator DisplayText(string text)
